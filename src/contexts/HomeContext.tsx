@@ -13,6 +13,7 @@ interface iHome {
 export const HomeContext = createContext<iHome>({} as iHome);
 
 const HomeProvider = ({ children }: iHomeContextProps) => {
+  
   const [dataWorks, setdataWorks] = useState<iHome | "">("");
   const dataHome = async () => {
     //   const token = localStorage.getItem("authToken");
@@ -23,6 +24,7 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
     } catch (error) {
       console.error(error);
     }
+
   };
 
   return (

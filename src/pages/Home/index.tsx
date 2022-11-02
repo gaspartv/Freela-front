@@ -1,11 +1,18 @@
+import { HomeContext } from "../../contexts/HomeContext";
 import { HomeStyled } from "./styles";
+import { useContext, useEffect } from "react";
 
 export const Home = () => {
-<<<<<<< HEAD
-  return <HomeStyled><h1>teste home</h1></HomeStyled>;
-=======
-  return <HomeStyled>
-    <h1>Home</h1>
-  </HomeStyled>;
->>>>>>> 3e33150ba286725d9f0749dbe6708dbc45723e24
+  const { dataWorks, dataHome } = useContext(HomeContext);
+
+  // useEffect(() => {
+  //   dataHome();
+  // }, [dataHome]);
+
+  console.dir(dataWorks);
+  return (
+    <HomeStyled>
+      <h1>Home</h1>
+    </HomeStyled>
+  );
 };
