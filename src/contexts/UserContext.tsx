@@ -39,7 +39,7 @@ export const UserProvider = ({ children }: iPropsContext) => {
       api.defaults.headers.authorization = `Bearer ${response.data.accessToken}`;
       navigate("/");
     } catch {
-      toast("E-mail ou senha incorreto!");
+      toast.error("E-mail ou senha incorreto!");
     } finally {
       setLoad(false);
     }
