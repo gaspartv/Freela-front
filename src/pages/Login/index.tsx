@@ -7,16 +7,15 @@ import { ParagrafoErro } from "../../components/ParagraphyError";
 import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
-
-
 export interface iLoginFormData {
   email: string;
   password: string;
 }
 
 export const Login = () => {
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { userLogin } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
@@ -26,10 +25,8 @@ export const Login = () => {
   });
 
   const onSubmit = async (data: iLoginFormData) => {
-   userLogin(data);
-  }
-
-  
+    userLogin(data, setLoading);
+  };
 
   return (
     <LoginStyled>
@@ -68,5 +65,3 @@ export const Login = () => {
     </LoginStyled>
   );
 };
-
-
