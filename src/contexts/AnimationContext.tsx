@@ -4,7 +4,12 @@ import autoAnimate from "@formkit/auto-animate";
 interface iAnimationContextProps {
   children: React.ReactNode;
 }
-export const AnimationContext = createContext({});
+
+interface iAnimationContext {
+  parent: React.MutableRefObject<null>;
+}
+
+export const AnimationContext = createContext({} as iAnimationContext);
 
 const AnimationProvider = ({ children }: iAnimationContextProps) => {
     const parent = useRef(null);
