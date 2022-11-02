@@ -1,6 +1,6 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "",
+  baseURL: "https://frillaapi.herokuapp.com/",
   timeout: 5000,
 });
