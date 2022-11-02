@@ -1,10 +1,8 @@
 import { AxiosError } from "axios";
-import { createContext, useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
 import { iLoginFormData } from "./../pages/Login/index";
-
 
 export const UserContext = createContext({} as iUserContext);
 export interface iUserContext {
@@ -29,7 +27,6 @@ export interface iPropsContext {
 export interface iApiError {
   message: string;
 }
-
 
 export const UserProvider = ({ children }: iPropsContext) => {
   const [user, setUser] = useState<iUser | null>(null);
