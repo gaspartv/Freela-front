@@ -1,0 +1,23 @@
+import { createContext, useEffect, useRef } from "react";
+import autoAnimate from "@formkit/auto-animate";
+
+interface iAnimationContextProps {
+  children: React.ReactNode;
+}
+export const AnimationContext = createContext({});
+
+const AnimationProvider = ({ children }: iAnimationContextProps) => {
+    const parent = useRef(null);
+
+    useEffect(() => {
+        parent.current && autoAnimate(parent.current);
+      }, [parent]);
+
+  return (
+    <AnimationContext.Provider value={{parent}}>
+        {children}
+    </AnimationContext.Provider>
+  );
+};
+
+export default AnimationProvider;
