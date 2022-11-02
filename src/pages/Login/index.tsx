@@ -1,65 +1,67 @@
-
 import { SpanTop } from "../../components/SpanTop/style";
 import { LoginStyled } from "./styles";
-import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-// import { AuthContext } from "../../contexts/AuthContext";
+import { loginSchema } from "../../validations/LoginSchema";
+import { ParagrafoErro } from "../../components/ParagraphyError";
+import { useContext, useState } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
-// Deixei comentado as coisas que eu não sei o nome ou não foram feitas ainda!
-// a mensagem de erro está comentada pois estava dando problema, caso alguem saiba resolver, pode dale!
+export interface iLoginFormData {
+  email: string;
+  password: string;
+}
 
 export const Login = () => {
-
-  // const { LoginUser } = useContext(AuthContext);
-
-  const formSchema = yup.object().shape({
-    password: yup.string().required("Senha obrigatório"),
-    email: yup.string().required("Nome obrigatório").email("Email inválido"),
-  });
+  const [loading, setLoading] = useState(false);
+  const { userLogin } = useContext(UserContext);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(formSchema),
+  } = useForm<iLoginFormData>({
+    resolver: yupResolver(loginSchema),
   });
 
-
-
+  const onSubmit = async (data: iLoginFormData) => {
+    userLogin(data, setLoading);
+  };
 
   return (
-
-
-  <LoginStyled>
-
-
-      <SpanTop/>
+    <LoginStyled>
+      <SpanTop />
       <main>
-        <div className="Logimg"><img src="" alt="" /></div>
+        <div className="Logimg">
+          <img src="" alt="" />
+        </div>
         <section>
           <div className="SideDesktop"></div>
           <div className="Content">
             <h1>Login</h1>
-            <form onSubmit={handleSubmit(LoginUser)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <>
-              <h2>E-mail</h2>
-              <input  {...register("email")} type="email" placeholder="Digite seu E-mail" />
-              {/* <p>{errors.email?.message}</p> */}
-              <h2>Senha</h2>
-              <input {...register("password")} type="password" placeholder="Digite seu E-mail" />
-              {/* <p>{errors.password?.message}</p> */}
-              <span>Ainda não possui cadastro?</span>
-              <button type="submit">Entrar</button>
+                <label htmlFor="email">E-mail</label>
+                <input
+                  {...register("email")}
+                  type="email"
+                  placeholder="Digite seu E-mail"
+                />
+                <ParagrafoErro>{errors.email?.message}</ParagrafoErro>
+                <label htmlFor="password">Senha</label>
+                <input
+                  {...register("password")}
+                  type="password"
+                  placeholder="Digite sua senha"
+                />
+                <ParagrafoErro>{errors.password?.message}</ParagrafoErro>
+                <span>Ainda não possui cadastro?</span>
+                <button type="submit">Entrar</button>
               </>
             </form>
           </div>
         </section>
       </main>
-    
-  </LoginStyled>
-  
-  
+    </LoginStyled>
   );
 };
