@@ -1,11 +1,19 @@
-import { SpanTop } from "../../components/SpanTop/style";
-import { LoginStyled } from "./styles";
+import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+
 import { loginSchema } from "../../validations/LoginSchema";
 import { ParagrafoErro } from "../../components/ParagraphyError";
-import { useContext, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
+
+import {
+  BlockLogo,
+  DivForm,
+  LinkStyled,
+  LoginStyled,
+  SectionForm,
+} from "./styles";
+import { useNavigate } from "react-router-dom";
 
 export interface iLoginFormData {
   email: string;
@@ -13,8 +21,15 @@ export interface iLoginFormData {
 }
 
 export const Login = () => {
-  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const { userLogin } = useContext(UserContext);
+
+  useEffect(() => {
+    const verifyUser = () => {
+      localStorage.getItem("@token") && navigate("/home");
+    };
+    verifyUser();
+  }, []);
 
   const {
     register,
@@ -24,44 +39,38 @@ export const Login = () => {
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit = async (data: iLoginFormData) => {
-    userLogin(data, setLoading);
-  };
-
   return (
     <LoginStyled>
-      <SpanTop />
-      <main>
-        <div className="Logimg">
-          <img src="" alt="" />
-        </div>
-        <section>
-          <div className="SideDesktop"></div>
-          <div className="Content">
+      <DivForm>
+        <BlockLogo></BlockLogo>
+        <SectionForm>
+          <form onSubmit={handleSubmit(userLogin)}>
             <h1>Login</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <>
-                <label htmlFor="email">E-mail</label>
-                <input
-                  {...register("email")}
-                  type="email"
-                  placeholder="Digite seu E-mail"
-                />
-                <ParagrafoErro>{errors.email?.message}</ParagrafoErro>
-                <label htmlFor="password">Senha</label>
-                <input
-                  {...register("password")}
-                  type="password"
-                  placeholder="Digite sua senha"
-                />
-                <ParagrafoErro>{errors.password?.message}</ParagrafoErro>
-                <span>Ainda não possui cadastro?</span>
-                <button type="submit">Entrar</button>
-              </>
-            </form>
-          </div>
-        </section>
-      </main>
+            <label>E-mail</label>
+            <input
+              type="email"
+              placeholder="Digite seu E-mail"
+              {...register("email")}
+            />
+            <ParagrafoErro>
+              {errors.email && errors.email?.message}
+            </ParagrafoErro>
+            <label>Senha</label>
+            <input
+              type="password"
+              placeholder="Digite sua senha"
+              {...register("password")}
+            />
+            <ParagrafoErro>
+              {errors.password && errors.password?.message}
+            </ParagrafoErro>
+            <LinkStyled to="/register">
+              Ainda não possui cadastro? <span></span>
+            </LinkStyled>
+            <button type="submit">Entrar</button>
+          </form>
+        </SectionForm>
+      </DivForm>
     </LoginStyled>
   );
 };

@@ -1,19 +1,16 @@
-import { AxiosError } from "axios";
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { api } from "../services/api";
 import { iLoginFormData } from "./../pages/Login/index";
+import { LoadContext } from "./LoadContext";
 
 export const UserContext = createContext({} as iUserContext);
 export interface iUserContext {
   user: iUser | null;
-  userLogin: (
-    data: iLoginFormData,
-    setLoading: React.Dispatch<React.SetStateAction<boolean>>
-  ) => void;
+  userLogin: (data: iLoginFormData) => void;
 
   userLogout: () => void;
-  loading: boolean;
 }
 
 export interface iUser {
@@ -30,20 +27,21 @@ export interface iApiError {
 
 export const UserProvider = ({ children }: iPropsContext) => {
   const [user, setUser] = useState<iUser | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { setLoad } = useContext(LoadContext);
   const navigate = useNavigate();
 
   const userLogin = async (data: iLoginFormData) => {
+    setLoad(true);
     try {
-      setLoading(true);
       const response = await api.post("login", data);
       setUser(response.data.user);
       localStorage.setItem("@token", response.data.accessToken);
       api.defaults.headers.authorization = `Bearer ${response.data.accessToken}`;
       navigate("/");
-    } catch (error) {
-      const err = error as AxiosError<iApiError>;
-      console.log(err);
+    } catch {
+      toast("E-mail ou senha incorreto!");
+    } finally {
+      setLoad(false);
     }
   };
 
@@ -51,13 +49,12 @@ export const UserProvider = ({ children }: iPropsContext) => {
     setUser(null);
     localStorage.clear();
   };
-  
+
   return (
     <UserContext.Provider
       value={{
         user,
         userLogin,
-        loading,
         userLogout,
       }}
     >
