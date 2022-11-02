@@ -68,7 +68,7 @@ const GlobalStyle = createGlobalStyle`
         --Success: #00FF00;
     }
     body {
-
+        background-color: var(--Secondary);
     }
 `;
 

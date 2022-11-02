@@ -5,9 +5,9 @@ import { useContext, useEffect } from "react";
 export const Home = () => {
   const { dataWorks, dataHome } = useContext(HomeContext);
 
-  // useEffect(() => {
-  //   dataHome();
-  // }, [dataHome]);
+  useEffect(() => {
+    dataHome();
+  }, [dataHome]);
 
   console.dir(dataWorks);
   return (
