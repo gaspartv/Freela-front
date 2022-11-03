@@ -19,6 +19,7 @@ export const HomeStyled = styled.div`
   li {
     display: flex;
     flex-direction: column;
+    border: solid;
   }
 `;
 

@@ -28,6 +28,8 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
     api.get("/works").then((res) => setdataWorks(res.data));
   }, []);
 
+
+
   return (
     <HomeContext.Provider value={{ dataWorks }}>
       {children}
