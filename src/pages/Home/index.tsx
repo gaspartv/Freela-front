@@ -8,11 +8,14 @@ export const Home = () => {
   useEffect(() => {
     dataHome();
   }, [dataHome]);
+  
 
-  console.dir(dataWorks);
+  console.log(dataWorks)
   return (
     <HomeStyled>
-      <h1>Home</h1>
+      <ul> ok
+      </ul>
     </HomeStyled>
   );
 };
+

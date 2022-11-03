@@ -6,6 +6,8 @@ import App from "./App";
 import AnimationProvider from "./contexts/AnimationContext";
 import { UserProvider } from "./contexts/UserContext";
 import LoadProvider from "./contexts/LoadContext";
+import HomeProvider from "./contexts/HomeContext";
+
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -16,7 +18,9 @@ root.render(
       <LoadProvider>
         <AnimationProvider>
           <UserProvider>
-            <App />
+            <HomeProvider>
+              <App />
+            </HomeProvider>
           </UserProvider>
         </AnimationProvider>
       </LoadProvider>

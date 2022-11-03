@@ -29,7 +29,7 @@ export const Login = () => {
       localStorage.getItem("@token") && navigate("/home");
     };
     verifyUser();
-  }, []);
+  }, [navigate]);
 
   const {
     register,
