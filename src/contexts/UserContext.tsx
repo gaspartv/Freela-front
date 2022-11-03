@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../services/api";
@@ -49,6 +49,14 @@ export const UserProvider = ({ children }: iPropsContext) => {
     setUser(null);
     localStorage.clear();
   };
+
+  
+  useEffect(() => {
+    if (user !== null) {
+      navigate("/home");
+    }
+  }, [navigate, user]);
+
 
   return (
     <UserContext.Provider

@@ -24,12 +24,7 @@ export const Login = () => {
   const navigate = useNavigate();
   const { userLogin } = useContext(UserContext);
 
-  useEffect(() => {
-    const verifyUser = () => {
-      localStorage.getItem("@token") && navigate("/home");
-    };
-    verifyUser();
-  }, [navigate]);
+
 
   const {
     register,
