@@ -23,6 +23,7 @@ export const HomeContext = createContext<iHome>({} as iHome);
 const HomeProvider = ({ children }: iHomeContextProps) => {
   const [dataWorks, setdataWorks] = useState([]);
 
+  
   useEffect(() => {
     api.get("/works").then((res) => setdataWorks(res.data));
   }, []);

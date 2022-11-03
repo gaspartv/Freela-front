@@ -22,6 +22,4 @@ export const HomeStyled = styled.div`
   }
 `;
 
-export const HeaderHome = styled.header`
-  background-color: rebeccapurple;
-`;
+export const HeaderHome = styled.header``;
