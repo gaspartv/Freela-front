@@ -24,17 +24,7 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
   const [dataWorks, setdataWorks] = useState([]);
 
   useEffect(() => {
-    // api.get("/works").then((res) => setdataWorks(res.data));
-    async function getWorks() {
-      try {
-        const { data } = await api.get("/works");
-        console.log(data[0]);
-        setdataWorks(data[0]);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getWorks();
+    api.get("/works").then((res) => setdataWorks(res.data));
   }, []);
 
   return (
