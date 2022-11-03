@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
 export const HomeStyled = styled.div`
-
-background-color: rebeccapurple;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  ul {
+    border: solid;
+  }
 `;
