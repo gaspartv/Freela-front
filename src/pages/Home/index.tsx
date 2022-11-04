@@ -20,8 +20,6 @@ export const Home = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  console.log(dataWorks);
-
   return (
     <>
       <HeaderLine />
