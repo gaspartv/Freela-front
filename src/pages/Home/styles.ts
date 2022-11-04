@@ -88,3 +88,17 @@ export const HeaderLine = styled.div`
   );
   height: 20px;
 `;
+
+export const BtnsFiltes = styled.div`
+  background-color: rebeccapurple;
+  ul {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  button {
+    height: 38.897727966308594px;
+    width: 163px;
+    border-radius: nullpx;
+  }
+`;
