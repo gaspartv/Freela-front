@@ -1,17 +1,6 @@
 import imgHome from "../../assets/img/imgHome.png";
 import { HomeContext } from "../../contexts/HomeContext";
-<<<<<<< HEAD
 import { ContainerHome, HomeStyled, HeaderHome, HomeTitle, HeaderLine, BtnsFiltes } from "./styles";
-=======
-import {
-  ContainerHome,
-  HomeStyled,
-  HeaderHome,
-  HomeTitle,
-  HeaderLine,
-  BtnsFilter,
-} from "./styles";
->>>>>>> 9c785b57fb11fec545e806a92bb695759ae4c28b
 import { useContext } from "react";
 import {
   Modal,
