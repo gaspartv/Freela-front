@@ -11,6 +11,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Button
 } from "@chakra-ui/react";
 
 export const Home = () => {
@@ -41,11 +42,14 @@ export const Home = () => {
                     <ModalHeader>{elem.title}</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                      <h2>{elem.description}</h2>
+                      {elem.description}
                     </ModalBody>
 
                     <ModalFooter>
-                      <button onClick={onClose}>Close</button>
+                      <Button colorScheme="blue" mr={3} onClick={onClose}>
+                        Close
+                      </Button>
+                      <Button variant="ghost">Tenho Interesse!</Button>
                     </ModalFooter>
                   </ModalContent>
                 </Modal>
