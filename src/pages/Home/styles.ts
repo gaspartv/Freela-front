@@ -23,4 +23,35 @@ export const HomeStyled = styled.div`
   }
 `;
 
-export const HeaderHome = styled.header``;
+export const HeaderHome = styled.header`
+  display: flex;
+  justify-content: space-between;
+
+  nav {
+    gap: 4px;
+    display: flex;
+  }
+`;
+
+export const HomeTitle = styled.div`
+  /* border: solid; */
+  display: flex;
+
+  div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  span {
+    color: green;
+  }
+
+  h1{
+    font-size: 48px;
+  }
+
+  p{
+    font-size:24px;
+  }
+`;

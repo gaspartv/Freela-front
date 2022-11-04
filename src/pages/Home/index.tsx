@@ -1,5 +1,6 @@
+import imgHome from "../../assets/img/imgHome.png";
 import { HomeContext } from "../../contexts/HomeContext";
-import { ContainerHome, HomeStyled, HeaderHome } from "./styles";
+import { ContainerHome, HomeStyled, HeaderHome, HomeTitle } from "./styles";
 import { useContext } from "react";
 import { SpanTop } from "../../components/SpanTop/style";
 import {
@@ -24,7 +25,32 @@ export const Home = () => {
     <>
       <SpanTop></SpanTop>
       <ContainerHome>
-        <HeaderHome></HeaderHome>
+        <HeaderHome>
+          <span>Frilla</span>
+          <nav>
+            <a href="">Works</a>
+            <span>//</span>
+            <a href="">Login</a>
+            <span>//</span>
+            <a href="">Cadastro</a>
+          </nav>
+        </HeaderHome>
+
+        <HomeTitle>
+          <div>
+            <h1>
+              Bem-vindos à <span>Nova Era do Trabalho</span>
+            </h1>
+            <p>
+              Conectamos os melhores talentos independentes com as melhores
+              empresas
+            </p>
+          </div>
+          <figure>
+            <img src={imgHome} alt="imagem Home" />
+          </figure>
+        </HomeTitle>
+
         <HomeStyled>
           <ul>
             {dataWorks.map((elem) => (
