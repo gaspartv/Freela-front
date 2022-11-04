@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SpanTop = styled.span`
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
     display: block;
