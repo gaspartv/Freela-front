@@ -134,6 +134,12 @@ export const BtnsFilter = styled.div`
 
   margin: 80px 0;
 
+  ul{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
   button {
     width: 140px;
     height: 60px;

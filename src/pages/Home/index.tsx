@@ -1,6 +1,6 @@
 import imgHome from "../../assets/img/imgHome.png";
 import { HomeContext } from "../../contexts/HomeContext";
-import { ContainerHome, HomeStyled, HeaderHome, HomeTitle, HeaderLine, BtnsFiltes } from "./styles";
+import { ContainerHome, HomeStyled, HeaderHome, HomeTitle, HeaderLine, BtnsFilter } from "./styles";
 import { useContext } from "react";
 import {
   Modal,
@@ -52,7 +52,7 @@ export const Home = () => {
           </figure>
         </HomeTitle>
 
-        <BtnsFiltes>
+        <BtnsFilter>
           <ul>
             <li><button>Tecnologia</button></li>
             <li><button>Reforço</button></li>
@@ -60,7 +60,7 @@ export const Home = () => {
             <li><button>Finanças</button></li>
             <li><button>Elétrica</button></li>
           </ul>
-        </BtnsFiltes>
+        </BtnsFilter>
 
         <HomeStyled>
           <ul>
