@@ -1,8 +1,7 @@
 import imgHome from "../../assets/img/imgHome.png";
 import { HomeContext } from "../../contexts/HomeContext";
-import { ContainerHome, HomeStyled, HeaderHome, HomeTitle } from "./styles";
+import { ContainerHome, HomeStyled, HeaderHome, HomeTitle, HeaderLine } from "./styles";
 import { useContext } from "react";
-import { SpanTop } from "../../components/SpanTop/style";
 import {
   Modal,
   ModalOverlay,
@@ -24,7 +23,7 @@ export const Home = () => {
 
   return (
     <>
-      <SpanTop></SpanTop>
+      <HeaderLine />
       <ContainerHome>
         <HeaderHome>
           <span>Frilla</span>
@@ -56,12 +55,19 @@ export const Home = () => {
           <ul>
             {dataWorks.map((elem) => (
               <li key={elem.id}>
-                <h2>{elem.title}</h2>
-                <span>{elem.category}</span>
-                <p>{elem.description}</p>
-                <button onClick={onOpen} id={elem.id}>
-                  see more
-                </button>
+
+                <div className="cardTitle">
+                  <h2>{elem.title}</h2>
+                  <span>{elem.category}</span>
+                </div>
+
+                <div className="cardDescription">
+                  <p>{elem.description}</p>
+                  <button onClick={onOpen} id={elem.id}>
+                    see more
+                  </button>
+                </div>
+
                 <Modal isOpen={isOpen} onClose={onClose}>
                   <ModalOverlay />
                   <ModalContent>
@@ -84,6 +90,7 @@ export const Home = () => {
           </ul>
         </HomeStyled>
       </ContainerHome>
+      
     </>
   );
 };
