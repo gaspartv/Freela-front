@@ -1,7 +1,7 @@
+import imgHome from "../../assets/img/imgHome.png";
 import { HomeContext } from "../../contexts/HomeContext";
-import { ContainerHome, HomeStyled, HeaderHome } from "./styles";
+import { ContainerHome, HomeStyled, HeaderHome, HomeTitle, HeaderLine, BtnsFilter } from "./styles";
 import { useContext } from "react";
-import { SpanTop } from "../../components/SpanTop/style";
 import {
   Modal,
   ModalOverlay,
@@ -11,7 +11,9 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Button,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { dataWorks } = useContext(HomeContext);
@@ -22,30 +24,72 @@ export const Home = () => {
 
   return (
     <>
-      <SpanTop></SpanTop>
+      <HeaderLine />
       <ContainerHome>
-        <HeaderHome></HeaderHome>
+        <HeaderHome>
+          <span>Frilla</span>
+          <nav>
+            <Link to={"/home"}>Works</Link>
+            <span>//</span>
+            <Link to={"/login"}>Login</Link>
+            <span>//</span>
+            <Link to={"/register"}>Cadastro</Link>
+          </nav>
+        </HeaderHome>
+
+        <HomeTitle>
+          <div>
+            <h1>
+              Bem-vindos à <span>Nova Era do Trabalho</span>
+            </h1>
+            <p>
+              Conectamos os melhores talentos independentes com as melhores
+              empresas
+            </p>
+          </div>
+          <figure>
+            <img src={imgHome} alt="imagem Home" />
+          </figure>
+        </HomeTitle>
+
+        <BtnsFilter>
+          <ul>
+            <li><button>Tecnologia</button></li>
+            <li><button>Reforço</button></li>
+            <li><button>Design</button></li>
+            <li><button>Finanças</button></li>
+            <li><button>Elétrica</button></li>
+          </ul>
+        </BtnsFilter>
+
         <HomeStyled>
           <ul>
             {dataWorks.map((elem) => (
               <li key={elem.id}>
-                <h2>{elem.title}</h2>
-                <span>{elem.category}</span>
-                <p>{elem.description}</p>
-                <button onClick={onOpen} id={elem.id}>
-                  see more
-                </button>
+                <div className="cardTitle">
+                  <h2>{elem.title}</h2>
+                  <span>{elem.category}</span>
+                </div>
+
+                <div className="cardDescription">
+                  <p>{elem.description}</p>
+                  <button onClick={onOpen} id={elem.id}>
+                    see more
+                  </button>
+                </div>
+
                 <Modal isOpen={isOpen} onClose={onClose}>
                   <ModalOverlay />
                   <ModalContent>
                     <ModalHeader>{elem.title}</ModalHeader>
                     <ModalCloseButton />
-                    <ModalBody>
-                      <h2>{elem.description}</h2>
-                    </ModalBody>
+                    <ModalBody>{elem.description}</ModalBody>
 
                     <ModalFooter>
-                      <button onClick={onClose}>Close</button>
+                      <Button colorScheme="blue" mr={3} onClick={onClose}>
+                        Close
+                      </Button>
+                      <Button variant="ghost">Tenho Interesse!</Button>
                     </ModalFooter>
                   </ModalContent>
                 </Modal>
