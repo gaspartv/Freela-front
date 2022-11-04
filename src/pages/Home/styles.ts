@@ -26,24 +26,62 @@ export const HomeStyled = styled.div`
   li {
     display: flex;
     flex-direction: column;
-    border: solid;
-    gap: 10px;
+    gap: 20px;
     border: 1px solid #177369;
     border-radius: 8px;
-    padding: 14px;
-    height: 170px;
-    width: 400px;
+    padding: 20px;
+    height: 247px;
+    width: 521px;
     border-radius: 25px;
-  }
+    margin-bottom: 30px;
+    justify-content: center;
 
-  .cardTitle {
-    display: flex;
-    justify-content: space-between;
-  }
+    .cardTitle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-  .cardDescription {
-    display: flex;
-    flex-direction: column;
+    .cardDescription {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    h2 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+    }
+
+    span {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 22px;
+
+      color: #177369;
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 22px;
+    }
+
+    button {
+      width: 148px;
+      height: 31px;
+      left: 25px;
+      top: 199px;
+
+      background: #177369;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 22px;
+
+      color: #f5eed0;
+    }
   }
 `;
 
@@ -89,16 +127,26 @@ export const HeaderLine = styled.div`
   height: 20px;
 `;
 
-export const BtnsFiltes = styled.div`
-  background-color: rebeccapurple;
-  ul {
-    display: flex;
-    justify-content: space-between;
-  }
+export const BtnsFilter = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  margin: 80px 0;
 
   button {
-    height: 38.897727966308594px;
-    width: 163px;
-    border-radius: nullpx;
+    width: 140px;
+    height: 60px;
+    background: #177369;
+    border-radius: 10px;
+
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+
+    color: #f5eed0;
   }
 `;

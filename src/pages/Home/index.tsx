@@ -1,6 +1,17 @@
 import imgHome from "../../assets/img/imgHome.png";
 import { HomeContext } from "../../contexts/HomeContext";
+<<<<<<< HEAD
 import { ContainerHome, HomeStyled, HeaderHome, HomeTitle, HeaderLine, BtnsFiltes } from "./styles";
+=======
+import {
+  ContainerHome,
+  HomeStyled,
+  HeaderHome,
+  HomeTitle,
+  HeaderLine,
+  BtnsFilter,
+} from "./styles";
+>>>>>>> 9c785b57fb11fec545e806a92bb695759ae4c28b
 import { useContext } from "react";
 import {
   Modal,
@@ -11,8 +22,9 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  Button
+  Button,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { dataWorks } = useContext(HomeContext);
@@ -28,11 +40,11 @@ export const Home = () => {
         <HeaderHome>
           <span>Frilla</span>
           <nav>
-            <a href="">Works</a>
+            <Link to={"/home"}>Works</Link>
             <span>//</span>
-            <a href="">Login</a>
+            <Link to={"/login"}>Login</Link>
             <span>//</span>
-            <a href="">Cadastro</a>
+            <Link to={"/register"}>Cadastro</Link>
           </nav>
         </HeaderHome>
 
@@ -65,7 +77,6 @@ export const Home = () => {
           <ul>
             {dataWorks.map((elem) => (
               <li key={elem.id}>
-
                 <div className="cardTitle">
                   <h2>{elem.title}</h2>
                   <span>{elem.category}</span>
@@ -83,9 +94,7 @@ export const Home = () => {
                   <ModalContent>
                     <ModalHeader>{elem.title}</ModalHeader>
                     <ModalCloseButton />
-                    <ModalBody>
-                      {elem.description}
-                    </ModalBody>
+                    <ModalBody>{elem.description}</ModalBody>
 
                     <ModalFooter>
                       <Button colorScheme="blue" mr={3} onClick={onClose}>
@@ -100,7 +109,6 @@ export const Home = () => {
           </ul>
         </HomeStyled>
       </ContainerHome>
-      
     </>
   );
 };
