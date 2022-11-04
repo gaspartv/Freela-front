@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+
+
+
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -29,6 +32,9 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         line-height: 1;
+        font-family: 'Poppins', sans-serif;
+        /* font-logo */
+        /* font-family: 'Italiana', serif; */
     }
 
     ol, ul {
@@ -51,10 +57,18 @@ const GlobalStyle = createGlobalStyle`
     }
 
     :root {
-
+        --Primary: #177369;
+        --Primary-Hover: #125951;
+        --Secondary: #F5EED0;
+        --Black: #000000;
+        --White: #FFFFFF;
+        --Input-Background:#D9D9D9;
+        --Error: #FF0000;
+        --Warning: #FFC300;
+        --Success: #00FF00;
     }
     body {
-
+        background-color: var(--Secondary);
     }
 `;
 

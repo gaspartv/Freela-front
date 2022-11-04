@@ -4,6 +4,10 @@ import ReactDOM from "react-dom/client";
 
 import App from "./App";
 import AnimationProvider from "./contexts/AnimationContext";
+import { UserProvider } from "./contexts/UserContext";
+import LoadProvider from "./contexts/LoadContext";
+import HomeProvider from "./contexts/HomeContext";
+
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -11,9 +15,15 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AnimationProvider>
-        <App />
-      </AnimationProvider>
+      <LoadProvider>
+        <AnimationProvider>
+          <UserProvider>
+            <HomeProvider>
+              <App />
+            </HomeProvider>
+          </UserProvider>
+        </AnimationProvider>
+      </LoadProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
