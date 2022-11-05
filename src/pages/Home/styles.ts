@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-export const HeaderLine = styled.hr`
-  background-image: linear-gradient(
-    to bottom,
-    var(--Primary) 20px,
-    var(--Secondary) 0
-  );
-  height: 20px;
-  margin: 0px;
-`;
 
 export const ContainerHome = styled.div`
   width: 100vw;
@@ -26,6 +17,7 @@ export const HeaderHome = styled.header`
   justify-content: space-between;
   width: 100vw;
   max-width: 1200px;
+  margin-top: 20px;
 
   nav {
     gap: 4px;

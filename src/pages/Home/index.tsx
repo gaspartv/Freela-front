@@ -1,6 +1,6 @@
 import imgHome from "../../assets/img/imgHome.png";
 import { HomeContext } from "../../contexts/HomeContext";
-import { ContainerHome, HomeStyled, HeaderHome, HomeTitle, HeaderLine, BtnsFilter } from "./styles";
+import { ContainerHome, HomeStyled, HeaderHome, HomeTitle, BtnsFilter } from "./styles";
 import { useContext } from "react";
 import {
   Modal,
@@ -22,7 +22,6 @@ export const Home = () => {
 
   return (
     <>
-      <HeaderLine />
       <ContainerHome>
         <HeaderHome>
           <span>Frilla</span>
