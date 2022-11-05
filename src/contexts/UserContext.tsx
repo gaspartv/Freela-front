@@ -37,6 +37,7 @@ export const UserProvider = ({ children }: iPropsContext) => {
       const response = await api.post("login", data);
       setUser(response.data.user);
       localStorage.setItem("@token", response.data.accessToken);
+      localStorage.setItem("@id", response.data.user.id);
       api.defaults.headers.authorization = `Bearer ${response.data.accessToken}`;
       navigate("/");
     } catch {
@@ -48,10 +49,8 @@ export const UserProvider = ({ children }: iPropsContext) => {
 
   const userRegister = async (data: iRegisterFormData) => {
     setLoad(true);
-
     try {
-      const response = await api.post("register", data);
-      console.log(response);
+      await api.post("register", data);
       toast.success("conta criada com sucesso!");
       navigate("/login");
     } catch {
@@ -80,7 +79,7 @@ export const UserProvider = ({ children }: iPropsContext) => {
         user,
         userLogin,
         userLogout,
-        userRegister
+        userRegister,
       }}
     >
       {children}

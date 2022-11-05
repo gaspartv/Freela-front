@@ -7,7 +7,7 @@ import AnimationProvider from "./contexts/AnimationContext";
 import { UserProvider } from "./contexts/UserContext";
 import LoadProvider from "./contexts/LoadContext";
 import HomeProvider from "./contexts/HomeContext";
-
+import SettingProvider from "./contexts/SettingContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -19,7 +19,9 @@ root.render(
         <AnimationProvider>
           <UserProvider>
             <HomeProvider>
-              <App />
+              <SettingProvider>
+                <App />
+              </SettingProvider>
             </HomeProvider>
           </UserProvider>
         </AnimationProvider>
