@@ -1,6 +1,12 @@
 import imgHome from "../../assets/img/imgHome.png";
 import { HomeContext } from "../../contexts/HomeContext";
-import { ContainerHome, HomeStyled, HeaderHome, HomeTitle, BtnsFilter } from "./styles";
+import {
+  ContainerHome,
+  HomeStyled,
+  HeaderHome,
+  HomeTitle,
+  BtnsFilter,
+} from "./styles";
 import { useContext } from "react";
 import {
   Modal,
@@ -16,7 +22,7 @@ import {
 import { Link } from "react-router-dom";
 
 export const Home = () => {
-  const { dataWorks } = useContext(HomeContext);
+  const { dataWorks, filteCategory} = useContext(HomeContext);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -51,11 +57,9 @@ export const Home = () => {
 
         <BtnsFilter>
           <ul>
-            <li><button>Tecnologia</button></li>
-            <li><button>Reforço</button></li>
-            <li><button>Design</button></li>
-            <li><button>Finanças</button></li>
-            <li><button>Elétrica</button></li>
+            {
+             dataWorks.map((elem) => (<li key={elem.id}><button onClick={()=>filteCategory(elem.category)}>{elem.category}</button></li>))
+            }
           </ul>
         </BtnsFilter>
 

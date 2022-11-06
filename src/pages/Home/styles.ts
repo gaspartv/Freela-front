@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const ContainerHome = styled.div`
   width: 100vw;
   max-width: 1200px;
@@ -142,8 +141,9 @@ export const BtnsFilter = styled.div`
   button {
     width: 140px;
     height: 60px;
-    background: #177369;
+    background: var(--Primary);
     border-radius: 10px;
+    cursor: pointer;
 
     font-family: "Poppins";
     font-style: normal;
@@ -151,8 +151,13 @@ export const BtnsFilter = styled.div`
     font-size: 20px;
     line-height: 30px;
     text-align: center;
+    border: transparent;
 
-    color: #f5eed0;
+    color: var(--Secondary);
+  }
+
+  button:hover {
+    background: #135b53;
   }
 
   @media (max-width: 425px) {
@@ -188,7 +193,7 @@ export const HomeStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border: 1px solid #177369;
+    border: 1px solid var(--Primary);
     border-radius: 8px;
     padding: 20px;
     height: 247px;
@@ -220,7 +225,7 @@ export const HomeStyled = styled.div`
       font-size: 15px;
       line-height: 22px;
 
-      color: #177369;
+      color: var(--Primary);
     }
 
     p {
@@ -234,14 +239,20 @@ export const HomeStyled = styled.div`
       height: 31px;
       left: 25px;
       top: 199px;
+      cursor: pointer;
 
-      background: #177369;
+      background: var(--Primary);
       border-radius: 50px;
+      border: transparent;
       font-weight: 700;
       font-size: 15px;
       line-height: 22px;
 
-      color: #f5eed0;
+      color: var(--Secondary);
+    }
+
+    button:hover {
+      background: #135b53;
     }
   }
 
