@@ -8,6 +8,7 @@ export interface iHomeContextProps {
 export interface iHome {
   setdataWorks?: React.Dispatch<React.SetStateAction<never[]>>;
   dataWorks: iWorks[];
+  filteCategory: (Category: string) => void;
 }
 
 interface iWorks {
@@ -26,8 +27,15 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
     api.get("/works").then((res) => setdataWorks(res.data));
   }, []);
 
+  const filteCategory = (dataCategory: string) => {
+    const categoryFilter = dataWorks.filter(
+      (elem: any) => elem.category === dataCategory
+    );
+    setdataWorks([...categoryFilter])
+  };
+
   return (
-    <HomeContext.Provider value={{ dataWorks }}>
+    <HomeContext.Provider value={{ dataWorks, filteCategory }}>
       {children}
     </HomeContext.Provider>
   );

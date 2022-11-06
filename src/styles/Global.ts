@@ -68,7 +68,11 @@ const GlobalStyle = createGlobalStyle`
         --Success: #00FF00;
     }
     body {
-        background-color: var(--Secondary);
+        background-image: linear-gradient(
+    to bottom,
+    var(--Primary) 20px,
+    var(--Secondary) 0
+  );
     }
 `;
 
