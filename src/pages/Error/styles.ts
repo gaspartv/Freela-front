@@ -16,6 +16,12 @@ export const ErrorContainer = styled.div`
   > img {
     width: 500px;
   }
+    @media (max-width: 720px) {
+      flex-direction: column;
+        img{
+          width: 300px;
+        }
+    }
 `;
 export const Warning = styled.div`
   display: flex;
@@ -26,7 +32,10 @@ export const Warning = styled.div`
     font-style: normal;
     font-weight: 700;
     font-size: 250px;
-    color: #177369;
+    color: var(--Primary);
+     @media (max-width: 720px) {
+      font-size: 130px;
+     }
   }
   > h2 {
     width: 500px;
@@ -36,6 +45,11 @@ export const Warning = styled.div`
     font-size: 48px;
     line-height: 72px;
     text-align: center;
-    color: #177369;
+    color: var(--Primary);
+    @media (max-width: 720px) {
+      width: 300px;
+      font-size: 30px;
+      line-height: 40px;
   }
+}
 `;
