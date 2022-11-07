@@ -8,23 +8,18 @@ import {
   BtnsFilter,
 } from "./styles";
 import { useContext } from "react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  Button,
-} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import ModalSeeMore from "../../components/ModalSeeMore";
 
 export const Home = () => {
-  const { filteCategory, dataFilter } = useContext(HomeContext);
+  const { filteCategory, dataFilter, openModal, setOpenModal, setIdModal } = useContext(HomeContext);
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  function HandleClickModal (Target: any) {
+    const ID = Target.id
+    setOpenModal(true)
+    setIdModal(ID)
+  }
+
 
   return (
     <>
@@ -86,6 +81,8 @@ export const Home = () => {
           </ul>
         </BtnsFilter>
 
+        {openModal && <ModalSeeMore/>}
+
         <HomeStyled>
           <ul>
             {dataFilter.map((elem) => (
@@ -94,29 +91,12 @@ export const Home = () => {
                   <h2>{elem.title}</h2>
                   <span>{elem.category}</span>
                 </div>
-
                 <div className="cardDescription">
                   <p>{elem.description}</p>
-                  <button onClick={onOpen} id={elem.id}>
+                  <button onClick={(event) => HandleClickModal(event.target)} id={elem.id}>
                     see more
                   </button>
                 </div>
-
-                <Modal isOpen={isOpen} onClose={onClose}>
-                  <ModalOverlay />
-                  <ModalContent>
-                    <ModalHeader>{elem.title}</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>{elem.description}</ModalBody>
-
-                    <ModalFooter>
-                      <Button colorScheme="blue" mr={3} onClick={onClose}>
-                        Close
-                      </Button>
-                      <Button variant="ghost">Tenho Interesse!</Button>
-                    </ModalFooter>
-                  </ModalContent>
-                </Modal>
               </li>
             ))}
           </ul>
