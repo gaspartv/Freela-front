@@ -22,6 +22,17 @@ export const HeaderHome = styled.header`
     gap: 4px;
     display: flex;
   }
+
+  .logo{
+    font-family: "Italiana";
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;
+    color: #000000;
+    cursor: default;
+  }
+
 `;
 
 export const HomeTitle = styled.div`

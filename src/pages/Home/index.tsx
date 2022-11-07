@@ -19,13 +19,12 @@ export const Home = () => {
     setOpenModal(true)
     setIdModal(ID)
   }
-
-
+  
   return (
     <>
       <ContainerHome>
         <HeaderHome>
-          <span>Frilla</span>
+          <span className="logo">Frilla</span>
           <nav>
             <Link to={"/home"}>Works</Link>
             <span>//</span>
@@ -37,13 +36,8 @@ export const Home = () => {
 
         <HomeTitle>
           <div>
-            <h1>
-              Bem-vindos à <span>Nova Era do Trabalho</span>
-            </h1>
-            <p>
-              Conectamos os melhores talentos independentes com as melhores
-              empresas
-            </p>
+            <h1>Bem-vindos à <span>Nova Era do Trabalho</span></h1>
+            <p>Conectamos os melhores talentos independentes com as melhores empresas</p>
           </div>
           <figure>
             <img src={imgHome} alt="imagem Home" />
@@ -52,35 +46,19 @@ export const Home = () => {
 
         <BtnsFilter>
           <ul>
-            <li>
-              <button onClick={() => filteCategory("Todas")}>Todos</button>
+            <li><button onClick={() => filteCategory("Todas")}>Todos</button></li>
+            <li><button onClick={() => filteCategory("Tech")}>Tech</button></li>
+            <li><button onClick={() => filteCategory("reforço")}>Reforço</button></li>
+            <li><button onClick={() => filteCategory("design")}>Design</button></li>
+            <li><button onClick={() => filteCategory("finanças")}>Finanças</button></li>
+            <li><button onClick={() => filteCategory("eletrica")}>Eletrica</button>
             </li>
-            <li>
-              <button onClick={() => filteCategory("Tech")}>Tech</button>
-            </li>
-            <li>
-              <button onClick={() => filteCategory("reforço")}>Reforço</button>
-            </li>
-            <li>
-              <button onClick={() => filteCategory("design")}>Design</button>
-            </li>
-            <li>
-              <button onClick={() => filteCategory("finanças")}>
-                Finanças
-              </button>
-            </li>
-            <li>
-              <button onClick={() => filteCategory("eletrica")}>
-                Eletrica
-              </button>
-            </li>
-
             {/* {
              dataWorks.map((elem) => (<li key={elem.id}><button onClick={()=>filteCategory(elem.category)}>{elem.category}</button></li>))
             } */}
           </ul>
-        </BtnsFilter>
 
+        </BtnsFilter>
         {openModal && <ModalSeeMore/>}
 
         <HomeStyled>
@@ -101,6 +79,7 @@ export const Home = () => {
             ))}
           </ul>
         </HomeStyled>
+
       </ContainerHome>
     </>
   );
