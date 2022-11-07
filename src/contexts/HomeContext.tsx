@@ -25,25 +25,27 @@ export const HomeContext = createContext<iHome>({} as iHome);
 
 const HomeProvider = ({ children }: iHomeContextProps) => {
   const [dataWorks, setdataWorks] = useState([]);
+  const [dataFilter, setdataFilter] = useState([]);
+
   useEffect(() => {
-    api.get("/works").then((res) => setdataWorks(res.data));
+    api.get("/works").then((res) => {
+      setdataWorks(res.data);
+      setdataFilter(res.data);
+    });
   }, []);
 
-  const [dataFilter, setdataFilter] = useState([]);
   const filteCategory = (dataCategory: string) => {
-    const categoryFilter = dataWorks.filter(
-      (elem: any) => elem.category === dataCategory
-    );
-
-    setdataFilter(categoryFilter);
-
-    // if (dataCategory === "Todas") {
-    //   // console.log(dataWorks);
-    //   return  dataWorks
-    // } else {
-    //   // console.log(dataFilter);
-    //   return dataFilter
-    // }
+    if (dataCategory === "Todas" || !dataCategory) {
+      const categoryFilter = dataWorks.filter(
+        (elem: any) => elem.category !== ""
+      );
+      setdataFilter(categoryFilter);
+    } else {
+      const categoryFilter = dataWorks.filter(
+        (elem: any) => elem.category === dataCategory
+      );
+      setdataFilter(categoryFilter);
+    }
   };
 
   return (

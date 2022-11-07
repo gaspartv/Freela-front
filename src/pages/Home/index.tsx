@@ -7,7 +7,7 @@ import {
   HomeTitle,
   BtnsFilter,
 } from "./styles";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -22,7 +22,7 @@ import {
 import { Link } from "react-router-dom";
 
 export const Home = () => {
-  const { dataWorks, filteCategory, dataFilter } = useContext(HomeContext);
+  const { filteCategory, dataFilter } = useContext(HomeContext);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -58,7 +58,7 @@ export const Home = () => {
         <BtnsFilter>
           <ul>
             <li>
-              <button onClick={() => filteCategory("Todas")}>Todas</button>
+              <button onClick={() => filteCategory("Todas")}>Todos</button>
             </li>
             <li>
               <button onClick={() => filteCategory("Tech")}>Tech</button>
@@ -75,7 +75,7 @@ export const Home = () => {
               </button>
             </li>
             <li>
-              <button onClick={() => filteCategory("fletrica")}>
+              <button onClick={() => filteCategory("eletrica")}>
                 Eletrica
               </button>
             </li>
@@ -83,14 +83,12 @@ export const Home = () => {
             {/* {
              dataWorks.map((elem) => (<li key={elem.id}><button onClick={()=>filteCategory(elem.category)}>{elem.category}</button></li>))
             } */}
-            
           </ul>
         </BtnsFilter>
 
         <HomeStyled>
           <ul>
-
-            {dataWorks.map((elem) => (
+            {dataFilter.map((elem) => (
               <li key={elem.id}>
                 <div className="cardTitle">
                   <h2>{elem.title}</h2>
@@ -121,9 +119,6 @@ export const Home = () => {
                 </Modal>
               </li>
             ))}
-
-
-
           </ul>
         </HomeStyled>
       </ContainerHome>

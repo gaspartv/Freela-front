@@ -171,6 +171,7 @@ export const BtnsFilter = styled.div`
       gap: 10px;
     }
   }
+  
 `;
 
 export const HomeStyled = styled.div`
