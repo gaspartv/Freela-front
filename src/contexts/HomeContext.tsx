@@ -6,6 +6,10 @@ export interface iHomeContextProps {
 }
 
 export interface iHome {
+  openModal: boolean;
+  IdModal: number|null;
+  setIdModal: React.Dispatch<React.SetStateAction<number|null>>;
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   setdataWorks?: React.Dispatch<React.SetStateAction<never[]>>;
   setdataFilter?: React.Dispatch<React.SetStateAction<never[]>>;
   dataWorks: iWorks[];
@@ -24,7 +28,10 @@ interface iWorks {
 export const HomeContext = createContext<iHome>({} as iHome);
 
 const HomeProvider = ({ children }: iHomeContextProps) => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [IdModal, setIdModal] = useState<number|null>(null);
   const [dataWorks, setdataWorks] = useState([]);
+
   useEffect(() => {
     api.get("/works").then((res) => setdataWorks(res.data));
   }, []);
@@ -47,7 +54,9 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
   };
 
   return (
-    <HomeContext.Provider value={{ dataWorks, filteCategory, dataFilter }}>
+    <HomeContext.Provider
+      value={{setIdModal, IdModal , dataWorks, filteCategory, dataFilter, openModal, setOpenModal }}
+    >
       {children}
     </HomeContext.Provider>
   );
