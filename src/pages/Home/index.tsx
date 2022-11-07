@@ -46,11 +46,11 @@ export const Home = () => {
 
         <BtnsFilter>
           <ul>
-            <li><button onClick={() => filteCategory("Todas")}>Todos</button></li>
-            <li><button onClick={() => filteCategory("Tech")}>Tech</button></li>
-            <li><button onClick={() => filteCategory("reforço")}>Reforço</button></li>
+            <li><button onClick={() => filteCategory("todas")}>Todos</button></li>
+            <li><button onClick={() => filteCategory("tech")}>Tech</button></li>
+            <li><button onClick={() => filteCategory("reforco")}>Reforço</button></li>
             <li><button onClick={() => filteCategory("design")}>Design</button></li>
-            <li><button onClick={() => filteCategory("finanças")}>Finanças</button></li>
+            <li><button onClick={() => filteCategory("financas")}>Finanças</button></li>
             <li><button onClick={() => filteCategory("eletrica")}>Eletrica</button>
             </li>
             {/* {

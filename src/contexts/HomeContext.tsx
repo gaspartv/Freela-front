@@ -41,7 +41,7 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
   }, []);
 
   const filteCategory = (dataCategory: string) => {
-    if (dataCategory === "Todas" || !dataCategory) {
+    if (dataCategory === "todas" || !dataCategory) {
       const categoryFilter = dataWorks.filter(
         (elem: any) => elem.category !== ""
       );

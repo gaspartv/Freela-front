@@ -23,7 +23,7 @@ export const HeaderHome = styled.header`
     display: flex;
   }
 
-  .logo{
+  .logo {
     font-family: "Italiana";
     font-weight: 400;
     font-size: 40px;
@@ -32,7 +32,6 @@ export const HeaderHome = styled.header`
     color: #000000;
     cursor: default;
   }
-
 `;
 
 export const HomeTitle = styled.div`
@@ -182,7 +181,6 @@ export const BtnsFilter = styled.div`
       gap: 10px;
     }
   }
-  
 `;
 
 export const HomeStyled = styled.div`
