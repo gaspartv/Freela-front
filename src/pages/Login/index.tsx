@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -13,7 +13,6 @@ import {
   LoginStyled,
   SectionForm,
 } from "./styles";
-import { useNavigate } from "react-router-dom";
 
 export interface iLoginFormData {
   email: string;
@@ -21,12 +20,7 @@ export interface iLoginFormData {
 }
 
 export const Login = () => {
-  const navigate = useNavigate();
   const { userLogin } = useContext(UserContext);
-
-  useEffect(() => {
-    localStorage.getItem("@token") && navigate("/home");
-  }, []);
 
   const {
     register,

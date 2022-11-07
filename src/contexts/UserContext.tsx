@@ -12,7 +12,7 @@ export interface iUserContext {
   userLogin: (data: iLoginFormData) => void;
   userRegister: (data: iRegisterFormData) => void;
   userLogout: () => void;
-}
+  }
 
 export interface iUser {
   id: number;
@@ -28,7 +28,7 @@ export interface iApiError {
 
 export const UserProvider = ({ children }: iPropsContext) => {
   const [user, setUser] = useState<iUser | null>(null);
-  const { setLoad } = useContext(LoadContext);
+  const { setLoad} = useContext(LoadContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -36,12 +36,11 @@ export const UserProvider = ({ children }: iPropsContext) => {
     setLoad(true);
     try {
       const response = await api.post("login", data);
-      setUser(response.data.user);
+      setUser(response.data);
       localStorage.setItem("@token", response.data.accessToken);
       localStorage.setItem("@id", response.data.user.id);
       api.defaults.headers.authorization = `Bearer ${response.data.accessToken}`;
-      const toNavigate = location.state?.from?.pathname || "/home";
-      console.log(toNavigate);
+      const toNavigate = location.state?.from?.pathname || "/";
       navigate(toNavigate, { replace: true });
 
     } catch {
@@ -72,24 +71,30 @@ export const UserProvider = ({ children }: iPropsContext) => {
   };
 
   useEffect(() => {
-    const getUser = async () => {
-      const token = localStorage.getItem("@token");
+    if (user != null) {
+      const toNavigate = location.state?.from?.pathname || "/";
       
-      if(token){
-      try {
-        const response = await api.get("users/" + localStorage.getItem("@id"));
-        setUser(response.data);
-      } catch {
-        localStorage.clear();
-        navigate("/login");
-      } finally {
-        
-      }
     }
-  };
-    getUser();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  console.log(location.state?.from?.pathname);
+  useEffect(() => {
+    const getUser = async ()  => {
+      const token = localStorage.getItem("@token");
+      if (token) {
+        api.defaults.headers.authorization = `Bearer ${token}`;
+        try {
+          const response = await api.get(`users/${localStorage.getItem("@id")}`);
+          setUser(response.data);
+        } catch (error) {
+          userLogout();
+        }
+      }
+      setLoad(false);
+    }
+    getUser();
+  }, []);
+
+ 
 
   return (
     <UserContext.Provider
