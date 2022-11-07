@@ -32,10 +32,8 @@ export const Home = () => {
         <HeaderHome>
           <span>Frilla</span>
           <nav>
-            <Link to={"/home"}>Works</Link>
-            <span>//</span>
-            <Link to={"/login"}>Login</Link>
-            <span>//</span>
+            <Link to={"/home"}>Works |</Link>
+            <Link to={"/login"}>Login |</Link>
             <Link to={"/register"}>Cadastro</Link>
           </nav>
         </HeaderHome>

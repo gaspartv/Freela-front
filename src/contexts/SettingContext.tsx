@@ -2,7 +2,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { api } from "../services/api";
 import { LoadContext } from "./LoadContext";
-import { useNavigate } from "react-router-dom";
 
 interface iSettingContextProps {
   children: React.ReactNode;
@@ -40,7 +39,6 @@ interface iSettingContext {
 export const SettingContext = createContext({} as iSettingContext);
 
 const SettingProvider = ({ children }: iSettingContextProps) => {
-  const navigate = useNavigate();
 
   const { setLoad } = useContext(LoadContext);
   const [openModal, setOpenModal] = useState<boolean>(false);
@@ -116,7 +114,6 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
     setLoad(true);
     try {
       const response = await api.patch(`/works/${mySerivice[0].id}`);
-      console.log(response);
       toast("Serviço editado com sucesso!");
       setOpenModalEdit(false);
     } catch {

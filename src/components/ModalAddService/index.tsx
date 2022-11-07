@@ -47,11 +47,15 @@ export const ModalAddService = () => {
           />
 
           <label>Categoria</label>
-          <input
-            type="text"
-            placeholder="Digite a categoria"
-            {...register("category")}
-          />
+          <select
+            {...register("category")}>
+            <option value="">Selecione</option>
+            <option value="tech">Tech</option>
+            <option value="reforco">Reforço</option>
+            <option value="design">Design</option>
+            <option value="financas">Finanças</option>
+            <option value="eletrica">Eletrica</option>
+          </select>
 
           <label>Valor</label>
           <input

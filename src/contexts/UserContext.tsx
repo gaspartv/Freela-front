@@ -36,14 +36,12 @@ export const UserProvider = ({ children }: iPropsContext) => {
     setLoad(true);
     try {
       const response = await api.post("login", data);
-      setUser(response.data.user);
+      setUser(response.data);
       localStorage.setItem("@token", response.data.accessToken);
       localStorage.setItem("@id", response.data.user.id);
       api.defaults.headers.authorization = `Bearer ${response.data.accessToken}`;
-      const toNavigate = location.state?.from?.pathname || "/home";
-      console.log(toNavigate);
+      const toNavigate = location.state?.from?.pathname || "/";
       navigate(toNavigate, { replace: true });
-
     } catch {
       toast.error("E-mail ou senha incorreto!");
     } finally {
@@ -74,21 +72,20 @@ export const UserProvider = ({ children }: iPropsContext) => {
   useEffect(() => {
     const getUser = async () => {
       const token = localStorage.getItem("@token");
-      
-      if(token){
-      try {
-        const response = await api.get("users/" + localStorage.getItem("@id"));
-        setUser(response.data);
-      } catch {
-        localStorage.clear();
-        navigate("/login");
-      } finally {
-        
+      if (token) {
+        api.defaults.headers.authorization = `Bearer ${token}`;
+        try {
+          const response = await api.get(
+            `users/${localStorage.getItem("@id")}`
+          );
+          setUser(response.data);
+        } catch (error) {
+          userLogout();
+        }
       }
-    }
-  };
+      setLoad(false);
+    };
     getUser();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
