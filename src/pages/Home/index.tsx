@@ -53,9 +53,6 @@ export const Home = () => {
             <li><button onClick={() => filteCategory("financas")}>Finanças</button></li>
             <li><button onClick={() => filteCategory("eletrica")}>Eletrica</button>
             </li>
-            {/* {
-             dataWorks.map((elem) => (<li key={elem.id}><button onClick={()=>filteCategory(elem.category)}>{elem.category}</button></li>))
-            } */}
           </ul>
 
         </BtnsFilter>
