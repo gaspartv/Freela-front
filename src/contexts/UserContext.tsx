@@ -12,7 +12,7 @@ export interface iUserContext {
   userLogin: (data: iLoginFormData) => void;
   userRegister: (data: iRegisterFormData) => void;
   userLogout: () => void;
-  }
+}
 
 export interface iUser {
   id: number;
@@ -28,7 +28,7 @@ export interface iApiError {
 
 export const UserProvider = ({ children }: iPropsContext) => {
   const [user, setUser] = useState<iUser | null>(null);
-  const { setLoad} = useContext(LoadContext);
+  const { setLoad } = useContext(LoadContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -42,7 +42,6 @@ export const UserProvider = ({ children }: iPropsContext) => {
       api.defaults.headers.authorization = `Bearer ${response.data.accessToken}`;
       const toNavigate = location.state?.from?.pathname || "/";
       navigate(toNavigate, { replace: true });
-
     } catch {
       toast.error("E-mail ou senha incorreto!");
     } finally {
@@ -71,30 +70,23 @@ export const UserProvider = ({ children }: iPropsContext) => {
   };
 
   useEffect(() => {
-    if (user != null) {
-      const toNavigate = location.state?.from?.pathname || "/";
-      
-    }
-  }, []);
-  console.log(location.state?.from?.pathname);
-  useEffect(() => {
-    const getUser = async ()  => {
+    const getUser = async () => {
       const token = localStorage.getItem("@token");
       if (token) {
         api.defaults.headers.authorization = `Bearer ${token}`;
         try {
-          const response = await api.get(`users/${localStorage.getItem("@id")}`);
+          const response = await api.get(
+            `users/${localStorage.getItem("@id")}`
+          );
           setUser(response.data);
         } catch (error) {
           userLogout();
         }
       }
       setLoad(false);
-    }
+    };
     getUser();
   }, []);
-
- 
 
   return (
     <UserContext.Provider
