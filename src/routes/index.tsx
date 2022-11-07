@@ -5,21 +5,19 @@ import { Register } from "../pages/Register";
 import { ProtectRoutes } from "../components/ProtectRoutes/ProtectRoutes";
 import { Error } from "../pages/Error";
 import { Setting } from "../pages/Setting";
-import { RouterDirection } from "../pages/Router";
 
 const RouterMain = () => {
   return (
     <Routes>
-      <Route path="/" element={<RouterDirection />} />
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+      <Route path="*" element={<Error />} />
      
       <Route element={<ProtectRoutes />}>
-        <Route path="/home" element={<Home />} />
         <Route path="/setting" element={<Setting />} />
-        <Route />
       </Route>
-      <Route path="*" element={<Error />} />
+      
     </Routes>
   );
 };

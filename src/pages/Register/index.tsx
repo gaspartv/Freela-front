@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
@@ -13,7 +13,6 @@ import {
   BlockLogo,
   DivForm,
 } from "./styles";
-import { useNavigate } from "react-router-dom";
 import { LinkStyled } from './../../components/StyledLink/styled';
 
 export interface iRegisterFormData {
