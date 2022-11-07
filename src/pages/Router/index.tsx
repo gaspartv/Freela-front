@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
 
 export const RouterDirection = () => {
   const navigate = useNavigate();
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
-    localStorage.getItem("@token") === null
-      ? navigate("/login")
-      : navigate("/home");
+    user ? navigate("/login") : navigate("/home");
   }, []);
   return <></>;
 };
