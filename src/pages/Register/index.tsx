@@ -14,6 +14,7 @@ import {
   DivForm,
 } from "./styles";
 import { useNavigate } from "react-router-dom";
+import { LinkStyled } from './../../components/StyledLink/styled';
 
 export interface iRegisterFormData {
   name: string;
@@ -24,12 +25,6 @@ export interface iRegisterFormData {
 }
 
 export const Register = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    localStorage.getItem("@token") && navigate("/home");
-  }, []);
-
   const { userRegister } = useContext(UserContext);
 
   const {
@@ -98,8 +93,11 @@ export const Register = () => {
               <input type="checkbox" name="terms" value="terms" required />
               <label htmlFor="terms">concordo com os termos e condições</label>
             </Terms>
+            <LinkStyled to="/login">
+              Ja possui cadastro ? ir para login <span></span>
+            </LinkStyled>
 
-            <button type="submit">Entrar</button>
+            <button type="submit">Cadastrar</button>
           </form>
         </SectionForm>
       </DivForm>

@@ -55,10 +55,6 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
   );
 
   useEffect(() => {
-    localStorage.getItem("@token") === null && navigate("/login");
-  }, []);
-
-  useEffect(() => {
     const renderMyService = async () => {
       const { data } = await api.get<iServiceData[]>("/works");
       const result = data.filter(

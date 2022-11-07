@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../services/api";
 import { iLoginFormData } from "./../pages/Login/index";
@@ -30,6 +30,7 @@ export const UserProvider = ({ children }: iPropsContext) => {
   const [user, setUser] = useState<iUser | null>(null);
   const { setLoad } = useContext(LoadContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const userLogin = async (data: iLoginFormData) => {
     setLoad(true);
@@ -39,7 +40,10 @@ export const UserProvider = ({ children }: iPropsContext) => {
       localStorage.setItem("@token", response.data.accessToken);
       localStorage.setItem("@id", response.data.user.id);
       api.defaults.headers.authorization = `Bearer ${response.data.accessToken}`;
-      navigate("/");
+      const toNavigate = location.state?.from?.pathname || "/home";
+      console.log(toNavigate);
+      navigate(toNavigate, { replace: true });
+
     } catch {
       toast.error("E-mail ou senha incorreto!");
     } finally {
@@ -68,10 +72,24 @@ export const UserProvider = ({ children }: iPropsContext) => {
   };
 
   useEffect(() => {
-    if (user !== null) {
-      navigate("/home");
+    const getUser = async () => {
+      const token = localStorage.getItem("@token");
+      
+      if(token){
+      try {
+        const response = await api.get("users/" + localStorage.getItem("@id"));
+        setUser(response.data);
+      } catch {
+        localStorage.clear();
+        navigate("/login");
+      } finally {
+        
+      }
     }
-  }, [navigate, user]);
+  };
+    getUser();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <UserContext.Provider

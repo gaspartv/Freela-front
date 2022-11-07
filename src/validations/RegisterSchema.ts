@@ -3,11 +3,11 @@ import * as yup from "yup";
 export const registerSchema = yup.object().shape({
   name: yup
   .string()
-  .required("Nome é obrigatória"),
+  .required("Nome é obrigatório"),
 
   password: yup
   .string()
-  .required("Senha é obrigatória"),
+  .required("Senha é obrigatório"),
 
   checkPassword: yup
   .string()

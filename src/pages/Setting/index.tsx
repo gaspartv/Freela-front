@@ -44,7 +44,7 @@ export const Setting = () => {
         </div>
       </InterestedStyled>
       <ServiceStyled>
-        <h2>Meus serviçõs:</h2>
+        <h2>Meus serviços:</h2>
         <ul>
           {mySerivice &&
             mySerivice.map((elem, index) => (
