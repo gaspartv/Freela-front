@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const SettingStyled = styled.div`
   max-width: 1200px;
+  min-width: 300px;
   margin: 32px auto;
 `;
 

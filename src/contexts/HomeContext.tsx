@@ -40,7 +40,7 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
       setdataWorks(res.data);
       setdataFilter(res.data);
     });
-  }, [dataWorks]);
+  }, []);
 
   const filterCategory = (dataCategory: string) => {
     if (dataCategory === "todas" || !dataCategory) {

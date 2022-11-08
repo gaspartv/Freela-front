@@ -11,7 +11,7 @@ export const ModalDeleteService = () => {
     <ModalStyled>
       <span>
         <div>
-          <p>Você tem certeza que quer deletar o anuncio de serviço abaixo ?</p>
+          <p>Deletar o anuncio abaixo?</p>
           <h2>{delService[0].title}</h2>
           <div>
             <button onClick={() => deleteServiceApi(delService[0].id)}>

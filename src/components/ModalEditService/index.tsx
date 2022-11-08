@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { CloseIcon } from "@chakra-ui/icons";
 
 import { SettingContext } from "../../contexts/SettingContext";
 import { iServiceData } from "../ModalAddService";
@@ -24,9 +23,6 @@ export const ModalEditService = () => {
     <ModalStyled>
       <span>
         <form onSubmit={handleSubmit(editServiceApi)}>
-          <span onClick={() => setOpenModalEdit(false)}>
-            <CloseIcon />
-          </span>
           <label>Título</label>
           <input
             type="text"
