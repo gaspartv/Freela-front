@@ -7,7 +7,7 @@ const ModalSeeMore = () => {
     const {openModal, setOpenModal, IdModal, dataWorks } = useContext(HomeContext);
 
 
-    let WorkFiltered = dataWorks.filter(ele => Number(ele.id) == IdModal)
+    let WorkFiltered = dataWorks.filter(ele => Number(ele.id) === Number(IdModal))
 
     console.log(WorkFiltered)
 
