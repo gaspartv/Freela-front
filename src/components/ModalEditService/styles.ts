@@ -21,6 +21,7 @@ export const ModalStyled = styled.div`
       padding: 32px;
       border-radius: 16px;
       position: relative;
+      gap: 5px;
       > span {
         position: absolute;
         top: 8px;
@@ -38,13 +39,13 @@ export const ModalStyled = styled.div`
         padding: 12px;
         border-radius: 8px;
         border: none;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
       }
       > select {
         padding: 12px;
         border-radius: 8px;
         border: none;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
       }
       > div {
         display: flex;

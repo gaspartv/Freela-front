@@ -16,3 +16,21 @@ export const entring = keyframes`
     width: 100%;
   }
 `;
+
+export const exiting = keyframes`
+
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+`;
+
+
+
+
