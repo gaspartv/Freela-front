@@ -1,15 +1,14 @@
 import styled from "styled-components";
-
-
+import { AnimationFadeIn } from "../../styles/animation";
 
 export const RegisterStyled = styled.div`
-height: 100vh;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-font-family: "Poppins";
-font-style: normal;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins";
+  font-style: normal;
 `;
 
 export const DivForm = styled.div`
@@ -34,10 +33,6 @@ export const BlockLogo = styled.span`
   }
 `;
 
-
-
-
-
 export const SectionForm = styled.section`
   width: 100%;
   max-width: 400px;
@@ -45,6 +40,8 @@ export const SectionForm = styled.section`
     padding: 0 27px;
     display: flex;
     flex-direction: column;
+    animation: ${AnimationFadeIn} 0.1s linear forwards;
+
     > h1 {
       font-weight: 700;
       font-size: 32px;
@@ -60,14 +57,25 @@ export const SectionForm = styled.section`
       margin: 6px;
       cursor: default;
     }
-    > input {
-      background: var(--Input-Background);
-      border-radius: 8px;
-      height: 52px;
-      padding: 0 25px;
-      border: none;
+    > div {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      > input {
+        background: var(--Input-Background);
+        border-radius: 8px;
+        height: 52px;
+        padding: 0 25px;
+        border: none;
+      }
+      > span {
+        position: absolute;
+        top: 18px;
+        right: 10px;
+        cursor: pointer;
+      }
     }
-    > select{
+    > select {
       background: var(--Input-Background);
       border-radius: 8px;
       height: 52px;
@@ -84,7 +92,7 @@ export const SectionForm = styled.section`
       line-height: 20px;
       text-align: center;
       color: var(--Secondary);
-      margin-top: 40px;
+      margin-top: 10px;
       cursor: pointer;
       transition: 0.3s;
       :hover {
@@ -94,21 +102,23 @@ export const SectionForm = styled.section`
   }
 `;
 
-export const Terms = styled.div`
-
+export const Terms = styled.span`
   gap: 10px;
   font-weight: 500;
   font-size: 13px;
   display: flex;
   align-items: center;
   color: rgba(23, 115, 105, 0.6);
-  margin-top: 25px;
+  margin: 25px 0;
   text-decoration: none;
-  >
-  :hover {
+  cursor: pointer;
+  > label {
+    cursor: pointer;
+  }
+  > input {
+    cursor: pointer;
+  }
+  > :hover {
     color: var(--Primary);
   }
-
-
-
 `;

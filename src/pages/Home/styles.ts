@@ -1,41 +1,15 @@
 import styled from "styled-components";
 
 export const ContainerHome = styled.div`
-  width: 100vw;
   max-width: 1200px;
-  padding: 16px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
-
-export const HeaderHome = styled.header`
-  display: flex;
-  justify-content: space-between;
-  width: 100vw;
-  max-width: 1200px;
-  margin-top: 20px;
-
-  nav {
-    gap: 4px;
-    display: flex;
-  }
-
-  .logo {
-    font-family: "Italiana";
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 47px;
-    text-align: center;
-    color: #000000;
-    cursor: default;
-  }
+  margin: 32px auto;
 `;
 
 export const HomeTitle = styled.div`
-  /* border: solid red; */
   display: flex;
 
   div {

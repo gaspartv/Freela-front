@@ -1,6 +1,8 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 import { registerSchema } from "../../validations/RegisterSchema";
 import { ParagrafoErro } from "../../components/ParagraphyError";
@@ -13,7 +15,8 @@ import {
   BlockLogo,
   DivForm,
 } from "./styles";
-import { useNavigate } from "react-router-dom";
+import { LinkStyled } from "./../../components/StyledLink/styled";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 export interface iRegisterFormData {
   name: string;
@@ -24,13 +27,8 @@ export interface iRegisterFormData {
 }
 
 export const Register = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    localStorage.getItem("@token") && navigate("/home");
-  }, []);
-
-  const { userRegister } = useContext(UserContext);
+  const { userRegister, passwordOn, setPasswordOn, setTel } =
+    useContext(UserContext);
 
   const {
     register,
@@ -48,58 +46,87 @@ export const Register = () => {
           <form onSubmit={handleSubmit(userRegister)}>
             <h1>Cadastro</h1>
             <label>Nome</label>
-            <input
-              type="name"
-              placeholder="Digite seu nome"
-              {...register("name")}
-            />
+            <div>
+              <input
+                required
+                type="name"
+                placeholder="Digite seu nome"
+                {...register("name")}
+              />
+            </div>
+
             <ParagrafoErro>{errors.name && errors.name?.message}</ParagrafoErro>
 
             <label>E-mail</label>
-            <input
-              type="email"
-              placeholder="Digite seu E-mail"
-              {...register("email")}
-            />
+            <div>
+              <input
+                required
+                type="email"
+                placeholder="Digite seu E-mail"
+                {...register("email")}
+              />
+            </div>
+
             <ParagrafoErro>
               {errors.email && errors.email?.message}
             </ParagrafoErro>
 
             <label>Senha</label>
-            <input
-              type="password"
-              placeholder="Digite sua senha..."
-              {...register("password")}
-            />
+            <div>
+              <input
+                required
+                type={passwordOn}
+                placeholder="Digite sua senha..."
+                {...register("password")}
+              />
+              <span>
+                {passwordOn === "password" ? (
+                  <ViewIcon onClick={() => setPasswordOn("text")} />
+                ) : (
+                  <ViewOffIcon onClick={() => setPasswordOn("password")} />
+                )}
+              </span>
+            </div>
+
             <ParagrafoErro>
               {errors.password && errors.password?.message}
             </ParagrafoErro>
 
             <label>Confirmação de senha</label>
-            <input
-              type="checkPassword"
-              placeholder="Confirma sua senha"
-              {...register("checkPassword")}
-            />
+            <div>
+              <input
+                required
+                type={passwordOn}
+                placeholder="Confirma sua senha"
+                {...register("checkPassword")}
+              />
+              <span>
+                {passwordOn === "password" ? (
+                  <ViewIcon onClick={() => setPasswordOn("text")} />
+                ) : (
+                  <ViewOffIcon onClick={() => setPasswordOn("password")} />
+                )}
+              </span>
+            </div>
             <ParagrafoErro>
               {errors.checkPassword && errors.checkPassword?.message}
             </ParagrafoErro>
 
-            <label>Tipo da sua conta</label>
-            <select defaultValue={"DEFAULT"} required {...register("type")}>
-              <option value="DEFAULT" disabled>
-                Qual o tipo da conta?
-              </option>
-              <option value="provider">Prestador</option>
-              <option value="advertiser">Anunciante</option>
-            </select>
+            <PhoneInput
+              isValid
+              country={"br"}
+              onChange={(phone) => setTel(phone)}
+            />
 
             <Terms>
-              <input type="checkbox" name="terms" value="terms" required />
+              <input type="checkbox" name="terms" id="terms" required />
               <label htmlFor="terms">concordo com os termos e condições</label>
             </Terms>
 
-            <button type="submit">Entrar</button>
+            <LinkStyled to="/login">
+              Ja possui cadastro ? ir para login <span></span>
+            </LinkStyled>
+            <button type="submit">Cadastrar</button>
           </form>
         </SectionForm>
       </DivForm>

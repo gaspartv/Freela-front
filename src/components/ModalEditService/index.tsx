@@ -1,14 +1,16 @@
-import { CloseIcon } from "@chakra-ui/icons";
-import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { CloseIcon } from "@chakra-ui/icons";
+
 import { SettingContext } from "../../contexts/SettingContext";
 import { AddServiceSchema } from "../../validations/AddServiceSchema";
 import { iServiceData } from "../ModalAddService";
+
 import { ModalStyled } from "./styles";
 
 export const ModalEditService = () => {
-  const { setOpenModalEdit, mySerivice, editServiceApi } =
+  const { setOpenModalEdit, editServ, editServiceApi } =
     useContext(SettingContext);
 
   const { register, handleSubmit } = useForm<iServiceData>({
@@ -25,28 +27,31 @@ export const ModalEditService = () => {
           <label>Título</label>
           <input
             type="text"
-            placeholder={mySerivice[0].title}
+            placeholder={editServ[0].title}
             {...register("title")}
           />
 
           <label>Descrição</label>
           <input
             type="text"
-            placeholder={mySerivice[0].description}
+            placeholder={editServ[0].description}
             {...register("description")}
           />
 
           <label>Categoria</label>
-          <input
-            type="text"
-            placeholder={mySerivice[0].category}
-            {...register("category")}
-          />
+          <select {...register("category")}>
+            <option value="">Selecione</option>
+            <option value="tech">Tech</option>
+            <option value="reforco">Reforço</option>
+            <option value="design">Design</option>
+            <option value="financas">Finanças</option>
+            <option value="eletrica">Eletrica</option>
+          </select>
 
           <label>Valor</label>
           <input
             type="text"
-            placeholder={`${mySerivice[0].value}`}
+            placeholder={`${editServ[0].value}`}
             {...register("value")}
           />
 

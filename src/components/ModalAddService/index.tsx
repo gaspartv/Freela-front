@@ -1,10 +1,11 @@
-import { ModalStyled } from "./styles";
-import { CloseIcon } from "@chakra-ui/icons";
 import { useContext } from "react";
-import { SettingContext } from "../../contexts/SettingContext";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+
+import { SettingContext } from "../../contexts/SettingContext";
 import { AddServiceSchema } from "../../validations/AddServiceSchema";
+
+import { ModalStyled } from "./styles";
 
 export interface iServiceData {
   title: string;
@@ -13,15 +14,13 @@ export interface iServiceData {
   value: number;
   id: number;
   userId: number;
+  contact: string;
 }
 
 export const ModalAddService = () => {
   const { setOpenModal, addService } = useContext(SettingContext);
 
-  const {
-    register,
-    handleSubmit,
-  } = useForm<iServiceData>({
+  const { register, handleSubmit } = useForm<iServiceData>({
     resolver: yupResolver(AddServiceSchema),
   });
 
@@ -29,9 +28,6 @@ export const ModalAddService = () => {
     <ModalStyled>
       <span>
         <form onSubmit={handleSubmit(addService)}>
-          <span onClick={() => setOpenModal(false)}>
-            <CloseIcon />
-          </span>
           <label>Título</label>
           <input
             type="text"
@@ -47,15 +43,18 @@ export const ModalAddService = () => {
           />
 
           <label>Categoria</label>
-          <input
-            type="text"
-            placeholder="Digite a categoria"
-            {...register("category")}
-          />
+          <select {...register("category")}>
+            <option value="">Selecione</option>
+            <option value="tech">Tech</option>
+            <option value="reforco">Reforço</option>
+            <option value="design">Design</option>
+            <option value="financas">Finanças</option>
+            <option value="eletrica">Eletrica</option>
+          </select>
 
           <label>Valor</label>
           <input
-            type="text"
+            type="number"
             placeholder="Digite o valor"
             {...register("value")}
           />

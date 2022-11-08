@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+
 import { api } from "../services/api";
 
 export interface iHomeContextProps {
@@ -7,8 +8,8 @@ export interface iHomeContextProps {
 
 export interface iHome {
   openModal: boolean;
-  IdModal: number|null;
-  setIdModal: React.Dispatch<React.SetStateAction<number|null>>;
+  IdModal: number | null;
+  setIdModal: React.Dispatch<React.SetStateAction<number | null>>;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   setdataWorks?: React.Dispatch<React.SetStateAction<never[]>>;
   setdataFilter?: React.Dispatch<React.SetStateAction<never[]>>;
@@ -19,6 +20,7 @@ export interface iHome {
 
 interface iWorks {
   title: string;
+  contact: string;
   description: string;
   value: number;
   id: string;
@@ -29,7 +31,7 @@ export const HomeContext = createContext<iHome>({} as iHome);
 
 const HomeProvider = ({ children }: iHomeContextProps) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
-  const [IdModal, setIdModal] = useState<number|null>(null);
+  const [IdModal, setIdModal] = useState<number | null>(null);
   const [dataWorks, setdataWorks] = useState([]);
   const [dataFilter, setdataFilter] = useState([]);
 

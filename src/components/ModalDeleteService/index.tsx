@@ -1,4 +1,5 @@
 import { useContext } from "react";
+
 import { SettingContext } from "../../contexts/SettingContext";
 import { ModalStyled } from "./styles";
 

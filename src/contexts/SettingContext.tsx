@@ -1,8 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+
 import { api } from "../services/api";
 import { LoadContext } from "./LoadContext";
-import { useNavigate } from "react-router-dom";
+import { UserContext } from "./UserContext";
 
 interface iSettingContextProps {
   children: React.ReactNode;
@@ -15,6 +16,7 @@ export interface iServiceData {
   value: number;
   id: number;
   userId: number;
+  contact: string;
 }
 
 interface iSettingContext {
@@ -34,14 +36,15 @@ interface iSettingContext {
   render: string;
   setRender: React.Dispatch<React.SetStateAction<string>>;
   deleteServiceApi: (id: number) => void;
-  editServiceApi: () => void;
+  editServiceApi: (data: iServiceData) => void;
+  editServ: iServiceData[];
+  setEditServ: React.Dispatch<React.SetStateAction<iServiceData[]>>;
 }
 
 export const SettingContext = createContext({} as iSettingContext);
 
 const SettingProvider = ({ children }: iSettingContextProps) => {
-  const navigate = useNavigate();
-
+  const { user } = useContext(UserContext);
   const { setLoad } = useContext(LoadContext);
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [openModalEdit, setOpenModalEdit] = useState<boolean>(false);
@@ -53,10 +56,9 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
   const [delService, setDelService] = useState<iServiceData[]>(
     [] as iServiceData[]
   );
-
-  useEffect(() => {
-    localStorage.getItem("@token") === null && navigate("/login");
-  }, []);
+  const [editServ, setEditServ] = useState<iServiceData[]>(
+    [] as iServiceData[]
+  );
 
   useEffect(() => {
     const renderMyService = async () => {
@@ -67,7 +69,7 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
       setMyService(result);
     };
     renderMyService();
-  }, [render]);
+  }, [render, user]);
 
   const addService = async (data: iServiceData) => {
     const newData = {
@@ -76,13 +78,14 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
       category: data.category,
       value: Number(data.value),
       userId: Number(localStorage.getItem("@id")),
+      contact: user?.type,
     };
     setLoad(true);
     try {
-      await api.post("/works", newData);
-      setMyService([...mySerivice, data]);
+      const response = await api.post("/works", newData);
       toast("Serviço cadastrado com sucesso!");
       setOpenModal(false);
+      setRender(response.data.id);
     } catch {
       toast.error("Não foi possível cadastrar um novo serviço");
     } finally {
@@ -102,32 +105,33 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
       await api.delete(`/works/${id}`);
       toast("Serviço deletado com sucesso!");
       setOpenModalDelete(false);
+      setRender(`${id}`);
     } catch {
       toast("Não foi possível deletar o serviço");
     } finally {
       setLoad(false);
-      setRender("delete");
     }
   };
 
   const editService = (id: number) => {
     setOpenModalEdit(true);
     const result = mySerivice.filter((elem) => elem.id === id);
-    setDelService(result);
+    setEditServ(result);
   };
 
-  const editServiceApi = async () => {
+  const editServiceApi = async (data: iServiceData) => {
     setLoad(true);
     try {
-      const response = await api.patch(`/works/${mySerivice[0].id}`);
-      console.log(response);
+      const response = await api.patch(`/works/${editServ[0].id}`, data);
       toast("Serviço editado com sucesso!");
       setOpenModalEdit(false);
+      setRender(
+        `E${response.data.id}${response.data.title}${response.data.category}`
+      );
     } catch {
       toast.error("Não foi possível editar o serviço");
     } finally {
       setLoad(false);
-      setRender("edit");
     }
   };
 
@@ -151,6 +155,8 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
         setRender,
         deleteServiceApi,
         editServiceApi,
+        editServ,
+        setEditServ,
       }}
     >
       {children}

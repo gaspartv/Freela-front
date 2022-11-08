@@ -1,71 +1,46 @@
 import styled from "styled-components";
 
 export const SettingStyled = styled.div`
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 32px auto;
 `;
 
 export const InterestedStyled = styled.section`
   > div {
     display: flex;
-    flex-direction: column;
     padding: 16px;
     gap: 40px;
     > button {
-      max-width: 520px;
-      height: 195px;
-      border: 1px solid #177369;
+      border: 1px solid var(--Primary);
       border-radius: 25px;
-      background-color: transparent;
+      background-color: var(--Primary);
+      color: var(--Secondary);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 40px;
-      padding: 0 30px;
+      gap: 15px;
+      padding: 15px 30px;
       cursor: pointer;
+      transition: 0.3s;
+      > span {
+        font-size: 35px;
+        transition: 0.3s;
+      }
       > p {
         font-weight: 700;
-        font-size: 32px;
+        font-size: 22px;
         line-height: 48px;
-        color: #000000;
+        transition: 0.3s;
       }
-    }
-    > ul {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      > h2 {
-        font-weight: 700;
-        font-size: 36px;
-        line-height: 54px;
-        color: #177369;
+      :hover {
+        background-color: var(--Primary-Hover);
       }
-      > li {
-        max-width: 520px;
-        border: 1px solid #177369;
-        border-radius: 25px;
-        padding: 20px;
-        cursor: pointer;
-        > p {
-          font-weight: 700;
-          font-size: 24px;
-          line-height: 36px;
-          color: #000000;
-        }
-        > span {
-          font-weight: 500;
-          font-size: 20px;
-          line-height: 30px;
-          color: rgba(0, 0, 0, 0.46);
-        }
+      :hover p {
+        color: var(--Secondary);
       }
-    }
-  }
-  @media (min-width: 768px) {
-    > div {
-      flex-direction: row-reverse;
-      align-items: center;
+      :hover span {
+        color: var(--Secondary);
+      }
     }
   }
 `;
@@ -79,7 +54,7 @@ export const ServiceStyled = styled.section`
     font-weight: 700;
     font-size: 36px;
     line-height: 54px;
-    color: #177369;
+    color: var(--Primary);
   }
   > ul {
     display: flex;
@@ -91,7 +66,7 @@ export const ServiceStyled = styled.section`
       display: flex;
       flex-direction: column;
       gap: 10px;
-      border: 1px solid #177369;
+      border: 1px solid var(--Primary);
       border-radius: 25px;
       padding: 30px;
       position: relative;
@@ -102,33 +77,37 @@ export const ServiceStyled = styled.section`
         font-weight: 700;
         font-size: 15px;
         line-height: 22px;
-        color: #177369;
+        color: var(--Primary);
       }
       > h3 {
         font-weight: 700;
         font-size: 24px;
         line-height: 36px;
-        color: #000000;
+        color: var(--Black);
       }
       > p {
         font-weight: 500;
         font-size: 15px;
         line-height: 22px;
-        color: #000000;
+        color: var(--Black);
       }
       > div {
         display: flex;
         gap: 16px;
         > button {
           border-radius: 50px;
-          background-color: #177369;
+          background-color: var(--Primary);
           border: none;
           font-weight: 700;
           font-size: 15px;
           line-height: 22px;
-          color: #f5eed0;
+          color: var(--Secondary);
           padding: 6px 22px;
           cursor: pointer;
+          transition: 0.3s;
+          :hover {
+            background-color: var(--Primary-Hover);
+          }
         }
       }
     }

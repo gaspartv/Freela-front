@@ -1,6 +1,7 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 import { loginSchema } from "../../validations/LoginSchema";
 import { ParagrafoErro } from "../../components/ParagraphyError";
@@ -13,7 +14,6 @@ import {
   LoginStyled,
   SectionForm,
 } from "./styles";
-import { useNavigate } from "react-router-dom";
 
 export interface iLoginFormData {
   email: string;
@@ -21,12 +21,7 @@ export interface iLoginFormData {
 }
 
 export const Login = () => {
-  const navigate = useNavigate();
-  const { userLogin } = useContext(UserContext);
-
-  useEffect(() => {
-    localStorage.getItem("@token") && navigate("/home");
-  }, []);
+  const { userLogin, passwordOn, setPasswordOn } = useContext(UserContext);
 
   const {
     register,
@@ -44,20 +39,36 @@ export const Login = () => {
           <form onSubmit={handleSubmit(userLogin)}>
             <h1>Login</h1>
             <label>E-mail</label>
-            <input
-              type="email"
-              placeholder="Digite seu E-mail"
-              {...register("email")}
-            />
+            <div>
+              <input
+                required
+                type="email"
+                placeholder="Digite seu E-mail"
+                {...register("email")}
+              />
+            </div>
+
             <ParagrafoErro>
               {errors.email && errors.email?.message}
             </ParagrafoErro>
             <label>Senha</label>
-            <input
-              type="password"
-              placeholder="Digite sua senha"
-              {...register("password")}
-            />
+            <div>
+              <input
+                required
+                type={passwordOn}
+                placeholder="Digite sua senha"
+                {...register("password")}
+              />
+
+              <span>
+                {passwordOn === "password" ? (
+                  <ViewIcon onClick={() => setPasswordOn("text")} />
+                ) : (
+                  <ViewOffIcon onClick={() => setPasswordOn("password")} />
+                )}
+              </span>
+            </div>
+
             <ParagrafoErro>
               {errors.password && errors.password?.message}
             </ParagrafoErro>

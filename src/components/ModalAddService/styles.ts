@@ -21,12 +21,6 @@ export const ModalStyled = styled.div`
       padding: 32px;
       border-radius: 16px;
       position: relative;
-      > span {
-        position: absolute;
-        top: 8px;
-        right: 10px;
-        cursor: pointer;
-      }
       > label {
         font-weight: 500;
         font-size: 20px;
@@ -35,6 +29,12 @@ export const ModalStyled = styled.div`
         padding-left: 8px;
       }
       > input {
+        padding: 12px;
+        border-radius: 8px;
+        border: none;
+        margin-bottom: 20px;
+      }
+      > select {
         padding: 12px;
         border-radius: 8px;
         border: none;

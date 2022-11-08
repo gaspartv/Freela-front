@@ -1,43 +1,74 @@
-import imgHome from "../../assets/img/imgHome.png";
-import { HomeContext } from "../../contexts/HomeContext";
-import {
-  ContainerHome,
-  HomeStyled,
-  HeaderHome,
-  HomeTitle,
-  BtnsFilter,
-} from "./styles";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+
+import imgHome from "../../assets/img/imgHome.png";
+
+import { HomeContext } from "../../contexts/HomeContext";
 import ModalSeeMore from "../../components/ModalSeeMore";
 
-export const Home = () => {
-  const { filterCategory, dataFilter, openModal, setOpenModal, setIdModal } = useContext(HomeContext);
+import { ContainerHome, HomeStyled, HomeTitle, BtnsFilter } from "./styles";
+import { LinkSettingStyled, NavStyled } from "../../components/Nav/styles";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
 
-  function HandleClickModal (Target: any) {
-    const ID = Target.id
-    setOpenModal(true)
-    setIdModal(ID)
+export const Home = () => {
+  const navigate = useNavigate();
+  const { userLogout, user } = useContext(UserContext);
+  const { filterCategory, dataFilter, openModal, setOpenModal, setIdModal } =
+    useContext(HomeContext);
+
+  function HandleClickModal(Target: any) {
+    const ID = Target.id;
+    setOpenModal(true);
+    setIdModal(ID);
   }
-  
+
   return (
     <>
       <ContainerHome>
-        <HeaderHome>
-          <span className="logo">Frilla</span>
-          <nav>
-            <Link to={"/home"}>Works</Link>
-            <span>//</span>
-            <Link to={"/login"}>Login</Link>
-            <span>//</span>
-            <Link to={"/register"}>Cadastro</Link>
-          </nav>
-        </HeaderHome>
+        <NavStyled>
+          <h1>frilla</h1>
+          <div>
+            {user ? (
+              <>
+                <p>{user.name}</p>
+                <ChevronRightIcon />
+                <LinkSettingStyled to="/setting">
+                  Configurações<span></span>
+                </LinkSettingStyled>
+                <ChevronRightIcon />
+                <button
+                  onClick={() => {
+                    userLogout();
+                    navigate("/");
+                  }}
+                >
+                  Sair<span></span>
+                </button>
+              </>
+            ) : (
+              <>
+                <LinkSettingStyled to="/login">
+                  Login<span></span>
+                </LinkSettingStyled>
+                <ChevronRightIcon />
+                <LinkSettingStyled to="/register">
+                  Criar conta<span></span>
+                </LinkSettingStyled>
+              </>
+            )}
+          </div>
+        </NavStyled>
 
         <HomeTitle>
           <div>
-            <h1>Bem-vindos à <span>Nova Era do Trabalho</span></h1>
-            <p>Conectamos os melhores talentos independentes com as melhores empresas</p>
+            <h1>
+              Bem-vindos à <span>Nova Era do Trabalho</span>
+            </h1>
+            <p>
+              Conectamos os melhores talentos independentes com as melhores
+              empresas
+            </p>
           </div>
           <figure>
             <img src={imgHome} alt="imagem Home" />
@@ -46,17 +77,32 @@ export const Home = () => {
 
         <BtnsFilter>
           <ul>
-            <li><button onClick={() => filterCategory("todas")}>Todos</button></li>
-            <li><button onClick={() => filterCategory("tech")}>Tech</button></li>
-            <li><button onClick={() => filterCategory("reforco")}>Reforço</button></li>
-            <li><button onClick={() => filterCategory("design")}>Design</button></li>
-            <li><button onClick={() => filterCategory("financas")}>Finanças</button></li>
-            <li><button onClick={() => filterCategory("eletrica")}>Eletrica</button>
+            <li>
+              <button onClick={() => filterCategory("todas")}>Todos</button>
+            </li>
+            <li>
+              <button onClick={() => filterCategory("tech")}>Tech</button>
+            </li>
+            <li>
+              <button onClick={() => filterCategory("reforco")}>Reforço</button>
+            </li>
+            <li>
+              <button onClick={() => filterCategory("design")}>Design</button>
+            </li>
+            <li>
+              <button onClick={() => filterCategory("financas")}>
+                Finanças
+              </button>
+            </li>
+            <li>
+              <button onClick={() => filterCategory("eletrica")}>
+                Eletrica
+              </button>
             </li>
           </ul>
         </BtnsFilter>
 
-        {openModal && <ModalSeeMore/>}
+        {openModal && <ModalSeeMore />}
 
         <HomeStyled>
           <ul>
@@ -68,7 +114,10 @@ export const Home = () => {
                 </div>
                 <div className="cardDescription">
                   <p>{elem.description}</p>
-                  <button onClick={(event) => HandleClickModal(event.target)} id={elem.id}>
+                  <button
+                    onClick={(event) => HandleClickModal(event.target)}
+                    id={elem.id}
+                  >
                     Ver mais
                   </button>
                 </div>
@@ -76,7 +125,6 @@ export const Home = () => {
             ))}
           </ul>
         </HomeStyled>
-
       </ContainerHome>
     </>
   );
