@@ -14,6 +14,7 @@ import {
   LoginStyled,
   SectionForm,
 } from "./styles";
+import { Button } from "@chakra-ui/react";
 
 export interface iLoginFormData {
   email: string;
@@ -75,7 +76,7 @@ export const Login = () => {
             <LinkStyled to="/register">
               Ainda não possui cadastro? <span></span>
             </LinkStyled>
-            <button type="submit">Entrar</button>
+            <Button type="submit">Entrar</Button>
           </form>
         </SectionForm>
       </DivForm>

@@ -17,6 +17,7 @@ import {
 } from "./styles";
 import { LinkStyled } from "./../../components/StyledLink/styled";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { Button } from "../../components/buttons";
 
 export interface iRegisterFormData {
   name: string;
@@ -126,7 +127,7 @@ export const Register = () => {
             <LinkStyled to="/login">
               Ja possui cadastro ? ir para login <span></span>
             </LinkStyled>
-            <button type="submit">Cadastrar</button>
+            <Button>Cadastrar</Button>
           </form>
         </SectionForm>
       </DivForm>

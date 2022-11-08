@@ -12,10 +12,10 @@ const entring = keyframes`
 
 export const NavStyled = styled.nav`
   display: flex;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 16px;
+  flex-wrap: wrap;
   > h1 {
     font-family: "Italiana";
     font-weight: 400;

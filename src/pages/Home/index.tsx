@@ -114,6 +114,13 @@ export const Home = () => {
                 </div>
                 <div className="cardDescription">
                   <p>{elem.description}</p>
+                  <p>{elem.contact}</p>
+                  <p>
+                    {elem.value.toLocaleString("pt-br", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </p>
                   <button
                     onClick={(event) => HandleClickModal(event.target)}
                     id={elem.id}

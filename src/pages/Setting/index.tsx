@@ -43,7 +43,14 @@ export const Setting = () => {
               <li key={index}>
                 <span>{elem.category}</span>
                 <h3>{elem.title}</h3>
+                <p>Tel: {elem.contact}</p>
                 <p>{elem.description}</p>
+                <p>
+                  {elem.value.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
+                </p>
                 <div>
                   <button onClick={() => editService(elem.id)}>Editar</button>
                   <button onClick={() => deleteService(elem.id)}>
