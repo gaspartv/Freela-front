@@ -6,8 +6,14 @@ export interface iHomeContextProps {
 }
 
 export interface iHome {
+  openModal: boolean;
+  IdModal: number|null;
+  setIdModal: React.Dispatch<React.SetStateAction<number|null>>;
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   setdataWorks?: React.Dispatch<React.SetStateAction<never[]>>;
+  setdataFilter?: React.Dispatch<React.SetStateAction<never[]>>;
   dataWorks: iWorks[];
+  dataFilter: iWorks[];
   filteCategory: (Category: string) => void;
 }
 
@@ -22,20 +28,36 @@ interface iWorks {
 export const HomeContext = createContext<iHome>({} as iHome);
 
 const HomeProvider = ({ children }: iHomeContextProps) => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [IdModal, setIdModal] = useState<number|null>(null);
   const [dataWorks, setdataWorks] = useState([]);
+  const [dataFilter, setdataFilter] = useState([]);
+
   useEffect(() => {
-    api.get("/works").then((res) => setdataWorks(res.data));
+    api.get("/works").then((res) => {
+      setdataWorks(res.data);
+      setdataFilter(res.data);
+    });
   }, []);
 
   const filteCategory = (dataCategory: string) => {
-    const categoryFilter = dataWorks.filter(
-      (elem: any) => elem.category === dataCategory
-    );
-    setdataWorks([...categoryFilter])
+    if (dataCategory === "todas" || !dataCategory) {
+      const categoryFilter = dataWorks.filter(
+        (elem: any) => elem.category !== ""
+      );
+      setdataFilter(categoryFilter);
+    } else {
+      const categoryFilter = dataWorks.filter(
+        (elem: any) => elem.category === dataCategory
+      );
+      setdataFilter(categoryFilter);
+    }
   };
 
   return (
-    <HomeContext.Provider value={{ dataWorks, filteCategory }}>
+    <HomeContext.Provider
+      value={{setIdModal, IdModal , dataWorks, filteCategory, dataFilter, openModal, setOpenModal }}
+    >
       {children}
     </HomeContext.Provider>
   );

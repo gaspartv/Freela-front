@@ -8,29 +8,23 @@ import {
   BtnsFilter,
 } from "./styles";
 import { useContext } from "react";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  Button,
-} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import ModalSeeMore from "../../components/ModalSeeMore";
 
 export const Home = () => {
-  const { dataWorks, filteCategory} = useContext(HomeContext);
+  const { filteCategory, dataFilter, openModal, setOpenModal, setIdModal } = useContext(HomeContext);
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
+  function HandleClickModal (Target: any) {
+    const ID = Target.id
+    setOpenModal(true)
+    setIdModal(ID)
+  }
+  
   return (
     <>
       <ContainerHome>
         <HeaderHome>
-          <span>Frilla</span>
+          <span className="logo">Frilla</span>
           <nav>
             <Link to={"/home"}>Works |</Link>
             <Link to={"/login"}>Login |</Link>
@@ -40,13 +34,8 @@ export const Home = () => {
 
         <HomeTitle>
           <div>
-            <h1>
-              Bem-vindos à <span>Nova Era do Trabalho</span>
-            </h1>
-            <p>
-              Conectamos os melhores talentos independentes com as melhores
-              empresas
-            </p>
+            <h1>Bem-vindos à <span>Nova Era do Trabalho</span></h1>
+            <p>Conectamos os melhores talentos independentes com as melhores empresas</p>
           </div>
           <figure>
             <img src={imgHome} alt="imagem Home" />
@@ -55,47 +44,37 @@ export const Home = () => {
 
         <BtnsFilter>
           <ul>
-            {
-             dataWorks.map((elem) => (<li key={elem.id}><button onClick={()=>filteCategory(elem.category)}>{elem.category}</button></li>))
-            }
+            <li><button onClick={() => filteCategory("todas")}>Todos</button></li>
+            <li><button onClick={() => filteCategory("tech")}>Tech</button></li>
+            <li><button onClick={() => filteCategory("reforco")}>Reforço</button></li>
+            <li><button onClick={() => filteCategory("design")}>Design</button></li>
+            <li><button onClick={() => filteCategory("financas")}>Finanças</button></li>
+            <li><button onClick={() => filteCategory("eletrica")}>Eletrica</button>
+            </li>
           </ul>
+
         </BtnsFilter>
+        {openModal && <ModalSeeMore/>}
 
         <HomeStyled>
           <ul>
-            {dataWorks.map((elem) => (
+            {dataFilter.map((elem) => (
               <li key={elem.id}>
                 <div className="cardTitle">
                   <h2>{elem.title}</h2>
                   <span>{elem.category}</span>
                 </div>
-
                 <div className="cardDescription">
                   <p>{elem.description}</p>
-                  <button onClick={onOpen} id={elem.id}>
+                  <button onClick={(event) => HandleClickModal(event.target)} id={elem.id}>
                     see more
                   </button>
                 </div>
-
-                <Modal isOpen={isOpen} onClose={onClose}>
-                  <ModalOverlay />
-                  <ModalContent>
-                    <ModalHeader>{elem.title}</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>{elem.description}</ModalBody>
-
-                    <ModalFooter>
-                      <Button colorScheme="blue" mr={3} onClick={onClose}>
-                        Close
-                      </Button>
-                      <Button variant="ghost">Tenho Interesse!</Button>
-                    </ModalFooter>
-                  </ModalContent>
-                </Modal>
               </li>
             ))}
           </ul>
         </HomeStyled>
+
       </ContainerHome>
     </>
   );
