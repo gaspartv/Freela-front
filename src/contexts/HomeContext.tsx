@@ -40,7 +40,7 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
       setdataWorks(res.data);
       setdataFilter(res.data);
     });
-  }, []);
+  }, [dataWorks]);
 
   const filterCategory = (dataCategory: string) => {
     if (dataCategory === "todas" || !dataCategory) {
@@ -57,9 +57,7 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
   };
 
   return (
-    <HomeContext.Provider
-      value={{setIdModal, IdModal , dataWorks, filterCategory, dataFilter, openModal, setOpenModal }}
-    >
+    <HomeContext.Provider value={{setIdModal, IdModal , dataWorks, filterCategory, dataFilter, openModal, setOpenModal }}>
       {children}
     </HomeContext.Provider>
   );
