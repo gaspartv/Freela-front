@@ -13,6 +13,7 @@ export const ModalStyled = styled.div`
   z-index: 101;
   > span {
     padding: 16px;
+    width: 100%;
     > form {
       max-width: 400px;
       background-color: var(--Secondary);
@@ -20,7 +21,9 @@ export const ModalStyled = styled.div`
       flex-direction: column;
       padding: 32px;
       border-radius: 16px;
+      border: 2px solid var(--Primary-Hover);
       position: relative;
+      margin: 0 auto;
       > label {
         font-weight: 500;
         font-size: 20px;
