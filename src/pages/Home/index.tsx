@@ -47,9 +47,15 @@ export const Home = () => {
                 </button>
               </>
             ) : (
-              <LinkSettingStyled to="/login">
-                Login<span></span>
-              </LinkSettingStyled>
+              <>
+                <LinkSettingStyled to="/login">
+                  Login<span></span>
+                </LinkSettingStyled>
+                <ChevronRightIcon />
+                <LinkSettingStyled to="/register">
+                  Criar conta<span></span>
+                </LinkSettingStyled>
+              </>
             )}
           </div>
         </NavStyled>

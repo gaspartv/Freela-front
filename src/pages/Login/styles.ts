@@ -50,7 +50,7 @@ export const SectionForm = styled.section`
     padding: 0 27px;
     display: flex;
     flex-direction: column;
-    animation: ${AnimationFadeIn} 0.4s linear forwards;
+    animation: ${AnimationFadeIn} 0.1s linear forwards;
 
     > h1 {
       font-weight: 700;
@@ -67,13 +67,25 @@ export const SectionForm = styled.section`
       margin: 6px;
       cursor: default;
     }
-    > input {
-      background: var(--Input-Background);
-      border-radius: 8px;
-      height: 52px;
-      padding: 0 25px;
-      border: none;
+    > div {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      > input {
+        background: var(--Input-Background);
+        border-radius: 8px;
+        height: 52px;
+        padding: 0 25px;
+        border: none;
+      }
+      > span {
+        position: absolute;
+        top: 18px;
+        right: 10px;
+        cursor: pointer;
+      }
     }
+
     > button {
       height: 52px;
       background: var(--Primary);
