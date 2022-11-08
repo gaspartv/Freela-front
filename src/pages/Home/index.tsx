@@ -1,5 +1,11 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+
 import imgHome from "../../assets/img/imgHome.png";
+
 import { HomeContext } from "../../contexts/HomeContext";
+import ModalSeeMore from "../../components/ModalSeeMore";
+
 import {
   ContainerHome,
   HomeStyled,
@@ -7,19 +13,17 @@ import {
   HomeTitle,
   BtnsFilter,
 } from "./styles";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
-import ModalSeeMore from "../../components/ModalSeeMore";
 
 export const Home = () => {
-  const { filteCategory, dataFilter, openModal, setOpenModal, setIdModal } = useContext(HomeContext);
+  const { filteCategory, dataFilter, openModal, setOpenModal, setIdModal } =
+    useContext(HomeContext);
 
-  function HandleClickModal (Target: any) {
-    const ID = Target.id
-    setOpenModal(true)
-    setIdModal(ID)
+  function HandleClickModal(Target: any) {
+    const ID = Target.id;
+    setOpenModal(true);
+    setIdModal(ID);
   }
-  
+
   return (
     <>
       <ContainerHome>
@@ -34,8 +38,13 @@ export const Home = () => {
 
         <HomeTitle>
           <div>
-            <h1>Bem-vindos à <span>Nova Era do Trabalho</span></h1>
-            <p>Conectamos os melhores talentos independentes com as melhores empresas</p>
+            <h1>
+              Bem-vindos à <span>Nova Era do Trabalho</span>
+            </h1>
+            <p>
+              Conectamos os melhores talentos independentes com as melhores
+              empresas
+            </p>
           </div>
           <figure>
             <img src={imgHome} alt="imagem Home" />
@@ -44,17 +53,31 @@ export const Home = () => {
 
         <BtnsFilter>
           <ul>
-            <li><button onClick={() => filteCategory("todas")}>Todos</button></li>
-            <li><button onClick={() => filteCategory("tech")}>Tech</button></li>
-            <li><button onClick={() => filteCategory("reforco")}>Reforço</button></li>
-            <li><button onClick={() => filteCategory("design")}>Design</button></li>
-            <li><button onClick={() => filteCategory("financas")}>Finanças</button></li>
-            <li><button onClick={() => filteCategory("eletrica")}>Eletrica</button>
+            <li>
+              <button onClick={() => filteCategory("todas")}>Todos</button>
+            </li>
+            <li>
+              <button onClick={() => filteCategory("tech")}>Tech</button>
+            </li>
+            <li>
+              <button onClick={() => filteCategory("reforco")}>Reforço</button>
+            </li>
+            <li>
+              <button onClick={() => filteCategory("design")}>Design</button>
+            </li>
+            <li>
+              <button onClick={() => filteCategory("financas")}>
+                Finanças
+              </button>
+            </li>
+            <li>
+              <button onClick={() => filteCategory("eletrica")}>
+                Eletrica
+              </button>
             </li>
           </ul>
-
         </BtnsFilter>
-        {openModal && <ModalSeeMore/>}
+        {openModal && <ModalSeeMore />}
 
         <HomeStyled>
           <ul>
@@ -66,7 +89,10 @@ export const Home = () => {
                 </div>
                 <div className="cardDescription">
                   <p>{elem.description}</p>
-                  <button onClick={(event) => HandleClickModal(event.target)} id={elem.id}>
+                  <button
+                    onClick={(event) => HandleClickModal(event.target)}
+                    id={elem.id}
+                  >
                     see more
                   </button>
                 </div>
@@ -74,7 +100,6 @@ export const Home = () => {
             ))}
           </ul>
         </HomeStyled>
-
       </ContainerHome>
     </>
   );

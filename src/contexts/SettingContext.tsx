@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+
 import { api } from "../services/api";
 import { LoadContext } from "./LoadContext";
 
@@ -33,13 +34,14 @@ interface iSettingContext {
   render: string;
   setRender: React.Dispatch<React.SetStateAction<string>>;
   deleteServiceApi: (id: number) => void;
-  editServiceApi: () => void;
+  editServiceApi: (data: iServiceData) => void;
+  editServ: iServiceData[];
+  setEditServ: React.Dispatch<React.SetStateAction<iServiceData[]>>;
 }
 
 export const SettingContext = createContext({} as iSettingContext);
 
 const SettingProvider = ({ children }: iSettingContextProps) => {
-
   const { setLoad } = useContext(LoadContext);
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [openModalEdit, setOpenModalEdit] = useState<boolean>(false);
@@ -49,6 +51,9 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
     [] as iServiceData[]
   );
   const [delService, setDelService] = useState<iServiceData[]>(
+    [] as iServiceData[]
+  );
+  const [editServ, setEditServ] = useState<iServiceData[]>(
     [] as iServiceData[]
   );
 
@@ -73,10 +78,10 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
     };
     setLoad(true);
     try {
-      await api.post("/works", newData);
-      setMyService([...mySerivice, data]);
+      const response = await api.post("/works", newData);
       toast("Serviço cadastrado com sucesso!");
       setOpenModal(false);
+      setRender(response.data.id);
     } catch {
       toast.error("Não foi possível cadastrar um novo serviço");
     } finally {
@@ -96,31 +101,33 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
       await api.delete(`/works/${id}`);
       toast("Serviço deletado com sucesso!");
       setOpenModalDelete(false);
+      setRender(`${id}`);
     } catch {
       toast("Não foi possível deletar o serviço");
     } finally {
       setLoad(false);
-      setRender("delete");
     }
   };
 
   const editService = (id: number) => {
     setOpenModalEdit(true);
     const result = mySerivice.filter((elem) => elem.id === id);
-    setDelService(result);
+    setEditServ(result);
   };
 
-  const editServiceApi = async () => {
+  const editServiceApi = async (data: iServiceData) => {
     setLoad(true);
     try {
-      const response = await api.patch(`/works/${mySerivice[0].id}`);
+      const response = await api.patch(`/works/${editServ[0].id}`, data);
       toast("Serviço editado com sucesso!");
       setOpenModalEdit(false);
+      setRender(
+        `E${response.data.id}${response.data.title}${response.data.category}`
+      );
     } catch {
       toast.error("Não foi possível editar o serviço");
     } finally {
       setLoad(false);
-      setRender("edit");
     }
   };
 
@@ -144,6 +151,8 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
         setRender,
         deleteServiceApi,
         editServiceApi,
+        editServ,
+        setEditServ,
       }}
     >
       {children}

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 const entring = keyframes`
@@ -20,7 +21,7 @@ export const NavStyled = styled.nav`
     font-size: 40px;
     line-height: 47px;
     text-align: center;
-    color: #000000;
+    color: var(--Black);
     cursor: default;
   }
   > div {
@@ -34,14 +35,14 @@ export const NavStyled = styled.nav`
       font-size: 14px;
       line-height: 30px;
       text-align: center;
-      color: #000000;
+      color: var(--Black);
       cursor: default;
     }
     > button {
       font-size: 14px;
       line-height: 30px;
       text-align: center;
-      color: #000000;
+      color: var(--Black);
       border: none;
       background-color: transparent;
       cursor: pointer;
@@ -57,5 +58,25 @@ export const NavStyled = styled.nav`
         animation: ${entring} 0.3s linear forwards;
       }
     }
+  }
+`;
+
+export const LinkSettingStyled = styled(Link)`
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  color: var(--Black);
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  > span {
+    position: absolute;
+    left: 0;
+    bottom: 3px;
+    height: 2px;
+    background-color: var(--Primary);
+  }
+  :hover span {
+    animation: ${entring} 0.3s linear forwards;
   }
 `;

@@ -1,6 +1,8 @@
-import { ErrorStyled, ErrorContainer, Warning } from "./styles";
 import imagemError from "../../assets/error.png";
+
+import { ErrorStyled, ErrorContainer, Warning } from "./styles";
 import { LinkStyled } from './../../components/StyledLink/styled';
+
 export const Error = () => {
   return (
     <ErrorStyled>

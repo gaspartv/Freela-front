@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { AnimationFadeIn } from "../../styles/animation";
 
 export const ModalStyled = styled.div`
   position: fixed;
@@ -12,7 +11,6 @@ export const ModalStyled = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 101;
-  animation: ${AnimationFadeIn} 0.4s linear forwards;
   > span {
     padding: 16px;
     > div {

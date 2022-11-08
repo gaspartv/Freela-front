@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+
 import { api } from "../services/api";
 
 export interface iHomeContextProps {
@@ -7,8 +8,8 @@ export interface iHomeContextProps {
 
 export interface iHome {
   openModal: boolean;
-  IdModal: number|null;
-  setIdModal: React.Dispatch<React.SetStateAction<number|null>>;
+  IdModal: number | null;
+  setIdModal: React.Dispatch<React.SetStateAction<number | null>>;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   setdataWorks?: React.Dispatch<React.SetStateAction<never[]>>;
   setdataFilter?: React.Dispatch<React.SetStateAction<never[]>>;
@@ -29,7 +30,7 @@ export const HomeContext = createContext<iHome>({} as iHome);
 
 const HomeProvider = ({ children }: iHomeContextProps) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
-  const [IdModal, setIdModal] = useState<number|null>(null);
+  const [IdModal, setIdModal] = useState<number | null>(null);
   const [dataWorks, setdataWorks] = useState([]);
   const [dataFilter, setdataFilter] = useState([]);
 
@@ -56,7 +57,15 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
 
   return (
     <HomeContext.Provider
-      value={{setIdModal, IdModal , dataWorks, filteCategory, dataFilter, openModal, setOpenModal }}
+      value={{
+        setIdModal,
+        IdModal,
+        dataWorks,
+        filteCategory,
+        dataFilter,
+        openModal,
+        setOpenModal,
+      }}
     >
       {children}
     </HomeContext.Provider>

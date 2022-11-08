@@ -35,7 +35,6 @@ export const HeaderHome = styled.header`
 `;
 
 export const HomeTitle = styled.div`
-  /* border: solid red; */
   display: flex;
 
   div {

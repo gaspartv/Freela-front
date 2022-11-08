@@ -40,6 +40,12 @@ export const ModalStyled = styled.div`
         border: none;
         margin-bottom: 20px;
       }
+      > select {
+        padding: 12px;
+        border-radius: 8px;
+        border: none;
+        margin-bottom: 20px;
+      }
       > div {
         display: flex;
         justify-content: center;

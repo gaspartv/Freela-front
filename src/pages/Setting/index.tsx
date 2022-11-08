@@ -1,13 +1,16 @@
-import { Nav } from "../../components/Nav";
-import { InterestedStyled, ServiceStyled, SettingStyled } from "./styles";
-import add from "../../assets/add.png";
 import { useContext } from "react";
+
+import { Nav } from "../../components/Nav";
 import { SettingContext } from "../../contexts/SettingContext";
 import { ModalAddService } from "../../components/ModalAddService";
 import { ModalDeleteService } from "../../components/ModalDeleteService";
 import { ModalEditService } from "../../components/ModalEditService";
 
+import { InterestedStyled, ServiceStyled, SettingStyled } from "./styles";
+import { AnimationContext } from "../../contexts/AnimationContext";
+
 export const Setting = () => {
+  const { parent } = useContext(AnimationContext);
   const {
     openModal,
     openModalEdit,
@@ -27,25 +30,14 @@ export const Setting = () => {
       <InterestedStyled>
         <div>
           <button onClick={() => setOpenModal(true)}>
-            <img src={add} alt="Add" />
+            <span>+</span>
             <p>Anunciar serviço</p>
           </button>
-          <ul>
-            <h2>Interessados:</h2>
-            <li>
-              <p>Caio Alcarria</p>
-              <span>Desenvolver website</span>
-            </li>
-            <li>
-              <p>Caio Alcarria</p>
-              <span>Desenvolver website</span>
-            </li>
-          </ul>
         </div>
       </InterestedStyled>
       <ServiceStyled>
         <h2>Meus serviços:</h2>
-        <ul>
+        <ul ref={parent}>
           {mySerivice &&
             mySerivice.map((elem, index) => (
               <li key={index}>
@@ -54,7 +46,9 @@ export const Setting = () => {
                 <p>{elem.description}</p>
                 <div>
                   <button onClick={() => editService(elem.id)}>Editar</button>
-                  <button onClick={() => deleteService(elem.id)}>Deletar</button>
+                  <button onClick={() => deleteService(elem.id)}>
+                    Deletar
+                  </button>
                 </div>
               </li>
             ))}

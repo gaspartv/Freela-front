@@ -1,10 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { api } from "../services/api";
+
 import { iLoginFormData } from "./../pages/Login/index";
-import { LoadContext } from "./LoadContext";
 import { iRegisterFormData } from "./../pages/Register/index";
+import { api } from "../services/api";
+import { LoadContext } from "./LoadContext";
 
 export const UserContext = createContext({} as iUserContext);
 export interface iUserContext {
