@@ -14,6 +14,7 @@ export interface iServiceData {
   value: number;
   id: number;
   userId: number;
+  contact: string;
 }
 
 export const ModalAddService = () => {

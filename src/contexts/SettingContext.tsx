@@ -1,8 +1,10 @@
+import userEvent from "@testing-library/user-event";
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 import { api } from "../services/api";
 import { LoadContext } from "./LoadContext";
+import { UserContext } from "./UserContext";
 
 interface iSettingContextProps {
   children: React.ReactNode;
@@ -15,6 +17,7 @@ export interface iServiceData {
   value: number;
   id: number;
   userId: number;
+  contact: string;
 }
 
 interface iSettingContext {
@@ -42,6 +45,7 @@ interface iSettingContext {
 export const SettingContext = createContext({} as iSettingContext);
 
 const SettingProvider = ({ children }: iSettingContextProps) => {
+  const { user } = useContext(UserContext);
   const { setLoad } = useContext(LoadContext);
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [openModalEdit, setOpenModalEdit] = useState<boolean>(false);
@@ -75,6 +79,7 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
       category: data.category,
       value: Number(data.value),
       userId: Number(localStorage.getItem("@id")),
+      contact: user?.type,
     };
     setLoad(true);
     try {

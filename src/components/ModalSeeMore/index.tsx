@@ -7,9 +7,9 @@ import { ModalStyled } from "./styles";
 const ModalSeeMore = () => {
   const { setOpenModal, IdModal, dataWorks } = useContext(HomeContext);
 
-  let WorkFiltered = dataWorks.filter((ele) => Number(ele.id) === IdModal);
-
-  console.log(WorkFiltered);
+  let WorkFiltered = dataWorks.filter(
+    (ele) => Number(ele.id) === Number(IdModal)
+  );
 
   return (
     <ModalStyled>
