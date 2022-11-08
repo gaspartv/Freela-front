@@ -1,21 +1,21 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 
 import imgHome from "../../assets/img/imgHome.png";
 
 import { HomeContext } from "../../contexts/HomeContext";
 import ModalSeeMore from "../../components/ModalSeeMore";
 
-import {
-  ContainerHome,
-  HomeStyled,
-  HeaderHome,
-  HomeTitle,
-  BtnsFilter,
-} from "./styles";
+import { ContainerHome, HomeStyled, HomeTitle, BtnsFilter } from "./styles";
+import { LinkSettingStyled, NavStyled } from "../../components/Nav/styles";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
 
 export const Home = () => {
-  const { filterCategory, dataFilter, openModal, setOpenModal, setIdModal } = useContext(HomeContext);
+  const navigate = useNavigate();
+  const { userLogout, user } = useContext(UserContext);
+  const { filterCategory, dataFilter, openModal, setOpenModal, setIdModal } =
+    useContext(HomeContext);
 
   function HandleClickModal(Target: any) {
     const ID = Target.id;
@@ -26,14 +26,33 @@ export const Home = () => {
   return (
     <>
       <ContainerHome>
-        <HeaderHome>
-          <span className="logo">Frilla</span>
-          <nav>
-            <Link to={"/home"}>Works |</Link>
-            <Link to={"/login"}>Login |</Link>
-            <Link to={"/register"}>Cadastro</Link>
-          </nav>
-        </HeaderHome>
+        <NavStyled>
+          <h1>frilla</h1>
+          <div>
+            {user ? (
+              <>
+                <p>{user.name}</p>
+                <ChevronRightIcon />
+                <LinkSettingStyled to="/setting">
+                  Configurações<span></span>
+                </LinkSettingStyled>
+                <ChevronRightIcon />
+                <button
+                  onClick={() => {
+                    userLogout();
+                    navigate("/");
+                  }}
+                >
+                  Sair<span></span>
+                </button>
+              </>
+            ) : (
+              <LinkSettingStyled to="/login">
+                Login<span></span>
+              </LinkSettingStyled>
+            )}
+          </div>
+        </NavStyled>
 
         <HomeTitle>
           <div>
@@ -52,17 +71,32 @@ export const Home = () => {
 
         <BtnsFilter>
           <ul>
-            <li><button onClick={() => filterCategory("todas")}>Todos</button></li>
-            <li><button onClick={() => filterCategory("tech")}>Tech</button></li>
-            <li><button onClick={() => filterCategory("reforco")}>Reforço</button></li>
-            <li><button onClick={() => filterCategory("design")}>Design</button></li>
-            <li><button onClick={() => filterCategory("financas")}>Finanças</button></li>
-            <li><button onClick={() => filterCategory("eletrica")}>Eletrica</button>
+            <li>
+              <button onClick={() => filterCategory("todas")}>Todos</button>
+            </li>
+            <li>
+              <button onClick={() => filterCategory("tech")}>Tech</button>
+            </li>
+            <li>
+              <button onClick={() => filterCategory("reforco")}>Reforço</button>
+            </li>
+            <li>
+              <button onClick={() => filterCategory("design")}>Design</button>
+            </li>
+            <li>
+              <button onClick={() => filterCategory("financas")}>
+                Finanças
+              </button>
+            </li>
+            <li>
+              <button onClick={() => filterCategory("eletrica")}>
+                Eletrica
+              </button>
             </li>
           </ul>
         </BtnsFilter>
 
-        {openModal && <ModalSeeMore/>}
+        {openModal && <ModalSeeMore />}
 
         <HomeStyled>
           <ul>
@@ -74,7 +108,10 @@ export const Home = () => {
                 </div>
                 <div className="cardDescription">
                   <p>{elem.description}</p>
-                  <button onClick={(event) => HandleClickModal(event.target)} id={elem.id}>
+                  <button
+                    onClick={(event) => HandleClickModal(event.target)}
+                    id={elem.id}
+                  >
                     Ver mais
                   </button>
                 </div>
