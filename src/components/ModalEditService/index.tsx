@@ -3,17 +3,20 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { SettingContext } from "../../contexts/SettingContext";
-import { AddServiceSchema } from "../../validations/AddServiceSchema";
 import { iServiceData } from "../ModalAddService";
 
 import { ModalStyled } from "./styles";
+import { ParagrafoErro } from "../ParagraphyError";
+import { EditModalSchema } from './../../validations/EditModalSchema';
 
 export const ModalEditService = () => {
   const { setOpenModalEdit, editServ, editServiceApi } =
     useContext(SettingContext);
 
-  const { register, handleSubmit } = useForm<iServiceData>({
-    resolver: yupResolver(AddServiceSchema),
+  const { register, handleSubmit,
+    formState: { errors }
+  } = useForm<iServiceData>({
+    resolver: yupResolver(EditModalSchema),
   });
 
   return (
@@ -26,6 +29,7 @@ export const ModalEditService = () => {
             placeholder={editServ[0].title}
             {...register("title")}
           />
+          <ParagrafoErro>{errors.title?.message}</ParagrafoErro>
 
           <label>Descrição</label>
           <input
@@ -33,6 +37,7 @@ export const ModalEditService = () => {
             placeholder={editServ[0].description}
             {...register("description")}
           />
+          <ParagrafoErro>{errors.description?.message}</ParagrafoErro>
 
           <label>Categoria</label>
           <select {...register("category")}>
@@ -50,6 +55,7 @@ export const ModalEditService = () => {
             placeholder={`${editServ[0].value}`}
             {...register("value")}
           />
+          <ParagrafoErro>{errors.value?.message}</ParagrafoErro>
 
           <div>
             <button type="submit">Editar</button>
