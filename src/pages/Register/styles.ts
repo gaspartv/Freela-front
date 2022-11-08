@@ -1,3 +1,4 @@
+import PhoneInput from "react-phone-input-2";
 import styled from "styled-components";
 import { AnimationFadeIn } from "../../styles/animation";
 
@@ -61,6 +62,7 @@ export const SectionForm = styled.section`
       display: flex;
       flex-direction: column;
       position: relative;
+      width: 100%;
       > input {
         background: var(--Input-Background);
         border-radius: 8px;
@@ -120,5 +122,11 @@ export const Terms = styled.span`
   }
   > :hover {
     color: var(--Primary);
+  }
+`;
+
+export const PhoneInputStyled = styled(PhoneInput)`
+  .form-control {
+    width: 100%;
   }
 `;

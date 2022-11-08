@@ -13,6 +13,7 @@ export const ModalStyled = styled.div`
   z-index: 101;
   > span {
     padding: 16px;
+    width: 100%;
     > div {
       max-width: 400px;
       background-color: var(--Secondary);
@@ -20,9 +21,11 @@ export const ModalStyled = styled.div`
       flex-direction: column;
       padding: 32px;
       border-radius: 16px;
+      border: 2px solid var(--Primary-Hover);
       position: relative;
       gap: 12px;
       text-align: center;
+      margin: 0 auto;
       > div {
         display: flex;
         justify-content: center;
