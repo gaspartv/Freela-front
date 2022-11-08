@@ -20,6 +20,7 @@ export interface iHome {
 
 interface iWorks {
   title: string;
+  contact: string;
   description: string;
   value: number;
   id: string;
