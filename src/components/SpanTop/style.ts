@@ -8,5 +8,5 @@ export const SpanTop = styled.span`
   width: 100vw;
   height: 1.5rem;
   background-color: var(--Primary);
-  z-index: 100;
+  z-index: 101;
 `;

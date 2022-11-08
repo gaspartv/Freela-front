@@ -57,6 +57,7 @@ export const HomeTitle = styled.div`
   }
 
   @media (max-width: 768px) {
+    padding: 10px;
     img {
       width: 368px;
       height: 295px;
@@ -78,9 +79,12 @@ export const HomeTitle = styled.div`
     align-items: center;
     justify-content: center;
 
-    img {
-      width: 280px;
-      height: 280px;
+    figure {
+      width: 270px;
+      height: 270px;
+      > img {
+        width: 100%;
+      }
     }
 
     h1 {
@@ -113,15 +117,14 @@ export const BtnsFilter = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-
-  margin: 80px 0;
-
+  margin: 70px 0;
+  padding: 10px 0;
   ul {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    padding: 0 10px;
   }
-
   button {
     width: 118px;
     height: 60px;
@@ -164,12 +167,10 @@ export const BtnsFilter = styled.div`
 `;
 
 export const HomeStyled = styled.div`
-  /* border: solid red; */
   color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   padding: 6px 0px;
 
   ul {
@@ -177,6 +178,7 @@ export const HomeStyled = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
+    padding: 10px;
   }
 
   li {
@@ -186,83 +188,71 @@ export const HomeStyled = styled.div`
     border: 1px solid var(--Primary);
     border-radius: 8px;
     padding: 20px;
-    height: 247px;
-    width: 521px;
+    max-width: 520px;
+    width: 100%;
     border-radius: 25px;
     margin-bottom: 30px;
-    justify-content: center;
-
+    justify-content: space-between;
     .cardTitle {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      > h2 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+      }
+      > span {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 22px;
+        color: var(--Primary);
+      }
     }
-
     .cardDescription {
       display: flex;
       flex-direction: column;
-      gap: 35px;
-    }
-
-    h2 {
-      font-style: normal;
-      font-weight: 700;
-      font-size: 24px;
-    }
-
-    span {
-      font-weight: 700;
-      font-size: 15px;
-      line-height: 22px;
-
-      color: var(--Primary);
-    }
-
-    p {
-      font-weight: 500;
-      font-size: 15px;
-      line-height: 22px;
-    }
-
-    button {
-      width: 148px;
-      height: 31px;
-      left: 25px;
-      top: 199px;
-      cursor: pointer;
-
-      background: var(--Primary);
-      border-radius: 50px;
-      border: transparent;
-      font-weight: 700;
-      font-size: 15px;
-      line-height: 22px;
-
-      color: var(--Secondary);
-    }
-
-    button:hover {
-      background: #135b53;
+      gap: 10px;
+      > p {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 22px;
+      }
+      > button {
+        width: 148px;
+        height: 31px;
+        left: 25px;
+        top: 199px;
+        cursor: pointer;
+        background: var(--Primary);
+        border-radius: 50px;
+        border: transparent;
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 22px;
+        color: var(--Secondary);
+        :hover {
+          background: #135b53;
+        }
+      }
     }
   }
 
   @media (max-width: 1024px) {
     li {
-      width: 465px;
+      max-width: 450px;
     }
   }
 
   @media (max-width: 768px) {
     li {
-      width: 337px;
-      height: 220px;
+      max-width: 320px;
     }
   }
 
   @media (max-width: 425px) {
     li {
-      width: 100%;
-      height: 200px;
+      max-width: 100%;
     }
   }
 
