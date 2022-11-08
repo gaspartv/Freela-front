@@ -13,7 +13,7 @@ import {
   BlockLogo,
   DivForm,
 } from "./styles";
-import { LinkStyled } from './../../components/StyledLink/styled';
+import { LinkStyled } from "./../../components/StyledLink/styled";
 
 export interface iRegisterFormData {
   name: string;
@@ -79,14 +79,13 @@ export const Register = () => {
               {errors.checkPassword && errors.checkPassword?.message}
             </ParagrafoErro>
 
-            <label>Tipo da sua conta</label>
-            <select defaultValue={"DEFAULT"} required {...register("type")}>
-              <option value="DEFAULT" disabled>
-                Qual o tipo da conta?
-              </option>
-              <option value="provider">Prestador</option>
-              <option value="advertiser">Anunciante</option>
-            </select>
+            <label>Contato</label>
+            <input
+              type="text"
+              required
+              {...register("type")}
+              placeholder="Digite seu contato"
+            />
 
             <Terms>
               <input type="checkbox" name="terms" value="terms" required />
