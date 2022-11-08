@@ -15,8 +15,7 @@ import {
 } from "./styles";
 
 export const Home = () => {
-  const { filteCategory, dataFilter, openModal, setOpenModal, setIdModal } =
-    useContext(HomeContext);
+  const { filterCategory, dataFilter, openModal, setOpenModal, setIdModal } = useContext(HomeContext);
 
   function HandleClickModal(Target: any) {
     const ID = Target.id;
@@ -53,31 +52,17 @@ export const Home = () => {
 
         <BtnsFilter>
           <ul>
-            <li>
-              <button onClick={() => filteCategory("todas")}>Todos</button>
-            </li>
-            <li>
-              <button onClick={() => filteCategory("tech")}>Tech</button>
-            </li>
-            <li>
-              <button onClick={() => filteCategory("reforco")}>Reforço</button>
-            </li>
-            <li>
-              <button onClick={() => filteCategory("design")}>Design</button>
-            </li>
-            <li>
-              <button onClick={() => filteCategory("financas")}>
-                Finanças
-              </button>
-            </li>
-            <li>
-              <button onClick={() => filteCategory("eletrica")}>
-                Eletrica
-              </button>
+            <li><button onClick={() => filterCategory("todas")}>Todos</button></li>
+            <li><button onClick={() => filterCategory("tech")}>Tech</button></li>
+            <li><button onClick={() => filterCategory("reforco")}>Reforço</button></li>
+            <li><button onClick={() => filterCategory("design")}>Design</button></li>
+            <li><button onClick={() => filterCategory("financas")}>Finanças</button></li>
+            <li><button onClick={() => filterCategory("eletrica")}>Eletrica</button>
             </li>
           </ul>
         </BtnsFilter>
-        {openModal && <ModalSeeMore />}
+
+        {openModal && <ModalSeeMore/>}
 
         <HomeStyled>
           <ul>

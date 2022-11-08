@@ -148,7 +148,7 @@ export const BtnsFilter = styled.div`
   }
 
   button {
-    width: 140px;
+    width: 118px;
     height: 60px;
     background: var(--Primary);
     border-radius: 10px;
@@ -167,6 +167,12 @@ export const BtnsFilter = styled.div`
 
   button:hover {
     background: #135b53;
+  }
+
+  @media (max-width: 768px) {
+    button {
+      width: 112px;
+    }
   }
 
   @media (max-width: 425px) {

@@ -15,7 +15,7 @@ export interface iHome {
   setdataFilter?: React.Dispatch<React.SetStateAction<never[]>>;
   dataWorks: iWorks[];
   dataFilter: iWorks[];
-  filteCategory: (Category: string) => void;
+  filterCategory: (Category: string) => void;
 }
 
 interface iWorks {
@@ -41,7 +41,7 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
     });
   }, []);
 
-  const filteCategory = (dataCategory: string) => {
+  const filterCategory = (dataCategory: string) => {
     if (dataCategory === "todas" || !dataCategory) {
       const categoryFilter = dataWorks.filter(
         (elem: any) => elem.category !== ""
@@ -57,15 +57,7 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
 
   return (
     <HomeContext.Provider
-      value={{
-        setIdModal,
-        IdModal,
-        dataWorks,
-        filteCategory,
-        dataFilter,
-        openModal,
-        setOpenModal,
-      }}
+      value={{setIdModal, IdModal , dataWorks, filterCategory, dataFilter, openModal, setOpenModal }}
     >
       {children}
     </HomeContext.Provider>
