@@ -54,8 +54,8 @@ export const Home = () => {
             <li><button onClick={() => filteCategory("eletrica")}>Eletrica</button>
             </li>
           </ul>
-
         </BtnsFilter>
+        
         {openModal && <ModalSeeMore/>}
 
         <HomeStyled>
