@@ -74,11 +74,8 @@ export const Home = () => {
                 </div>
                 <div className="cardDescription">
                   <p>{elem.description}</p>
-                  <button
-                    onClick={(event) => HandleClickModal(event.target)}
-                    id={elem.id}
-                  >
-                    see more
+                  <button onClick={(event) => HandleClickModal(event.target)} id={elem.id}>
+                    Ver mais
                   </button>
                 </div>
               </li>
