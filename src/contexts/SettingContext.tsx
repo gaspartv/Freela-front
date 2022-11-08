@@ -1,4 +1,3 @@
-import userEvent from "@testing-library/user-event";
 import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
@@ -70,7 +69,7 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
       setMyService(result);
     };
     renderMyService();
-  }, [render]);
+  }, [render, user]);
 
   const addService = async (data: iServiceData) => {
     const newData = {
