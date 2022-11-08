@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
 import { entring } from "../../styles/animation";
 
 export const LinkStyled = styled(Link)`

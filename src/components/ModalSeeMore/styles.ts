@@ -22,29 +22,24 @@ export const ModalStyled = styled.div`
     gap: 2rem;
 
     > h2 {
-
-        font-size: 2rem;
-
+      font-size: 2rem;
     }
 
     > div {
-
-        margin: 0 auto;
-        position: relative;
-        bottom: -1rem;
-
+      margin: 0 auto;
+      position: relative;
+      bottom: -1rem;
     }
 
-    > button{
-
-        position: absolute;
-        top: 1rem;
-        right: 2rem;
-        background-color: transparent;
-        border: 0;
-        font-size: 1.5rem;
-        font-weight: 700;
-        cursor: pointer;
+    > button {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      background-color: transparent;
+      border: 0;
+      font-size: 1.5rem;
+      font-weight: 700;
+      cursor: pointer;
     }
   }
 `;

@@ -1,8 +1,10 @@
-import { NavStyled } from "./styles";
-import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+
+import { UserContext } from "../../contexts/UserContext";
+
+import { LinkSettingStyled, NavStyled } from "./styles";
 
 export const Nav = () => {
   const navigate = useNavigate();
@@ -13,6 +15,10 @@ export const Nav = () => {
       <h1>frilla</h1>
       <div>
         <p>{user?.name}</p>
+        <ChevronRightIcon />
+        <LinkSettingStyled to="/">
+          Início<span></span>
+        </LinkSettingStyled>
         <ChevronRightIcon />
         <button
           onClick={() => {
