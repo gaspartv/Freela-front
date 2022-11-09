@@ -19,7 +19,7 @@ const ModalSeeMore = () => {
         <button onClick={() => setOpenModal(false)}>
           <SmallCloseIcon />
         </button>
-        <h3>{WorkFiltered[0].description}</h3>
+        <p>{WorkFiltered[0].description}</p>
         <div>
           <strong>Contato:</strong> {WorkFiltered[0]?.contact}
         </div>

@@ -1,9 +1,19 @@
-import styled from "styled-components";
-
+import styled, { keyframes } from "styled-components";
+const entring = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 export const SettingStyled = styled.div`
-  max-width: 1200px;
+  max-width: 1100px;
   min-width: 300px;
   margin: 32px auto;
+<<<<<<< HEAD
+  animation: ${entring} 0.5s;
+=======
   animation: animateModal 2s;
   @keyframes animateModal {
     0% {
@@ -18,6 +28,7 @@ export const SettingStyled = styled.div`
 
     }
     }
+>>>>>>> feat/home
 `;
 
 export const InterestedStyled = styled.section`
@@ -81,7 +92,7 @@ export const ServiceStyled = styled.section`
       display: flex;
       flex-direction: column;
       gap: 10px;
-      border: 1px solid var(--Primary);
+      border: 2px solid var(--Primary);
       border-radius: 25px;
       padding: 30px;
       position: relative;
