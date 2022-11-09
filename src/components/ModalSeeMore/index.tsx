@@ -1,9 +1,7 @@
 import { useContext } from "react";
 import { SmallCloseIcon } from "@chakra-ui/icons";
 import { BsWhatsapp } from 'react-icons/bs';
-
 import { HomeContext } from "../../contexts/HomeContext";
-
 import { ModalStyled } from "./styles";
 
 const ModalSeeMore = () => {
@@ -23,7 +21,7 @@ const ModalSeeMore = () => {
         <p>{WorkFiltered[0].description}</p>
         <div>
           <strong><BsWhatsapp /></strong> 
-          <a href={`https://wa.me/+${WorkFiltered[0]?.contact}`} target="_blank" rel="noreferrer"> Clique aqui</a>
+          <a href={`https://wa.me/+${WorkFiltered[0]?.contact}?text=Óla, tenho interesse em seus serviços`} target="_blank" rel="noreferrer"> Clique aqui</a>
         </div>
       </span>
     </ModalStyled>
