@@ -1,46 +1,54 @@
-# Getting Started with Create React App
+# [FREELA](https://s7-03.vercel.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Figma](https://www.figma.com/file/HVsRrwjQQKEpRpg2ilk8Bi/Projeto-front-end?node-id=0%3A1)
 
-## Available Scripts
+## Tecnologias utilizadas
+- React JS
+- TypeScript
 
-In the project directory, you can run:
+## Introdução
+#### Qual o problema a ser solucionado ?
+A aplicação vai facilitar a busca do cliente que procura mão de obra e oferecer oportunidade para quem presta serviço encontrar novos clientes.
 
-### `npm start`
+#### Qual a solução que a aplicação traz ?
+1. A aplicação tem dois tipos de cliente. Primeiro cliente que procura algum serviço de mão de obra. Segundo cliente que oferece mão de obra. A solução seria fazer ambos se encontrarem com facilidade.
+2. Criar uma aplicação onde ficaria centralizado todos os contatos de serviços.
+3. Facilitar o serviço de freelancer.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Quais as features da aplicação que foram planejadas ?
+1. Criar arte no Figma
+2. Criar EndPoints no JSON Server
+3. Página de registro
+4. Página de login
+5. Página de configurações
+6. Página com a lista de freelancers
+7. Página de erro 404
+8. Toasts
+9. Loading
+10. Auto-login
+11. Modais
+12. Proteção de rotas
+13. API Whatsapp
+14. Animations
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### Quais as bibliotecas que serão utilizadas pela equipe ?
+* auto-animate
+* styled-components
+* hook-form
+* yup
+* react-icons
+* react-router-dom
+* react-phone-input-2
+* react-toastify
+* axios
+* chakra-ui
 
-### `npm test`
+#### Quais ferramentas serão utilizadas ?
+- Figma
+- Trello
+- VSCode
+- Insomnia
+- JSON Server API
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Nível estimado de complexidade:
+7/10
