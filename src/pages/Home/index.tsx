@@ -1,10 +1,7 @@
 import { useContext, useEffect } from "react";
-
 import imgHome from "../../assets/img/imgHome.png";
-
 import { HomeContext } from "../../contexts/HomeContext";
 import ModalSeeMore from "../../components/ModalSeeMore";
-
 import { ContainerHome, HomeStyled, HomeTitle, BtnsFilter } from "./styles";
 import { LinkSettingStyled, NavStyled } from "../../components/Nav/styles";
 import { ChevronRightIcon } from "@chakra-ui/icons";
@@ -81,24 +78,12 @@ export const Home = () => {
 
         <BtnsFilter>
           <ul>
-            <li>
-              <button onClick={() => setFilter("todas")}>Todos</button>
-            </li>
-            <li>
-              <button onClick={() => setFilter("tech")}>Tech</button>
-            </li>
-            <li>
-              <button onClick={() => setFilter("reforco")}>Reforço</button>
-            </li>
-            <li>
-              <button onClick={() => setFilter("design")}>Design</button>
-            </li>
-            <li>
-              <button onClick={() => setFilter("financas")}>Finanças</button>
-            </li>
-            <li>  
-              <button onClick={() => setFilter("eletrica")}>Eletrica</button>
-            </li>
+            <li><button onClick={() => setFilter("todas")}>Todos</button></li>
+            <li><button onClick={() => setFilter("tech")}>Tech</button></li>
+            <li><button onClick={() => setFilter("reforco")}>Reforço</button></li>
+            <li><button onClick={() => setFilter("design")}>Design</button></li>
+            <li><button onClick={() => setFilter("financas")}>Finanças</button></li>
+            <li><button onClick={() => setFilter("eletrica")}>Eletrica</button></li>
           </ul>
         </BtnsFilter>
 
