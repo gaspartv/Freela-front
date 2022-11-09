@@ -46,7 +46,7 @@ export const Setting = () => {
                 <p>Tel: {elem.contact}</p>
                 <p>{elem.description}</p>
                 <p>
-                  {elem.value.toLocaleString("pt-br", {
+                  {Number(elem.value).toLocaleString("pt-br", {
                     style: "currency",
                     currency: "BRL",
                   })}
