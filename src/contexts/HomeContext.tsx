@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from "react";
-
 import { api } from "../services/api";
 
 export interface iHomeContextProps {
@@ -13,12 +12,14 @@ export interface iHome {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   setdataWorks?: React.Dispatch<React.SetStateAction<never[]>>;
   setdataFilter?: React.Dispatch<React.SetStateAction<never[]>>;
+  setFilter?: React.Dispatch<React.SetStateAction<never[]>> | any;
   dataWorks: iWorks[];
   dataFilter: iWorks[];
   filterCategory: (Category: string) => void;
 }
 
 interface iWorks {
+  dataWorks: iWorks[];
   title: string;
   contact: string;
   description: string;
@@ -33,31 +34,45 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [IdModal, setIdModal] = useState<number | null>(null);
   const [dataWorks, setdataWorks] = useState([]);
-  const [dataFilter, setdataFilter] = useState([]);
+  const [dataFilter, setdataFilter] = useState(dataWorks);
+  const [filter, setFilter] = useState("todas");
+
+  console.log(dataFilter);
 
   useEffect(() => {
     api.get("/works").then((res) => {
       setdataWorks(res.data);
-      setdataFilter(res.data);
+      filterCategory();
     });
-  }, []);
+  }, [dataWorks]);
 
-  const filterCategory = (dataCategory: string) => {
-    if (dataCategory === "todas" || !dataCategory) {
+  const filterCategory = () => {
+    if (filter === "todas") {
       const categoryFilter = dataWorks.filter(
         (elem: any) => elem.category !== ""
       );
       setdataFilter(categoryFilter);
     } else {
       const categoryFilter = dataWorks.filter(
-        (elem: any) => elem.category === dataCategory
+        (elem: any) => elem.category === filter
       );
       setdataFilter(categoryFilter);
     }
   };
 
   return (
-    <HomeContext.Provider value={{setIdModal, IdModal , dataWorks, filterCategory, dataFilter, openModal, setOpenModal }}>
+    <HomeContext.Provider
+      value={{
+        setIdModal,
+        IdModal,
+        dataWorks,
+        filterCategory,
+        dataFilter,
+        openModal,
+        setOpenModal,
+        setFilter,
+      }}
+    >
       {children}
     </HomeContext.Provider>
   );

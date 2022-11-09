@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import imgHome from "../../assets/img/imgHome.png";
 
@@ -14,8 +14,12 @@ import { UserContext } from "../../contexts/UserContext";
 export const Home = () => {
   const navigate = useNavigate();
   const { userLogout, user } = useContext(UserContext);
-  const { filterCategory, dataFilter, openModal, setOpenModal, setIdModal } =
+  const { setFilter, dataFilter, openModal, setOpenModal, setIdModal } =
     useContext(HomeContext);
+
+  useEffect(() => {
+    setFilter("todas");
+  }, [setFilter]);
 
   function HandleClickModal(Target: any) {
     const ID = Target.id;
@@ -77,26 +81,22 @@ export const Home = () => {
         <BtnsFilter>
           <ul>
             <li>
-              <button onClick={() => filterCategory("todas")}>Todos</button>
+              <button onClick={() => setFilter("todas")}>Todos</button>
             </li>
             <li>
-              <button onClick={() => filterCategory("tech")}>Tech</button>
+              <button onClick={() => setFilter("tech")}>Tech</button>
             </li>
             <li>
-              <button onClick={() => filterCategory("reforco")}>Reforço</button>
+              <button onClick={() => setFilter("reforco")}>Reforço</button>
             </li>
             <li>
-              <button onClick={() => filterCategory("design")}>Design</button>
+              <button onClick={() => setFilter("design")}>Design</button>
             </li>
             <li>
-              <button onClick={() => filterCategory("financas")}>
-                Finanças
-              </button>
+              <button onClick={() => setFilter("financas")}>Finanças</button>
             </li>
-            <li>
-              <button onClick={() => filterCategory("eletrica")}>
-                Eletrica
-              </button>
+            <li>  
+              <button onClick={() => setFilter("eletrica")}>Eletrica</button>
             </li>
           </ul>
         </BtnsFilter>

@@ -11,6 +11,7 @@ const entring = keyframes`
 `;
 
 export const NavStyled = styled.nav`
+  width: 80vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
