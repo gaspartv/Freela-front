@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         border: 0;
         font-size: 100%;
-        font: inherit;
+        font-family: 'Poppins', sans-serif;
         vertical-align: baseline;
     }
 
@@ -68,7 +68,7 @@ const GlobalStyle = createGlobalStyle`
         --Success: #00FF00;
     }
     body {
-
+        background-color: var(--Secondary);
     }
 `;
 
