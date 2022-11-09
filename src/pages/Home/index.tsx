@@ -14,8 +14,7 @@ import { UserContext } from "../../contexts/UserContext";
 export const Home = () => {
   const navigate = useNavigate();
   const { userLogout, user } = useContext(UserContext);
-  const { filterCategory, dataFilter, openModal, setOpenModal, setIdModal } =
-    useContext(HomeContext);
+  const { filterCategory, dataFilter, openModal, setOpenModal, setIdModal } = useContext(HomeContext);
 
   function HandleClickModal(Target: any) {
     const ID = Target.id;

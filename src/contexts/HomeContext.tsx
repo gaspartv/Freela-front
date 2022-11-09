@@ -1,6 +1,7 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 
 import { api } from "../services/api";
+import { SettingContext } from "./SettingContext";
 
 export interface iHomeContextProps {
   children: React.ReactNode;
@@ -19,6 +20,7 @@ export interface iHome {
 }
 
 interface iWorks {
+  dataWorks: iWorks[];
   title: string;
   contact: string;
   description: string;
@@ -30,10 +32,16 @@ interface iWorks {
 export const HomeContext = createContext<iHome>({} as iHome);
 
 const HomeProvider = ({ children }: iHomeContextProps) => {
+  const {mySerivice} = useContext(SettingContext)
+  console.log(mySerivice)
+ 
+
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [IdModal, setIdModal] = useState<number | null>(null);
   const [dataWorks, setdataWorks] = useState([]);
-  const [dataFilter, setdataFilter] = useState([]);
+  const [dataFilter, setdataFilter] = useState(dataWorks);
+
+  console.log(dataFilter)
 
   useEffect(() => {
     api.get("/works").then((res) => {
