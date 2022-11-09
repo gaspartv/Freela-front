@@ -30,7 +30,7 @@ export const ModalStyled = styled.div`
       flex-direction: column;
       padding: 2rem;
       border-radius: 1rem;
-      border: 0.313rem solid var(--Primary-Hover);
+      border: 0.125rem solid var(--Primary-Hover);
       position: relative;
       gap: 0.313rem;
       margin: 0 auto;

@@ -27,7 +27,7 @@ export const ModalStyled = styled.div`
     border-radius: 1rem;
     position: relative;
     gap: 1rem;
-    border: 0.313rem solid var(--Primary-Hover);
+    border: 0.125rem solid var(--Primary-Hover);
     margin: 0 1rem;
     animation: ${modalEfectTransition} 0.3s;
     > h2 {

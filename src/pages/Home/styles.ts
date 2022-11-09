@@ -90,12 +90,12 @@ export const HomeStyled = styled.div`
       max-width: 28.125rem;
       border: 0.125rem solid var(--Primary);
       border-radius: 0.5rem;
-      padding: 1rem;
       position: relative;
       > h2 {
         font-weight: 700;
         font-size: 1.5rem;
         letter-spacing: 0.063rem;
+        padding: 1rem 1rem 0 1rem;
       }
       > span {
         position: absolute;
@@ -111,15 +111,16 @@ export const HomeStyled = styled.div`
         font-size: 1rem;
         line-height: 1.375rem;
         letter-spacing: 0.063rem;
-        white-space: nowrap;
-        width: 25rem;
         overflow: hidden;
+        white-space: nowrap;
         text-overflow: ellipsis;
+        padding: 0 1rem;
       }
       > strong {
         font-weight: 600;
         font-size: 1.125rem;
         line-height: 1.375rem;
+        padding: 0 1rem;
       }
       > button {
         align-self: flex-end;
@@ -133,6 +134,7 @@ export const HomeStyled = styled.div`
         font-size: 0.938rem;
         line-height: 1.375rem;
         color: var(--Secondary);
+        margin: 0 1rem 1rem 1rem;
         :hover {
           background: var(--Primary-Hover);
         }
