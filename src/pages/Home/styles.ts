@@ -7,7 +7,6 @@ export const ContainerHome = styled.div`
 
 export const HomeTitle = styled.div`
   display: flex;
-
   div {
     display: flex;
     flex-direction: column;
@@ -19,33 +18,27 @@ export const HomeTitle = styled.div`
   span {
     color: var(--Primary);
   }
-
   h1 {
     font-size: 48px;
     line-height: 48px;
   }
-
   p {
     font-size: 24px;
     line-height: 35px;
   }
-
   figure {
     width: 50%;
     max-width: 600px;
   }
-
   @media (max-width: 1024px) {
     img {
       width: 368px;
       height: 295px;
     }
-
     h1 {
       font-size: 41px;
       line-height: 49px;
     }
-
     p {
       font-size: 21px;
       line-height: 36px;
@@ -58,12 +51,10 @@ export const HomeTitle = styled.div`
       width: 368px;
       height: 295px;
     }
-
     h1 {
       font-size: 25px;
       line-height: 32px;
     }
-
     p {
       font-size: 16px;
       line-height: 24px;
@@ -74,7 +65,6 @@ export const HomeTitle = styled.div`
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
-
     figure {
       width: 270px;
       height: 270px;
@@ -82,12 +72,10 @@ export const HomeTitle = styled.div`
         width: 100%;
       }
     }
-
     h1 {
       font-size: 29px;
       line-height: 37px;
     }
-
     p {
       font-size: 16px;
       line-height: 24px;
@@ -100,7 +88,6 @@ export const HomeTitle = styled.div`
       font-size: 21px;
       line-height: 29px;
     }
-
     p {
       font-size: 12px;
       line-height: 20px;
@@ -170,6 +157,7 @@ export const HomeStyled = styled.div`
   padding: 6px 0px;
 
   ul {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
