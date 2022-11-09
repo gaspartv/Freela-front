@@ -20,6 +20,7 @@ export const RegisterStyled = styled.div`
   justify-content: center;
   font-family: "Poppins";
   font-style: normal;
+  margin: 70px 0;
 `;
 
 export const DivForm = styled.div`
