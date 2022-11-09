@@ -8,6 +8,9 @@ export const ContainerHome = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 1200px) {
+    width: 90%;
+  }
 `;
 
 export const NavStyled = styled.header`
@@ -67,36 +70,7 @@ export const HomeTitle = styled.div`
     width: 50%;
     max-width: 600px;
   }
-  @media (max-width: 1024px) {
-    img {
-      width: 368px;
-      height: 295px;
-    }
-    h1 {
-      font-size: 41px;
-      line-height: 49px;
-    }
-    p {
-      font-size: 21px;
-      line-height: 36px;
-    }
-  }
 
-  @media (max-width: 768px) {
-    padding: 10px;
-    img {
-      width: 368px;
-      height: 295px;
-    }
-    h1 {
-      font-size: 25px;
-      line-height: 32px;
-    }
-    p {
-      font-size: 16px;
-      line-height: 24px;
-    }
-  }
 
   @media (max-width: 1200px) {
     flex-direction: column-reverse;
@@ -104,6 +78,7 @@ export const HomeTitle = styled.div`
 
     
     figure {
+     
     width: 100%;
     display: flex;
     justify-content: center;
@@ -194,6 +169,7 @@ export const HomeStyled = styled.div`
   color: black;
   display: flex;
   justify-content: center;
+  width: 100%;
 
   margin-top: 20px;
   padding: 6px 0px;
@@ -273,6 +249,8 @@ export const HomeStyled = styled.div`
       justify-content: center;
     }
     li {
+      
+      height: 238px;
       width: 100%;
       
     
