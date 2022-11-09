@@ -18,8 +18,7 @@ const modalEfectTransition = keyframes`
 `;
 
 export const ModalStyled = styled.div`
-
-animation: ${modalEfectOpacity} 1s;
+  animation: ${modalEfectOpacity} 0.3s;
   position: fixed;
   top: 0;
   left: 0;
@@ -30,33 +29,27 @@ animation: ${modalEfectOpacity} 1s;
   width: 100vw;
   height: 100vh;
   z-index: 101;
-  animation: animateModal 2s;
+  animation: animateModal 0.3s;
   @keyframes animateModal {
     0% {
-        
       opacity: 0;
     }
 
     100% {
-        
-        opacity: 1;
-      
+      opacity: 1;
     }
-    
-    }
-    @keyframes animateModalContainer {
+  }
+  @keyframes animateModalContainer {
     0% {
-        
       opacity: 0;
       transform: scale(0, 0);
     }
 
     100% {
-        
-        opacity: 1;
-        transform: scale(1, 1);
+      opacity: 1;
+      transform: scale(1, 1);
     }
-    }
+  }
   > span {
     animation: ${modalEfectTransition} 0.5s;
     padding: 16px;
@@ -69,7 +62,7 @@ animation: ${modalEfectOpacity} 1s;
       flex-direction: column;
       padding: 32px;
       border-radius: 16px;
-      border: 5px solid var(--Primary-Hover);
+      border: 2px solid var(--Primary-Hover);
       position: relative;
       margin: 0 auto;
       > span {
@@ -89,19 +82,19 @@ animation: ${modalEfectOpacity} 1s;
         padding: 12px;
         border-radius: 8px;
         border: none;
-        /* margin-bottom: 20px; */
       }
       > select {
         padding: 12px;
         border-radius: 8px;
         border: none;
-        /* margin-bottom: 20px; */
+        margin-bottom: 10px;
       }
       > div {
         display: flex;
         justify-content: center;
-        gap: 16px;
+        gap: 22px;
         > button {
+          width: 150px;
           border-radius: 50px;
           background-color: #177369;
           border: none;
@@ -110,7 +103,11 @@ animation: ${modalEfectOpacity} 1s;
           line-height: 22px;
           color: #f5eed0;
           padding: 6px 22px;
+          margin-top: 15px;
           cursor: pointer;
+          :hover {
+            background-color: var(--Primary-Hover);
+          }
         }
       }
     }
