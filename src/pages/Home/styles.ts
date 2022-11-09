@@ -116,6 +116,14 @@ export const HomeStyled = styled.div`
         text-overflow: ellipsis;
         padding: 0 1rem;
       }
+
+      @media (min-width: 768px){
+       p{
+
+          width: 25rem;;
+
+        }
+      }
       > strong {
         font-weight: 600;
         font-size: 1.125rem;
