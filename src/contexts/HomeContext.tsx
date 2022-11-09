@@ -37,8 +37,6 @@ const HomeProvider = ({ children }: iHomeContextProps) => {
   const [dataFilter, setdataFilter] = useState(dataWorks);
   const [filter, setFilter] = useState("todas");
 
-  console.log(dataFilter);
-
   useEffect(() => {
     api.get("/works").then((res) => {
       setdataWorks(res.data);
