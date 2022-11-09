@@ -18,7 +18,7 @@ const modalEfectTransition = keyframes`
 `;
 
 export const ModalStyled = styled.div`
-  animation: ${modalEfectOpacity} 1s;
+  animation: ${modalEfectOpacity} 0.3s;
   position: fixed;
   top: 0;
   left: 0;
@@ -30,34 +30,28 @@ export const ModalStyled = styled.div`
   min-width: 300px;
   height: 100vh;
   z-index: 101;
-  animation: animateModal 2s;
+  animation: animateModal 0.3s;
   @keyframes animateModal {
     0% {
-        
       opacity: 0;
-
     }
 
     100% {
-        
-        opacity: 1;
+      opacity: 1;
+    }
+  }
 
-    }
-    }
-    
-    @keyframes animateModalContainer {
+  @keyframes animateModalContainer {
     0% {
-        
       opacity: 0;
       transform: scale(0, 0);
     }
 
     100% {
-        
-        opacity: 1;
-        transform: scale(1, 1);
+      opacity: 1;
+      transform: scale(1, 1);
     }
-    }
+  }
   > span {
     animation: ${modalEfectTransition} 0.5s;
     width: 100%;
@@ -119,9 +113,4 @@ export const ModalStyled = styled.div`
       }
     }
   }
-  
-
-    
-    
-    
 `;
