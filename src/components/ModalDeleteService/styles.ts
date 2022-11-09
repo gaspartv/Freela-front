@@ -11,8 +11,36 @@ export const ModalStyled = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 101;
+  animation: animateModal 2s;
+  @keyframes animateModal {
+    0% {
+        
+      opacity: 0;
+    }
+
+    100% {
+        
+        opacity: 1;
+      
+    }
+    }
+    @keyframes animateModalContainer {
+    0% {
+        
+      opacity: 0;
+      transform: scale(0, 0);
+    }
+
+    100% {
+        
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+    }
   > span {
     padding: 16px;
+    width: 100%;
+    animation: animateModalContainer 0.5s;
     > div {
       max-width: 400px;
       background-color: var(--Secondary);
@@ -20,9 +48,11 @@ export const ModalStyled = styled.div`
       flex-direction: column;
       padding: 32px;
       border-radius: 16px;
+      border: 5px solid var(--Primary-Hover);
       position: relative;
       gap: 12px;
       text-align: center;
+      margin: 0 auto;
       > div {
         display: flex;
         justify-content: center;

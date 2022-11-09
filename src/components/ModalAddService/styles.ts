@@ -11,8 +11,37 @@ export const ModalStyled = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 101;
+  animation: animateModal 2s;
+  @keyframes animateModal {
+    0% {
+        
+      opacity: 0;
+    }
+
+    100% {
+        
+        opacity: 1;
+      
+    }
+    }
+    @keyframes animateModalContainer {
+    0% {
+        
+      opacity: 0;
+      transform: scale(0, 0);
+    }
+
+    100% {
+        
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+    }
+  
   > span {
     padding: 16px;
+    width: 100%;
+    animation: animateModalContainer 0.5s;
     > form {
       max-width: 400px;
       background-color: var(--Secondary);
@@ -20,30 +49,35 @@ export const ModalStyled = styled.div`
       flex-direction: column;
       padding: 32px;
       border-radius: 16px;
+      border: 5px solid var(--Primary-Hover);
       position: relative;
+      gap: 5px;
+      margin: 0 auto;
       > label {
         font-weight: 500;
         font-size: 20px;
         line-height: 30px;
         color: #000000;
         padding-left: 8px;
+        /* margin-bottom: 5px; */
       }
       > input {
         padding: 12px;
         border-radius: 8px;
         border: none;
-        margin-bottom: 20px;
+        /* margin-bottom: 10px; */
       }
       > select {
         padding: 12px;
         border-radius: 8px;
         border: none;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
       }
       > div {
         display: flex;
         justify-content: center;
         gap: 16px;
+        
         > button {
           border-radius: 50px;
           background-color: #177369;

@@ -1,132 +1,150 @@
 import styled from "styled-components";
 
 export const ContainerHome = styled.div`
-  max-width: 1200px;
+  width: 80%;
+  padding: 16px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 32px auto;
+  animation: animateModal 2s;
+  @keyframes animateModal {
+    0% {
+        
+      opacity: 0;
+
+    }
+
+    100% {
+        
+        opacity: 1;
+
+    }
+    }
+  @media (max-width: 1200px) {
+    width: 90%;
+  }
+`;
+
+export const NavStyled = styled.header`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  align-items: center;
+  margin-bottom: 50px;
+
+  nav {
+    gap: 4px;
+    display: flex;
+    font-weight: bolder;
+    color: #000000;
+    font-size: larger;
+  }
+
+  .logo {
+    font-family: "Italiana";
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;
+    color: #000000;
+    cursor: default;
+  }
+  .link{
+    color: #000000;
+    text-decoration: none
+  }
+
+ 
 `;
 
 export const HomeTitle = styled.div`
   display: flex;
-
   div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 600px;
     width: 50%;
   }
   span {
     color: var(--Primary);
   }
-
   h1 {
-    font-size: 48px;
-    line-height: 48px;
+    font-size: 60px;
+    line-height: 80px;
   }
-
   p {
     font-size: 24px;
     line-height: 35px;
   }
-
   figure {
     width: 50%;
     max-width: 600px;
   }
 
-  @media (max-width: 1024px) {
-    img {
-      width: 368px;
-      height: 295px;
+
+  @media (max-width: 1200px) {
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+
+    
+    figure {
+     
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+  }
+    
+    figure img {
+      width: 80%;
     }
+    div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+  }
+
 
     h1 {
       font-size: 41px;
       line-height: 49px;
     }
-
     p {
-      font-size: 21px;
-      line-height: 36px;
+      font-size: 18px;
+      line-height: 30px;
     }
   }
 
-  @media (max-width: 768px) {
-    padding: 10px;
-    img {
-      width: 368px;
-      height: 295px;
-    }
 
-    h1 {
-      font-size: 25px;
-      line-height: 32px;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 24px;
-    }
-  }
-
-  @media (max-width: 425px) {
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-
-    figure {
-      width: 270px;
-      height: 270px;
-      > img {
-        width: 100%;
-      }
-    }
-
-    h1 {
-      font-size: 29px;
-      line-height: 37px;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 24px;
-      margin-top: 13px;
-    }
-  }
-
-  @media (max-width: 320px) {
-    h1 {
-      font-size: 21px;
-      line-height: 29px;
-    }
-
-    p {
-      font-size: 12px;
-      line-height: 20px;
-      margin-top: 13px;
-    }
-  }
 `;
 
 export const BtnsFilter = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 70px 0;
-  padding: 10px 0;
+  margin: 80px 0;
+  overflow-x: scroll;
+
+  ::-webkit-scrollbar {
+        width: 0px;
+        height: 0px;}
+
   ul {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 0 10px;
+    gap: 10px;
+    
   }
   button {
-    width: 118px;
+    width: 200px;
     height: 60px;
     background: var(--Primary);
     border-radius: 10px;
@@ -147,52 +165,68 @@ export const BtnsFilter = styled.div`
     background: #135b53;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
+   
+     overflow-x: scroll;
     button {
-      width: 112px;
-    }
-  }
-
-  @media (max-width: 425px) {
-    overflow-x: scroll;
-
-    button {
-      height: 44px;
-    }
-
+      width: 112px; 
+    } 
     ul {
       gap: 10px;
     }
   }
-`;
 
+  
+ 
+`;
 export const HomeStyled = styled.div`
   color: black;
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: 100%;
+
+  margin-top: 20px;
   padding: 6px 0px;
+  min-height: 1000px;
 
   ul {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px;
+    justify-content: space-between;
+  
+   
+    
+    
   }
 
-  li {
+  li { animation: animateModal 2s;
+  @keyframes animateModal {
+    0% {
+        
+      opacity: 0;
+     
+    }
+
+    100% {
+        
+        opacity: 1;
+   
+      
+    }
+    }
     display: flex;
     flex-direction: column;
     gap: 20px;
     border: 1px solid var(--Primary);
     border-radius: 8px;
     padding: 20px;
-    max-width: 520px;
-    width: 100%;
+    height: 247px;
+    width: 45%;
     border-radius: 25px;
-    margin-bottom: 30px;
-    justify-content: space-between;
+    margin-bottom: 50px;
+    justify-content: center;
+
     .cardTitle {
       display: flex;
       justify-content: space-between;
@@ -238,31 +272,15 @@ export const HomeStyled = styled.div`
     }
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1200px) {
+    ul{
+      justify-content: center;
+    }
     li {
-      max-width: 450px;
-    }
+      
+      height: 238px;
+      width: 100%;
+      
+    
   }
-
-  @media (max-width: 768px) {
-    li {
-      max-width: 320px;
-    }
-  }
-
-  @media (max-width: 425px) {
-    li {
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 320px) {
-    .cardTitle h2 {
-      font-size: 16px;
-    }
-
-    li p {
-      font-size: 12px;
-    }
-  }
-`;
+  }`

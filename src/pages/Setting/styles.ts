@@ -2,7 +2,22 @@ import styled from "styled-components";
 
 export const SettingStyled = styled.div`
   max-width: 1200px;
+  min-width: 300px;
   margin: 32px auto;
+  animation: animateModal 2s;
+  @keyframes animateModal {
+    0% {
+        
+      opacity: 0;
+
+    }
+
+    100% {
+        
+        opacity: 1;
+
+    }
+    }
 `;
 
 export const InterestedStyled = styled.section`

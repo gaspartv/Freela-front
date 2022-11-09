@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { SmallCloseIcon } from "@chakra-ui/icons";
 
 import { HomeContext } from "../../contexts/HomeContext";
 
@@ -10,14 +11,18 @@ const ModalSeeMore = () => {
   let WorkFiltered = dataWorks.filter(
     (ele) => Number(ele.id) === Number(IdModal)
   );
-    console.log(WorkFiltered)
+
   return (
     <ModalStyled>
       <span>
         <h2>{WorkFiltered[0].title}</h2>
-        <button onClick={() => setOpenModal(false)}>X</button>
+        <button onClick={() => setOpenModal(false)}>
+          <SmallCloseIcon />
+        </button>
         <h3>{WorkFiltered[0].description}</h3>
-        <div><strong>Contato:</strong> {WorkFiltered[0]?.contact}</div>
+        <div>
+          <strong>Contato:</strong> {WorkFiltered[0]?.contact}
+        </div>
       </span>
     </ModalStyled>
   );

@@ -14,6 +14,7 @@ import {
   RegisterStyled,
   BlockLogo,
   DivForm,
+  PhoneInputStyled,
 } from "./styles";
 import { LinkStyled } from "./../../components/StyledLink/styled";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -113,11 +114,9 @@ export const Register = () => {
               {errors.checkPassword && errors.checkPassword?.message}
             </ParagrafoErro>
 
-            <PhoneInput
-              isValid
-              country={"br"}
-              onChange={(phone) => setTel(phone)}
-            />
+            <div>
+              <PhoneInputStyled country={"br"} onChange={(phone) => setTel(phone)} />
+            </div>
 
             <Terms>
               <input type="checkbox" name="terms" id="terms" required />

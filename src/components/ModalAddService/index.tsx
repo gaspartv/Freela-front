@@ -6,6 +6,7 @@ import { SettingContext } from "../../contexts/SettingContext";
 import { AddServiceSchema } from "../../validations/AddServiceSchema";
 
 import { ModalStyled } from "./styles";
+import { ParagrafoErro } from "../ParagraphyError";
 
 export interface iServiceData {
   title: string;
@@ -20,7 +21,9 @@ export interface iServiceData {
 export const ModalAddService = () => {
   const { setOpenModal, addService } = useContext(SettingContext);
 
-  const { register, handleSubmit } = useForm<iServiceData>({
+  const { register, handleSubmit,
+    formState: { errors }, 
+  } = useForm<iServiceData>({
     resolver: yupResolver(AddServiceSchema),
   });
 
@@ -34,6 +37,7 @@ export const ModalAddService = () => {
             placeholder="Digite o título"
             {...register("title")}
           />
+          <ParagrafoErro>{errors.title?.message}</ParagrafoErro>
 
           <label>Descrição</label>
           <input
@@ -41,6 +45,7 @@ export const ModalAddService = () => {
             placeholder="Digite a descrição"
             {...register("description")}
           />
+          <ParagrafoErro>{errors.description?.message}</ParagrafoErro>
 
           <label>Categoria</label>
           <select {...register("category")}>
@@ -51,6 +56,7 @@ export const ModalAddService = () => {
             <option value="financas">Finanças</option>
             <option value="eletrica">Eletrica</option>
           </select>
+          <ParagrafoErro>{errors.category?.message}</ParagrafoErro>
 
           <label>Valor</label>
           <input
@@ -58,6 +64,7 @@ export const ModalAddService = () => {
             placeholder="Digite o valor"
             {...register("value")}
           />
+          <ParagrafoErro>{errors.value?.message}</ParagrafoErro>
 
           <div>
             <button type="submit">Adicionar</button>
