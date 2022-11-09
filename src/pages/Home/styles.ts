@@ -121,6 +121,10 @@ export const HomeStyled = styled.div`
         font-size: 16px;
         line-height: 22px;
         letter-spacing: 1px;
+        white-space: nowrap;
+        width: 12rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       > strong {
         font-weight: 600;

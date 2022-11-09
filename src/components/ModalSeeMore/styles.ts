@@ -76,7 +76,7 @@ export const ModalStyled = styled.div`
     > h2 {
       font-size: 2rem;
       width: 100%;
-      padding: 5px 0;
+      padding: 20px 0;
       text-align: center;
       background-color: var(--Primary-Hover);
       border-top-left-radius: 8px;
@@ -99,6 +99,24 @@ export const ModalStyled = styled.div`
     }
     > div {
       margin: 0 16px 20px 16px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      > a {
+
+        text-decoration: none;
+        color: var(--Primary);
+        font-weight: 700;
+
+
+      }
+
+      > a:hover{
+
+        color: var(--Primary-Hover);
+
+      }
     }
   }
   
