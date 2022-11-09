@@ -30,6 +30,34 @@ export const ModalStyled = styled.div`
   min-width: 300px;
   height: 100vh;
   z-index: 101;
+  animation: animateModal 2s;
+  @keyframes animateModal {
+    0% {
+        
+      opacity: 0;
+
+    }
+
+    100% {
+        
+        opacity: 1;
+
+    }
+    }
+    
+    @keyframes animateModalContainer {
+    0% {
+        
+      opacity: 0;
+      transform: scale(0, 0);
+    }
+
+    100% {
+        
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+    }
   > span {
     animation: ${modalEfectTransition} 0.5s;
     width: 100%;
@@ -44,6 +72,7 @@ export const ModalStyled = styled.div`
     gap: 16px;
     border: 5px solid var(--Primary-Hover);
     margin: 0 16px;
+    animation: animateModalContainer 0.5s;
     > h2 {
       font-size: 2rem;
       width: 100%;
@@ -72,4 +101,9 @@ export const ModalStyled = styled.div`
       margin: 0 16px 20px 16px;
     }
   }
+  
+
+    
+    
+    
 `;
