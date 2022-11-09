@@ -1,9 +1,19 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const entring = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 export const ContainerHome = styled.div`
   max-width: 1100px;
   min-width: 300px;
   margin: 32px auto;
+  animation: ${entring} 0.5s;
 `;
 
 export const HomeTitle = styled.div`
@@ -80,6 +90,7 @@ export const HomeStyled = styled.div`
     flex-wrap: wrap;
     gap: 16px;
     > li {
+      animation: ${entring} 2s;
       display: flex;
       flex-direction: column;
       gap: 15px;

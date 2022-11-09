@@ -1,6 +1,25 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const modalEfectOpacity = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+const modalEfectTransition = keyframes`
+  0% {
+    transform: scale(0, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+`;
 
 export const ModalStyled = styled.div`
+
+animation: ${modalEfectOpacity} 1s;
   position: fixed;
   top: 0;
   left: 0;
@@ -12,6 +31,7 @@ export const ModalStyled = styled.div`
   height: 100vh;
   z-index: 101;
   > span {
+    animation: ${modalEfectTransition} 0.5s;
     padding: 16px;
     width: 100%;
     > form {

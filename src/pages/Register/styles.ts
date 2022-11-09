@@ -1,8 +1,18 @@
 import PhoneInput from "react-phone-input-2";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { AnimationFadeIn } from "../../styles/animation";
 
+const entring = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
 export const RegisterStyled = styled.div`
+  animation: ${entring} 0.5s;
   height: 100vh;
   display: flex;
   flex-direction: column;

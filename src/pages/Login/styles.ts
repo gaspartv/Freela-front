@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import { AnimationFadeIn } from "../../styles/animation";
 
-const entring = keyframes`
+const entringHover = keyframes`
   0% {
     width: 0%;
   }
@@ -10,8 +10,17 @@ const entring = keyframes`
     width: 100%;
   }
 `;
+const entring = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 export const LoginStyled = styled.div`
+  animation: ${entring} 0.5s;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -126,7 +135,7 @@ export const LinkStyled = styled(Link)`
     background-color: var(--Primary);
   }
   :hover span {
-    animation: ${entring} 0.3s linear forwards;
+    animation: ${entringHover} 0.3s linear forwards;
   }
   :hover {
     color: var(--Primary);

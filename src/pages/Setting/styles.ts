@@ -1,9 +1,17 @@
-import styled from "styled-components";
-
+import styled, { keyframes } from "styled-components";
+const entring = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 export const SettingStyled = styled.div`
   max-width: 1100px;
   min-width: 300px;
   margin: 32px auto;
+  animation: ${entring} 0.5s;
 `;
 
 export const InterestedStyled = styled.section`
