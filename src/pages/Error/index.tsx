@@ -1,7 +1,7 @@
 import imagemError from "../../assets/error.png";
 
-import { ErrorStyled, ErrorContainer, Warning } from "./styles";
 import { LinkStyled } from './../../components/StyledLink/styled';
+import { ErrorStyled, ErrorContainer, Warning } from "./styles";
 
 export const Error = () => {
   return (

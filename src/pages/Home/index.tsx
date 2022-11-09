@@ -1,12 +1,16 @@
 import { useContext, useEffect } from "react";
-import imgHome from "../../assets/img/imgHome.png";
-import { HomeContext } from "../../contexts/HomeContext";
-import ModalSeeMore from "../../components/ModalSeeMore";
-import { ContainerHome, HomeStyled, HomeTitle, BtnsFilter } from "./styles";
-import { LinkSettingStyled, NavStyled } from "../../components/Nav/styles";
-import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+
+import imgHome from "../../assets/img/imgHome.png";
+
+import ModalSeeMore from "../../components/ModalSeeMore";
+import { LinkSettingStyled, NavStyled } from "../../components/Nav/styles";
+
+import { HomeContext } from "../../contexts/HomeContext";
 import { UserContext } from "../../contexts/UserContext";
+
+import { ContainerHome, HomeStyled, HomeTitle, BtnsFilter } from "./styles";
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -23,7 +27,7 @@ export const Home = () => {
     setOpenModal(true);
     setIdModal(ID);
   }
-  
+
   return (
     <>
       <ContainerHome>
@@ -77,12 +81,24 @@ export const Home = () => {
 
         <BtnsFilter>
           <ul>
-            <li><button onClick={() => setFilter("todas")}>Todos</button></li>
-            <li><button onClick={() => setFilter("tech")}>Tech</button></li>
-            <li><button onClick={() => setFilter("reforco")}>Reforço</button></li>
-            <li><button onClick={() => setFilter("design")}>Design</button></li>
-            <li><button onClick={() => setFilter("financas")}>Finanças</button></li>
-            <li><button onClick={() => setFilter("eletrica")}>Eletrica</button></li>
+            <li>
+              <button onClick={() => setFilter("todas")}>Todos</button>
+            </li>
+            <li>
+              <button onClick={() => setFilter("tech")}>Tech</button>
+            </li>
+            <li>
+              <button onClick={() => setFilter("reforco")}>Reforço</button>
+            </li>
+            <li>
+              <button onClick={() => setFilter("design")}>Design</button>
+            </li>
+            <li>
+              <button onClick={() => setFilter("financas")}>Finanças</button>
+            </li>
+            <li>
+              <button onClick={() => setFilter("eletrica")}>Eletrica</button>
+            </li>
           </ul>
         </BtnsFilter>
 
@@ -96,10 +112,16 @@ export const Home = () => {
                 <span>{elem.category}</span>
                 <p>{elem.description}</p>
                 <strong>
-                  {elem.value.toLocaleString("pt-br", {style: "currency", currency: "BRL",})}
+                  {elem.value.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
                 </strong>
                 <button
-                  onClick={(event) => HandleClickModal(event.target)}id={elem.id}>Ver mais
+                  onClick={(event) => HandleClickModal(event.target)}
+                  id={elem.id}
+                >
+                  Ver mais
                 </button>
               </li>
             ))}

@@ -1,14 +1,15 @@
 import { useContext } from "react";
 
 import { Nav } from "../../components/Nav";
-import { SettingContext } from "../../contexts/SettingContext";
 import { ModalAddService } from "../../components/ModalAddService";
 import { ModalDeleteService } from "../../components/ModalDeleteService";
 import { ModalEditService } from "../../components/ModalEditService";
 
-import { InterestedStyled, ServiceStyled, SettingStyled } from "./styles";
 import { AnimationContext } from "../../contexts/AnimationContext";
+import { SettingContext } from "../../contexts/SettingContext";
 import { UserContext } from "../../contexts/UserContext";
+
+import { InterestedStyled, ServiceStyled, SettingStyled } from "./styles";
 
 export const Setting = () => {
   const { parent } = useContext(AnimationContext);

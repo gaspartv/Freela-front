@@ -1,61 +1,38 @@
-import styled, { keyframes } from "styled-components";
-const entring = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
+import styled from "styled-components";
+import { entringOpacity } from "../../styles/animation";
+
 export const SettingStyled = styled.div`
-  max-width: 1100px;
-  min-width: 300px;
-  margin: 32px auto;
-<<<<<<< HEAD
-  animation: ${entring} 0.5s;
-=======
-  animation: animateModal 2s;
-  @keyframes animateModal {
-    0% {
-        
-      opacity: 0;
-
-    }
-
-    100% {
-        
-        opacity: 1;
-
-    }
-    }
->>>>>>> feat/home
+  margin: 2rem auto;
+  max-width: var(--max-widtch-container);
+  min-width: var(--min-widtch-container);
+  animation: ${entringOpacity} 0.3s ease;
 `;
 
 export const InterestedStyled = styled.section`
   > div {
     display: flex;
-    padding: 16px;
-    gap: 40px;
+    padding: 1rem;
+    gap: 2.5rem;
     > button {
-      border: 1px solid var(--Primary);
-      border-radius: 25px;
-      background-color: var(--Primary);
-      color: var(--Secondary);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 15px;
-      padding: 15px 30px;
+      gap: 0.938rem;
+      padding: 0.938rem 1.875rem;
+      border: 0.063rem solid var(--Primary);
+      border-radius: 1.563rem;
+      background-color: var(--Primary);
+      color: var(--Secondary);
       cursor: pointer;
       transition: 0.3s;
       > span {
-        font-size: 35px;
+        font-size: 2.188rem;
         transition: 0.3s;
       }
       > p {
         font-weight: 700;
-        font-size: 22px;
-        line-height: 48px;
+        font-size: 1.375rem;
+        line-height: 3rem;
         transition: 0.3s;
       }
       :hover {
@@ -74,61 +51,61 @@ export const InterestedStyled = styled.section`
 export const ServiceStyled = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 16px;
-  gap: 40px;
+  padding: 1rem;
+  gap: 2.5rem;
   > h2 {
     font-weight: 700;
-    font-size: 36px;
-    line-height: 54px;
+    font-size: 2.25rem;
+    line-height: 3.375rem;
     color: var(--Primary);
   }
   > ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 2.5rem;
     > li {
       width: 100%;
-      max-width: 450px;
+      max-width: 28.125rem;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      border: 2px solid var(--Primary);
-      border-radius: 25px;
-      padding: 30px;
+      gap: 0.625rem;
+      border: 0.125rem solid var(--Primary);
+      border-radius: 1.563rem;
+      padding: 1.875rem;
       position: relative;
       > span {
         position: absolute;
-        top: 30px;
-        right: 30px;
+        top: 1.875rem;
+        right: 1.875rem;
         font-weight: 700;
-        font-size: 15px;
-        line-height: 22px;
+        font-size: 0.938rem;
+        line-height: 1.375rem;
         color: var(--Primary);
       }
       > h3 {
         font-weight: 700;
-        font-size: 24px;
-        line-height: 36px;
+        font-size: 1.5rem;
+        line-height: 2.25rem;
         color: var(--Black);
       }
       > p {
         font-weight: 500;
-        font-size: 15px;
-        line-height: 22px;
+        font-size: 0.938rem;
+        line-height: 1.375rem;
         color: var(--Black);
       }
       > div {
         display: flex;
-        gap: 16px;
+        gap: 1rem;
         > button {
-          border-radius: 50px;
+          border-radius: 3.125rem;
           background-color: var(--Primary);
           border: none;
           font-weight: 700;
-          font-size: 15px;
-          line-height: 22px;
+          font-size: 0.938rem;
+          line-height: 1.375rem;
           color: var(--Secondary);
-          padding: 6px 22px;
+          padding: 0.375rem 1.375rem;
           cursor: pointer;
           transition: 0.3s;
           :hover {

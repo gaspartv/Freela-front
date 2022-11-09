@@ -1,26 +1,17 @@
 import PhoneInput from "react-phone-input-2";
-import styled, { keyframes } from "styled-components";
-import { AnimationFadeIn } from "../../styles/animation";
-
-const entring = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
+import styled from "styled-components";
+import { AnimationFadeIn, entringOpacity } from "../../styles/animation";
 
 export const RegisterStyled = styled.div`
-  animation: ${entring} 0.5s;
+  animation: ${entringOpacity} 0.3s;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Poppins";
+  font-family: var(--font-family-1);
   font-style: normal;
-  margin: 70px 0;
+  margin-top: 2.5rem;
 `;
 
 export const DivForm = styled.div`
@@ -38,35 +29,35 @@ export const BlockLogo = styled.span`
   display: none;
   @media (min-width: 768px) {
     display: flex;
-    width: 200px;
+    width: 12.5rem;
     height: 100%;
     background: var(--Primary);
-    border-radius: 10px;
+    border-radius: 0.625rem;
   }
 `;
 
 export const SectionForm = styled.section`
   width: 100%;
-  max-width: 400px;
+  max-width: 25rem;
   > form {
-    padding: 0 27px;
+    padding: 0 1.688rem;
     display: flex;
     flex-direction: column;
     animation: ${AnimationFadeIn} 0.1s linear forwards;
 
     > h1 {
       font-weight: 700;
-      font-size: 32px;
-      line-height: 48px;
+      font-size: 2rem;
+      line-height: 3rem;
       color: var(--Primary);
       cursor: default;
     }
     > label {
       font-weight: 700;
-      font-size: 14px;
-      line-height: 21px;
+      font-size: 0.875rem;
+      line-height: 1.313rem;
       color: var(--Black);
-      margin: 6px;
+      margin: 0.375rem;
       cursor: default;
     }
     > div {
@@ -76,36 +67,36 @@ export const SectionForm = styled.section`
       width: 100%;
       > input {
         background: var(--Input-Background);
-        border-radius: 8px;
-        height: 52px;
-        padding: 0 25px;
+        border-radius: 0.5rem;
+        height: 3.25rem;
+        padding: 0 1.563rem;
         border: none;
       }
       > span {
         position: absolute;
-        top: 18px;
-        right: 10px;
+        top: 1.125rem;
+        right: 0.625rem;
         cursor: pointer;
       }
     }
     > select {
       background: var(--Input-Background);
-      border-radius: 8px;
-      height: 52px;
-      padding: 0 25px;
+      border-radius: 0.5rem;
+      height: 3.25rem;
+      padding: 0 1.563rem;
       border: none;
     }
     > button {
-      height: 52px;
+      height: 3.25rem;
       background: var(--Primary);
-      border-radius: 8px;
+      border-radius: 0.5rem;
       border: none;
       font-weight: 700;
-      font-size: 13px;
-      line-height: 20px;
+      font-size: 0.813rem;
+      line-height: 1.25rem;
       text-align: center;
       color: var(--Secondary);
-      margin-top: 10px;
+      margin-top: 0.625rem;
       cursor: pointer;
       transition: 0.3s;
       :hover {
@@ -116,13 +107,13 @@ export const SectionForm = styled.section`
 `;
 
 export const Terms = styled.span`
-  gap: 10px;
+  gap: 0.625rem;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 0.813rem;
   display: flex;
   align-items: center;
   color: rgba(23, 115, 105, 0.6);
-  margin: 25px 0;
+  margin: 1.563rem 0;
   text-decoration: none;
   cursor: pointer;
   > label {
