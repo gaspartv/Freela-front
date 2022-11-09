@@ -1,11 +1,11 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import imgHome from "../../assets/img/imgHome.png";
 
 import { HomeContext } from "../../contexts/HomeContext";
 import ModalSeeMore from "../../components/ModalSeeMore";
 
-import { ContainerHome, HomeStyled, HomeTitle, BtnsFilter} from "./styles";
+import { ContainerHome, HomeStyled, HomeTitle, BtnsFilter } from "./styles";
 import { LinkSettingStyled, NavStyled } from "../../components/Nav/styles";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
@@ -14,7 +14,12 @@ import { UserContext } from "../../contexts/UserContext";
 export const Home = () => {
   const navigate = useNavigate();
   const { userLogout, user } = useContext(UserContext);
-  const { filterCategory, dataFilter, openModal, setOpenModal, setIdModal } = useContext(HomeContext);
+  const { setFilter, dataFilter, openModal, setOpenModal, setIdModal } =
+    useContext(HomeContext);
+
+  useEffect(() => {
+    setFilter("todas");
+  }, [setFilter]);
 
   function HandleClickModal(Target: any) {
     const ID = Target.id;
@@ -50,7 +55,7 @@ export const Home = () => {
                 <LinkSettingStyled to="/login">
                   Login<span></span>
                 </LinkSettingStyled>
-                
+
                 <LinkSettingStyled to="/register">
                   Criar conta<span></span>
                 </LinkSettingStyled>
@@ -77,26 +82,22 @@ export const Home = () => {
         <BtnsFilter>
           <ul>
             <li>
-              <button onClick={() => filterCategory("todas")}>Todos</button>
+              <button onClick={() => setFilter("todas")}>Todos</button>
             </li>
             <li>
-              <button onClick={() => filterCategory("tech")}>Tech</button>
+              <button onClick={() => setFilter("tech")}>Tech</button>
             </li>
             <li>
-              <button onClick={() => filterCategory("reforco")}>Reforço</button>
+              <button onClick={() => setFilter("reforco")}>Reforço</button>
             </li>
             <li>
-              <button onClick={() => filterCategory("design")}>Design</button>
+              <button onClick={() => setFilter("design")}>Design</button>
             </li>
             <li>
-              <button onClick={() => filterCategory("financas")}>
-                Finanças
-              </button>
+              <button onClick={() => setFilter("financas")}>Finanças</button>
             </li>
-            <li>
-              <button onClick={() => filterCategory("eletrica")}>
-                Eletrica
-              </button>
+            <li>  
+              <button onClick={() => setFilter("eletrica")}>Eletrica</button>
             </li>
           </ul>
         </BtnsFilter>
