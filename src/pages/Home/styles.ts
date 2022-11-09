@@ -122,9 +122,17 @@ export const HomeStyled = styled.div`
         line-height: 22px;
         letter-spacing: 1px;
         white-space: nowrap;
-        width: 25rem;
+        width: 15rem;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+
+      @media (min-width: 768px){
+       p{
+
+          width: 25rem;;
+
+        }
       }
       > strong {
         font-weight: 600;
