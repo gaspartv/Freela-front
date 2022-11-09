@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
 import { registerSchema } from "../../validations/RegisterSchema";
@@ -115,7 +114,10 @@ export const Register = () => {
             </ParagrafoErro>
 
             <div>
-              <PhoneInputStyled country={"br"} onChange={(phone) => setTel(phone)} />
+              <PhoneInputStyled
+                country={"br"}
+                onChange={(phone) => setTel(phone)}
+              />
             </div>
 
             <Terms>

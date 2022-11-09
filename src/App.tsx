@@ -2,8 +2,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import RouterMain from "./routes";
-import GlobalStyle from "./styles/Global";
 import { SpanTop } from "./components/SpanTop/style";
+import GlobalStyle from "./styles/Global";
 
 function App() {
   return (

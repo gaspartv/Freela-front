@@ -1,10 +1,5 @@
-import styled, { keyframes } from "styled-components";
-
-const rotate = keyframes`
-  100% {
-    transform: rotate(360deg);
-  }
-`;
+import styled from "styled-components";
+import { rotate } from "../../styles/animation";
 
 export const Div = styled.div`
   width: 100vw;
@@ -17,7 +12,7 @@ export const Div = styled.div`
   justify-content: center;
   align-items: center;
   img {
-    width: 70px;
+    width: 4.375rem;
     animation: ${rotate} 4s linear infinite;
   }
 `;

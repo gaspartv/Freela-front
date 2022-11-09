@@ -1,24 +1,8 @@
-import styled, { keyframes } from "styled-components";
-
-const modalEfectOpacity = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-const modalEfectTransition = keyframes`
-  0% {
-    transform: scale(0, 0);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-`;
+import styled from "styled-components";
+import { entringOpacity, modalEfectTransition } from "../../styles/animation";
 
 export const ModalStyled = styled.div`
-  animation: ${modalEfectOpacity} 0.3s;
+  animation: ${entringOpacity} 0.3s;
   position: fixed;
   top: 0;
   left: 0;
@@ -27,54 +11,33 @@ export const ModalStyled = styled.div`
   align-items: center;
   justify-content: center;
   width: 100vw;
-  min-width: 300px;
+  min-width: var(--min-widtch-container);
   height: 100vh;
-  z-index: 101;
-  animation: animateModal 0.3s;
-  @keyframes animateModal {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes animateModalContainer {
-    0% {
-      opacity: 0;
-      transform: scale(0, 0);
-    }
-
-    100% {
-      opacity: 1;
-      transform: scale(1, 1);
-    }
-  }
+  z-index: 102;
+  animation: ${entringOpacity} 0.3s;
   > span {
-    animation: ${modalEfectTransition} 0.5s;
+    animation: ${modalEfectTransition} 0.3s;
     width: 100%;
-    max-width: 400px;
-    min-height: 200px;
+    max-width: 25rem;
+    min-height: 12.5rem;
     background-color: var(--Secondary);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 16px;
+    border-radius: 1rem;
     position: relative;
-    gap: 16px;
-    border: 5px solid var(--Primary-Hover);
-    margin: 0 16px;
-    animation: animateModalContainer 0.5s;
+    gap: 1rem;
+    border: 0.125rem solid var(--Primary-Hover);
+    margin: 0 1rem;
+    animation: ${modalEfectTransition} 0.3s;
     > h2 {
       font-size: 2rem;
       width: 100%;
-      padding: 20px 0;
+      padding: 1.25rem 0;
       text-align: center;
       background-color: var(--Primary-Hover);
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
       color: var(--Input-Background);
     }
     > button {
@@ -89,27 +52,21 @@ export const ModalStyled = styled.div`
       color: var(--Input-Background);
     }
     > p {
-      margin: 0 16px;
+      margin: 0 1rem;
     }
     > div {
-      margin: 0 16px 20px 16px;
+      margin: 0 1rem 1.25rem 1rem;
       display: flex;
       align-items: center;
       gap: 1rem;
 
       > a {
-
         text-decoration: none;
         color: var(--Primary);
         font-weight: 700;
-
-
-      }
-
-      > a:hover{
-
-        color: var(--Primary-Hover);
-
+        :hover {
+          color: var(--Primary-Hover);
+        }
       }
     }
   }

@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { SmallCloseIcon } from "@chakra-ui/icons";
 import { BsWhatsapp } from 'react-icons/bs';
+
 import { HomeContext } from "../../contexts/HomeContext";
+
 import { ModalStyled } from "./styles";
 
 const ModalSeeMore = () => {

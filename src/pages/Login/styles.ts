@@ -1,33 +1,19 @@
 import { Link } from "react-router-dom";
-import styled, { keyframes } from "styled-components";
-import { AnimationFadeIn } from "../../styles/animation";
-
-const entringHover = keyframes`
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
-  }
-`;
-const entring = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
+import styled from "styled-components";
+import {
+  AnimationFadeIn,
+  entring,
+  entringOpacity,
+} from "../../styles/animation";
 
 export const LoginStyled = styled.div`
-  animation: ${entring} 0.5s;
+  animation: ${entringOpacity} 0.3s;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Poppins";
-  font-style: normal;
+  font-family: var(--font-family-1);
 `;
 
 export const DivForm = styled.div`
@@ -45,35 +31,35 @@ export const BlockLogo = styled.span`
   display: none;
   @media (min-width: 768px) {
     display: flex;
-    width: 176px;
+    width: 11rem;
     height: 100%;
     background: var(--Primary);
-    border-radius: 10px;
+    border-radius: 0.625rem;
   }
 `;
 
 export const SectionForm = styled.section`
   width: 100%;
-  max-width: 400px;
+  max-width: 25rem;
   > form {
-    padding: 0 27px;
+    padding: 0 1.688rem;
     display: flex;
     flex-direction: column;
     animation: ${AnimationFadeIn} 0.1s linear forwards;
 
     > h1 {
       font-weight: 700;
-      font-size: 32px;
-      line-height: 48px;
+      font-size: 2rem;
+      line-height: 3rem;
       color: var(--Primary);
       cursor: default;
     }
     > label {
       font-weight: 700;
-      font-size: 14px;
-      line-height: 21px;
+      font-size: 0.875rem;
+      line-height: 1.313rem;
       color: var(--Black);
-      margin: 6px;
+      margin: 0.375rem;
       cursor: default;
     }
     > div {
@@ -82,30 +68,30 @@ export const SectionForm = styled.section`
       position: relative;
       > input {
         background: var(--Input-Background);
-        border-radius: 8px;
-        height: 52px;
-        padding: 0 25px;
+        border-radius: 0.5rem;
+        height: 3.25rem;
+        padding: 0 1.563rem;
         border: none;
       }
       > span {
         position: absolute;
-        top: 18px;
-        right: 10px;
+        top: 1.125rem;
+        right: 0.625rem;
         cursor: pointer;
       }
     }
 
     > button {
-      height: 52px;
+      height: 3.25rem;
       background: var(--Primary);
-      border-radius: 8px;
+      border-radius: 0.5rem;
       border: none;
       font-weight: 700;
-      font-size: 13px;
-      line-height: 20px;
+      font-size: 0.813rem;
+      line-height: 1.25rem;
       text-align: center;
       color: var(--Secondary);
-      margin-top: 40px;
+      margin-top: 2.5rem;
       cursor: pointer;
       transition: 0.3s;
       :hover {
@@ -116,26 +102,26 @@ export const SectionForm = styled.section`
 `;
 
 export const LinkStyled = styled(Link)`
-  width: 185px;
+  width: 11.563rem;
   font-weight: 500;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 0.813rem;
+  line-height: 1.25rem;
   display: flex;
   align-items: flex-end;
   color: rgba(23, 115, 105, 0.6);
-  margin-top: 14px;
-  margin-left: 20px;
+  margin-top: 0.875rem;
+  margin-left: 1.25rem;
   text-decoration: none;
   position: relative;
   > span {
     position: absolute;
     left: 0;
-    bottom: 2px;
-    height: 1px;
+    bottom: 0.125rem;
+    height: 0.063rem;
     background-color: var(--Primary);
   }
   :hover span {
-    animation: ${entringHover} 0.3s linear forwards;
+    animation: ${entring} 0.3s linear forwards;
   }
   :hover {
     color: var(--Primary);
