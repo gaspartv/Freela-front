@@ -21,7 +21,7 @@ const ModalSeeMore = () => {
         <p>{WorkFiltered[0].description}</p>
         <div>
           <strong><BsWhatsapp /></strong> 
-          <a href={`https://wa.me/+${WorkFiltered[0]?.contact}?text=Óla, tenho interesse em seus serviços`} target="_blank" rel="noreferrer"> Clique aqui</a>
+          <a href={`https://wa.me/+${WorkFiltered[0]?.contact}?text=Óla, gostaria de contratar o seu serviço`} target="_blank" rel="noreferrer"> Clique aqui</a>
         </div>
       </span>
     </ModalStyled>
