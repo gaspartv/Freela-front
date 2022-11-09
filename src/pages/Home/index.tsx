@@ -23,7 +23,7 @@ export const Home = () => {
     setOpenModal(true);
     setIdModal(ID);
   }
-
+  
   return (
     <>
       <ContainerHome>
@@ -52,7 +52,7 @@ export const Home = () => {
                 <LinkSettingStyled to="/login">
                   Login<span></span>
                 </LinkSettingStyled>
-
+                <ChevronRightIcon />
                 <LinkSettingStyled to="/register">
                   Criar conta<span></span>
                 </LinkSettingStyled>
