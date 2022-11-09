@@ -7,14 +7,16 @@ import { iServiceData } from "../ModalAddService";
 
 import { ModalStyled } from "./styles";
 import { ParagrafoErro } from "../ParagraphyError";
-import { EditModalSchema } from './../../validations/EditModalSchema';
+import { EditModalSchema } from "./../../validations/EditModalSchema";
 
 export const ModalEditService = () => {
   const { setOpenModalEdit, editServ, editServiceApi } =
     useContext(SettingContext);
 
-  const { register, handleSubmit,
-    formState: { errors }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
   } = useForm<iServiceData>({
     resolver: yupResolver(EditModalSchema),
   });
@@ -51,7 +53,7 @@ export const ModalEditService = () => {
 
           <label>Valor</label>
           <input
-            type="text"
+            type="number"
             placeholder={`${editServ[0].value}`}
             {...register("value")}
           />
