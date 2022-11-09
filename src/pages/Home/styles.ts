@@ -122,7 +122,7 @@ export const HomeStyled = styled.div`
         line-height: 22px;
         letter-spacing: 1px;
         white-space: nowrap;
-        width: 12rem;
+        width: 25rem;
         overflow: hidden;
         text-overflow: ellipsis;
       }
