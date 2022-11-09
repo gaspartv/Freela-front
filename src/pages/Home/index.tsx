@@ -96,16 +96,10 @@ export const Home = () => {
                 <span>{elem.category}</span>
                 <p>{elem.description}</p>
                 <strong>
-                  {elem.value.toLocaleString("pt-br", {
-                    style: "currency",
-                    currency: "BRL",
-                  })}
+                  {elem.value.toLocaleString("pt-br", {style: "currency", currency: "BRL",})}
                 </strong>
                 <button
-                  onClick={(event) => HandleClickModal(event.target)}
-                  id={elem.id}
-                >
-                  Ver mais
+                  onClick={(event) => HandleClickModal(event.target)}id={elem.id}>Ver mais
                 </button>
               </li>
             ))}
