@@ -83,7 +83,7 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
     setLoad(true);
     try {
       const response = await api.post("/works", newData);
-      toast("Serviço cadastrado com sucesso!");
+      toast.success("Serviço cadastrado com sucesso!");
       setOpenModal(false);
       setRender(response.data.id);
     } catch {
@@ -103,11 +103,11 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
     setLoad(true);
     try {
       await api.delete(`/works/${id}`);
-      toast("Serviço deletado com sucesso!");
+      toast.success("Serviço deletado com sucesso!");
       setOpenModalDelete(false);
       setRender(`${id}`);
     } catch {
-      toast("Não foi possível deletar o serviço");
+      toast.error("Não foi possível deletar o serviço");
     } finally {
       setLoad(false);
     }
@@ -123,7 +123,7 @@ const SettingProvider = ({ children }: iSettingContextProps) => {
     setLoad(true);
     try {
       const response = await api.patch(`/works/${editServ[0].id}`, data);
-      toast("Serviço editado com sucesso!");
+      toast.success("Serviço editado com sucesso!");
       setOpenModalEdit(false);
       setRender(
         `E${response.data.id}${response.data.title}${response.data.category}`

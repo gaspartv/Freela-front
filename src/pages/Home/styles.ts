@@ -45,12 +45,6 @@ export const NavStyled = styled.header`
 
 export const HomeTitle = styled.div`
   display: flex;
-  width: 100% ;
-  align-items: center;
-  justify-content: space-between;
-  height: 70vh;
-
-
   div {
     display: flex;
     flex-direction: column;
@@ -61,26 +55,47 @@ export const HomeTitle = styled.div`
   span {
     color: var(--Primary);
   }
-
   h1 {
     font-size: 60px;
     line-height: 80px;
   }
-
   p {
     font-size: 24px;
     line-height: 35px;
   }
-
   figure {
     width: 50%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-
+    max-width: 600px;
   }
-  figure img{
-    width: 80%;
+  @media (max-width: 1024px) {
+    img {
+      width: 368px;
+      height: 295px;
+    }
+    h1 {
+      font-size: 41px;
+      line-height: 49px;
+    }
+    p {
+      font-size: 21px;
+      line-height: 36px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    img {
+      width: 368px;
+      height: 295px;
+    }
+    h1 {
+      font-size: 25px;
+      line-height: 32px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   @media (max-width: 1200px) {
@@ -112,7 +127,6 @@ export const HomeTitle = styled.div`
       font-size: 41px;
       line-height: 49px;
     }
-
     p {
       font-size: 18px;
       line-height: 30px;
@@ -186,6 +200,7 @@ export const HomeStyled = styled.div`
   min-height: 1000px;
 
   ul {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

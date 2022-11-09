@@ -5,7 +5,8 @@ export const AddServiceSchema = yup.object().shape({
 
   description: yup.string().required("Descrição é obrigatório"),
 
-  category: yup.string().required("Categoria é obrigatório"),
+  category: yup.string().required("Selecione uma categoria"),
   
   value: yup.string().required("Valor é obrigatório"),
+
 });

@@ -6,6 +6,7 @@ export const SpanTop = styled.span`
   left: 0;
   display: block;
   width: 100vw;
+  min-width: 300px;
   height: 1.5rem;
   background-color: var(--Primary);
   z-index: 101;
