@@ -8,6 +8,20 @@ export const ContainerHome = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  animation: animateModal 2s;
+  @keyframes animateModal {
+    0% {
+        
+      opacity: 0;
+
+    }
+
+    100% {
+        
+        opacity: 1;
+
+    }
+    }
   @media (max-width: 1200px) {
     width: 90%;
   }
@@ -186,7 +200,21 @@ export const HomeStyled = styled.div`
     
   }
 
-  li {
+  li { animation: animateModal 2s;
+  @keyframes animateModal {
+    0% {
+        
+      opacity: 0;
+     
+    }
+
+    100% {
+        
+        opacity: 1;
+   
+      
+    }
+    }
     display: flex;
     flex-direction: column;
     gap: 20px;

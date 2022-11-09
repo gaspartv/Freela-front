@@ -11,9 +11,37 @@ export const ModalStyled = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 101;
+  animation: animateModal 2s;
+  @keyframes animateModal {
+    0% {
+        
+      opacity: 0;
+    }
+
+    100% {
+        
+        opacity: 1;
+      
+    }
+    
+    }
+    @keyframes animateModalContainer {
+    0% {
+        
+      opacity: 0;
+      transform: scale(0, 0);
+    }
+
+    100% {
+        
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+    }
   > span {
     padding: 16px;
     width: 100%;
+    animation: animateModalContainer 0.5s;
     > form {
       max-width: 400px;
       background-color: var(--Secondary);
