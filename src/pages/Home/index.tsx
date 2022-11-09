@@ -95,7 +95,6 @@ export const Home = () => {
                 <h2>{elem.title}</h2>
                 <span>{elem.category}</span>
                 <p>{elem.description}</p>
-                <p>{elem.contact}</p>
                 <strong>
                   {elem.value.toLocaleString("pt-br", {
                     style: "currency",
