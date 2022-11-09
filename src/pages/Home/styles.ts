@@ -1,46 +1,38 @@
-import styled, { keyframes } from "styled-components";
-
-const entring = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
+import styled from "styled-components";
+import { entringOpacity } from "../../styles/animation";
 
 export const ContainerHome = styled.div`
-  max-width: 1100px;
-  min-width: 300px;
-  margin: 32px auto;
-  animation: ${entring} 0.5s;
+  max-width: var(--max-widtch-container);
+  min-width: var(--min-widtch-container);
+  margin: 2rem auto;
+  animation: ${entringOpacity} 0.3s;
 `;
 
 export const HomeTitle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 16px;
-  margin-bottom: 40px;
+  padding: 0 1rem;
+  margin-bottom: 2.5rem;
   > img {
     max-width: 100%;
   }
   > div {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    max-width: 450px;
+    gap: 2.5rem;
+    max-width: 28.125rem;
     > h1 {
-      font-size: 38px;
-      line-height: 48px;
+      font-size: 2.375rem;
+      line-height: 3rem;
       > span {
         color: var(--Primary);
       }
     }
     > p {
       font-weight: 500;
-      font-size: 20px;
-      line-height: 30px;
+      font-size: 1.25rem;
+      line-height: 1.875rem;
     }
   }
   @media (min-width: 768px) {
@@ -51,30 +43,29 @@ export const HomeTitle = styled.div`
 
 export const BtnsFilter = styled.div`
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
   > ul {
-    padding: 16px;
+    padding: 1rem;
     display: flex;
     justify-content: space-between;
-    gap: 12px;
+    gap: 0.75rem;
     overflow: auto;
     > li {
       > button {
-        min-width: 120px;
-        height: 60px;
+        min-width: 7.5rem;
+        height: 3.75rem;
         background-color: var(--Primary);
-        border-radius: 10px;
-        font-family: "Poppins";
-        font-style: normal;
+        border-radius: 0.625rem;
+        font-family: var(--font-family-1);
         font-weight: 500;
-        font-size: 20px;
-        line-height: 30px;
+        font-size: 1.25rem;
+        line-height: 1.875rem;
         text-align: center;
         border: transparent;
         color: var(--Secondary);
         cursor: pointer;
         :hover {
-          background: #135b53;
+          background: var(--Primary-Hover);
         }
       }
     }
@@ -84,47 +75,46 @@ export const BtnsFilter = styled.div`
 export const HomeStyled = styled.div`
   width: 100%;
   > ul {
-    padding: 16px;
+    padding: 1rem;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 1rem;
     > li {
-      animation: ${entring} 2s;
+      animation: ${entringOpacity} 0.3s;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 0.938rem;
       justify-content: space-between;
       width: 100%;
-      max-width: 450px;
-      border: 2px solid var(--Primary);
-      border-radius: 8px;
-      padding: 16px;
+      max-width: 28.125rem;
+      border: 0.125rem solid var(--Primary);
+      border-radius: 0.5rem;
       position: relative;
       > h2 {
-        font-style: normal;
         font-weight: 700;
-        font-size: 24px;
-        letter-spacing: 1px;
+        font-size: 1.5rem;
+        letter-spacing: 0.063rem;
+        padding: 1rem 1rem 0 1rem;
       }
       > span {
         position: absolute;
-        top: 16px;
-        right: 16px;
+        top: 1rem;
+        right: 1rem;
         font-weight: 700;
-        font-size: 15px;
-        line-height: 22px;
+        font-size: 0.938rem;
+        line-height: 1.375rem;
         color: var(--Primary);
       }
       > p {
         font-weight: 500;
-        font-size: 16px;
-        line-height: 22px;
-        letter-spacing: 1px;
-        white-space: nowrap;
-        width: 15rem;
+        font-size: 1rem;
+        line-height: 1.375rem;
+        letter-spacing: 0.063rem;
         overflow: hidden;
+        white-space: nowrap;
         text-overflow: ellipsis;
+        padding: 0 1rem;
       }
 
       @media (min-width: 768px){
@@ -136,23 +126,25 @@ export const HomeStyled = styled.div`
       }
       > strong {
         font-weight: 600;
-        font-size: 18px;
-        line-height: 22px;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
+        padding: 0 1rem;
       }
       > button {
         align-self: flex-end;
-        width: 148px;
-        height: 31px;
+        width: 9.25rem;
+        height: 2rem;
         cursor: pointer;
         background: var(--Primary);
-        border-radius: 50px;
+        border-radius: 3.125rem;
         border: transparent;
         font-weight: 700;
-        font-size: 15px;
-        line-height: 22px;
+        font-size: 0.938rem;
+        line-height: 1.375rem;
         color: var(--Secondary);
+        margin: 0 1rem 1rem 1rem;
         :hover {
-          background: #135b53;
+          background: var(--Primary-Hover);
         }
       }
     }

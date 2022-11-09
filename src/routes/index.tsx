@@ -15,7 +15,6 @@ const RouterMain = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="*" element={<Error />} />
-
       <Route element={<ProtectRoutes />}>
         <Route path="/setting" element={<Setting />} />
       </Route>

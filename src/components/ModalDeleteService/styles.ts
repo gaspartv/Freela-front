@@ -1,23 +1,12 @@
-import styled, { keyframes } from "styled-components";
-const modalEfectOpacity = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-const modalEfectTransition = keyframes`
-  0% {
-    transform: scale(0, 0);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-`;
+import styled from "styled-components";
+import {
+  animateModalContainer,
+  entringOpacity,
+  modalEfectTransition,
+} from "../../styles/animation";
 
 export const ModalStyled = styled.div`
-  animation: ${modalEfectOpacity} 0.3s;
+  animation: ${entringOpacity} 0.3s;
   position: fixed;
   top: 0;
   left: 0;
@@ -28,57 +17,37 @@ export const ModalStyled = styled.div`
   width: 100vw;
   height: 100vh;
   z-index: 101;
-  animation: animateModal 0.3s;
-  @keyframes animateModal {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes animateModalContainer {
-    0% {
-      opacity: 0;
-      transform: scale(0, 0);
-    }
-
-    100% {
-      opacity: 1;
-      transform: scale(1, 1);
-    }
-  }
+  animation: ${entringOpacity} 0.3s;
   > span {
-    animation: ${modalEfectTransition} 0.5s;
-    padding: 16px;
+    animation: ${modalEfectTransition} 0.3s;
+    padding: 1rem;
     width: 100%;
-    animation: animateModalContainer 0.5s;
+    animation: ${animateModalContainer} 0.3s;
     > div {
-      max-width: 400px;
+      max-width: 25rem;
       background-color: var(--Secondary);
       display: flex;
       flex-direction: column;
-      padding: 32px;
-      border-radius: 16px;
-      border: 5px solid var(--Primary-Hover);
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 0.125rem solid var(--Primary-Hover);
       position: relative;
-      gap: 12px;
+      gap: 0.75rem;
       text-align: center;
       margin: 0 auto;
       > div {
         display: flex;
         justify-content: center;
-        gap: 15px;
+        gap: 0.938rem;
         > button {
-          border-radius: 50px;
-          background-color: #177369;
+          background-color: var(--Primary);
           border: none;
+          border-radius: 3.125rem;
           font-weight: 700;
-          font-size: 15px;
-          line-height: 22px;
-          color: #f5eed0;
-          padding: 6px 22px;
+          font-size: 0.938rem;
+          line-height: 1.375rem;
+          color: var(--Secondary);
+          padding: 0.375rem 1.375rem;
           cursor: pointer;
           :hover {
             background-color: var(--Primary-Hover);

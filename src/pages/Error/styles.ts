@@ -12,44 +12,42 @@ export const ErrorContainer = styled.div`
   width: 70%;
   align-items: center;
   justify-content: space-between;
-
   > img {
-    width: 500px;
+    width: 31.25rem;
   }
-    @media (max-width: 720px) {
-      flex-direction: column;
-        img{
-          width: 300px;
-        }
+  @media (max-width: 720px) {
+    flex-direction: column;
+    img {
+      width: 18.75rem;
     }
+  }
 `;
+
 export const Warning = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
   > h1 {
-    font-family: "Poppins";
-    font-style: normal;
+    font-family: var(--font-family-1);
     font-weight: 700;
-    font-size: 250px;
+    font-size: 15.625rem;
     color: var(--Primary);
-     @media (max-width: 720px) {
-      font-size: 130px;
-     }
+    @media (max-width: 720px) {
+      font-size: 8.125rem;
+    }
   }
   > h2 {
-    width: 500px;
-    font-family: "Poppins";
-    font-style: normal;
+    width: 31.25rem;
+    font-family: var(--font-family-1);
     font-weight: 700;
-    font-size: 48px;
-    line-height: 72px;
+    font-size: 3rem;
+    line-height: 4.5rem;
     text-align: center;
     color: var(--Primary);
     @media (max-width: 720px) {
-      width: 300px;
-      font-size: 30px;
-      line-height: 40px;
+      width: 18.75rem;
+      font-size: 1.875rem;
+      line-height: 2.5rem;
+    }
   }
-}
 `;

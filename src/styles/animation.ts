@@ -17,6 +17,15 @@ export const entring = keyframes`
   }
 `;
 
+export const entringOpacity = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
 export const exiting = keyframes`
 
   0% {
@@ -31,6 +40,29 @@ export const exiting = keyframes`
   }
 `;
 
+export const modalEfectTransition = keyframes`
+  0% {
+    transform: scale(0, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+`;
 
+export const animateModalContainer = keyframes`
+  0% {
+    opacity: 0;
+    transform: scale(0, 0);
+  }
 
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+`;
 
+export const rotate = keyframes`
+  100% {
+    transform: rotate(360deg);
+  }
+`;

@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 export const ButtonStyled = styled.button`
-  height: 52px;
+  height: 3.25rem;
   background: var(--Primary);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   border: none;
   font-weight: 700;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 0.813rem;
+  line-height: 1.25rem;
   text-align: center;
   color: var(--Secondary);
-  margin-top: 40px;
+  margin-top: 2.5rem;
   cursor: pointer;
   transition: 0.3s;
   :hover {

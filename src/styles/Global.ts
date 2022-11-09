@@ -1,9 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-
-
-
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -28,13 +25,6 @@ const GlobalStyle = createGlobalStyle`
     article, aside, details, figcaption, figure, 
     footer, header, hgroup, menu, nav, section {
         display: block;
-    }
-
-    body {
-        line-height: 1;
-        font-family: 'Poppins', sans-serif;
-        /* font-logo */
-        /* font-family: 'Italiana', serif; */
     }
 
     ol, ul {
@@ -66,9 +56,19 @@ const GlobalStyle = createGlobalStyle`
         --Error: #FF0000;
         --Warning: #FFC300;
         --Success: #00FF00;
+
+        --max-widtch-container: 68.75rem;
+        --min-widtch-container: 18.75rem;
+
+        --font-family-1: 'Poppins', sans-serif;
+        --font-family-2: "Italiana";
     }
+
     body {
         background-color: var(--Secondary);
+        line-height: 1;
+        font-family: var(--font-family-1);
+        font-style: normal;
     }
 `;
 
