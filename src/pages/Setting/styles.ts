@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SettingStyled = styled.div`
-  max-width: 1200px;
+  max-width: 1100px;
   min-width: 300px;
   margin: 32px auto;
 `;
@@ -67,7 +67,7 @@ export const ServiceStyled = styled.section`
       display: flex;
       flex-direction: column;
       gap: 10px;
-      border: 1px solid var(--Primary);
+      border: 2px solid var(--Primary);
       border-radius: 25px;
       padding: 30px;
       position: relative;

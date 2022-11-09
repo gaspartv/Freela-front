@@ -61,6 +61,8 @@ export const Home = () => {
         </NavStyled>
 
         <HomeTitle>
+          <img src={imgHome} alt="imagem Home" />
+
           <div>
             <h1>
               Bem-vindos à <span>Nova Era do Trabalho</span>
@@ -70,9 +72,6 @@ export const Home = () => {
               empresas
             </p>
           </div>
-          <figure>
-            <img src={imgHome} alt="imagem Home" />
-          </figure>
         </HomeTitle>
 
         <BtnsFilter>
@@ -108,26 +107,22 @@ export const Home = () => {
           <ul>
             {dataFilter.map((elem) => (
               <li key={elem.id}>
-                <div className="cardTitle">
-                  <h2>{elem.title}</h2>
-                  <span>{elem.category}</span>
-                </div>
-                <div className="cardDescription">
-                  <p>{elem.description}</p>
-                  <p>{elem.contact}</p>
-                  <p>
-                    {elem.value.toLocaleString("pt-br", {
-                      style: "currency",
-                      currency: "BRL",
-                    })}
-                  </p>
-                  <button
-                    onClick={(event) => HandleClickModal(event.target)}
-                    id={elem.id}
-                  >
-                    Ver mais
-                  </button>
-                </div>
+                <h2>{elem.title}</h2>
+                <span>{elem.category}</span>
+                <p>{elem.description}</p>
+                <p>{elem.contact}</p>
+                <strong>
+                  {elem.value.toLocaleString("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  })}
+                </strong>
+                <button
+                  onClick={(event) => HandleClickModal(event.target)}
+                  id={elem.id}
+                >
+                  Ver mais
+                </button>
               </li>
             ))}
           </ul>

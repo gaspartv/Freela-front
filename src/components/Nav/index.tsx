@@ -14,7 +14,7 @@ export const Nav = () => {
     <NavStyled>
       <h1>frilla</h1>
       <div>
-        <p>{user?.name}</p>
+        {user && <p>{user.name}</p>}
         <ChevronRightIcon />
         <LinkSettingStyled to="/">
           Início<span></span>

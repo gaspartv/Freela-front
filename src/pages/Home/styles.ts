@@ -1,212 +1,125 @@
 import styled from "styled-components";
 
 export const ContainerHome = styled.div`
-  max-width: 1200px;
+  max-width: 1100px;
+  min-width: 300px;
   margin: 32px auto;
 `;
 
 export const HomeTitle = styled.div`
   display: flex;
-  div {
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px;
+  margin-bottom: 40px;
+  > img {
+    max-width: 100%;
+  }
+  > div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 600px;
-    width: 50%;
-  }
-  span {
-    color: var(--Primary);
-  }
-  h1 {
-    font-size: 48px;
-    line-height: 48px;
-  }
-  p {
-    font-size: 24px;
-    line-height: 35px;
-  }
-  figure {
-    width: 50%;
-    max-width: 600px;
-  }
-  @media (max-width: 1024px) {
-    img {
-      width: 368px;
-      height: 295px;
-    }
-    h1 {
-      font-size: 41px;
-      line-height: 49px;
-    }
-    p {
-      font-size: 21px;
-      line-height: 36px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    padding: 10px;
-    img {
-      width: 368px;
-      height: 295px;
-    }
-    h1 {
-      font-size: 25px;
-      line-height: 32px;
-    }
-    p {
-      font-size: 16px;
-      line-height: 24px;
-    }
-  }
-
-  @media (max-width: 425px) {
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-    figure {
-      width: 270px;
-      height: 270px;
-      > img {
-        width: 100%;
+    gap: 40px;
+    max-width: 450px;
+    > h1 {
+      font-size: 38px;
+      line-height: 48px;
+      > span {
+        color: var(--Primary);
       }
     }
-    h1 {
-      font-size: 29px;
-      line-height: 37px;
-    }
-    p {
-      font-size: 16px;
-      line-height: 24px;
-      margin-top: 13px;
+    > p {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 30px;
     }
   }
-
-  @media (max-width: 320px) {
-    h1 {
-      font-size: 21px;
-      line-height: 29px;
-    }
-    p {
-      font-size: 12px;
-      line-height: 20px;
-      margin-top: 13px;
-    }
+  @media (min-width: 768px) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
   }
 `;
 
 export const BtnsFilter = styled.div`
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin: 70px 0;
-  padding: 10px 0;
-  ul {
+  margin-bottom: 40px;
+  > ul {
+    padding: 16px;
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    padding: 0 10px;
-  }
-  button {
-    width: 118px;
-    height: 60px;
-    background: var(--Primary);
-    border-radius: 10px;
-    cursor: pointer;
-
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 30px;
-    text-align: center;
-    border: transparent;
-
-    color: var(--Secondary);
-  }
-
-  button:hover {
-    background: #135b53;
-  }
-
-  @media (max-width: 768px) {
-    button {
-      width: 112px;
-    }
-  }
-
-  @media (max-width: 425px) {
-    overflow-x: scroll;
-
-    button {
-      height: 44px;
-    }
-
-    ul {
-      gap: 10px;
+    gap: 12px;
+    overflow: auto;
+    > li {
+      > button {
+        min-width: 120px;
+        height: 60px;
+        background-color: var(--Primary);
+        border-radius: 10px;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+        text-align: center;
+        border: transparent;
+        color: var(--Secondary);
+        cursor: pointer;
+        :hover {
+          background: #135b53;
+        }
+      }
     }
   }
 `;
 
 export const HomeStyled = styled.div`
-  color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 6px 0px;
-
-  ul {
-    width: 100%;
+  width: 100%;
+  > ul {
+    padding: 16px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  li {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    border: 1px solid var(--Primary);
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 520px;
-    width: 100%;
-    border-radius: 25px;
-    margin-bottom: 30px;
-    justify-content: space-between;
-    .cardTitle {
+    gap: 16px;
+    > li {
       display: flex;
+      flex-direction: column;
+      gap: 15px;
       justify-content: space-between;
-      align-items: center;
+      width: 100%;
+      max-width: 450px;
+      border: 2px solid var(--Primary);
+      border-radius: 8px;
+      padding: 16px;
+      position: relative;
       > h2 {
         font-style: normal;
         font-weight: 700;
         font-size: 24px;
+        letter-spacing: 1px;
       }
       > span {
+        position: absolute;
+        top: 16px;
+        right: 16px;
         font-weight: 700;
         font-size: 15px;
         line-height: 22px;
         color: var(--Primary);
       }
-    }
-    .cardDescription {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
       > p {
         font-weight: 500;
-        font-size: 15px;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 1px;
+      }
+      > strong {
+        font-weight: 600;
+        font-size: 18px;
         line-height: 22px;
       }
       > button {
+        align-self: flex-end;
         width: 148px;
         height: 31px;
-        left: 25px;
-        top: 199px;
         cursor: pointer;
         background: var(--Primary);
         border-radius: 50px;
@@ -219,34 +132,6 @@ export const HomeStyled = styled.div`
           background: #135b53;
         }
       }
-    }
-  }
-
-  @media (max-width: 1024px) {
-    li {
-      max-width: 450px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    li {
-      max-width: 320px;
-    }
-  }
-
-  @media (max-width: 425px) {
-    li {
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 320px) {
-    .cardTitle h2 {
-      font-size: 16px;
-    }
-
-    li p {
-      font-size: 12px;
     }
   }
 `;
