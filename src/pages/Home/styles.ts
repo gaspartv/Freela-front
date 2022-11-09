@@ -32,20 +32,11 @@ export const HomeTitle = styled.div`
       font-size: 20px;
       line-height: 30px;
     }
-    div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 20px;
   }
   @media (min-width: 768px) {
     flex-direction: row-reverse;
     justify-content: space-between;
   }
-
-
 `;
 
 export const BtnsFilter = styled.div`
@@ -78,10 +69,8 @@ export const BtnsFilter = styled.div`
       }
     }
   }
-
-  
- 
 `;
+
 export const HomeStyled = styled.div`
   width: 100%;
   > ul {
