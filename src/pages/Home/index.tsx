@@ -5,7 +5,7 @@ import imgHome from "../../assets/img/imgHome.png";
 import { HomeContext } from "../../contexts/HomeContext";
 import ModalSeeMore from "../../components/ModalSeeMore";
 
-import { ContainerHome, HomeStyled, HomeTitle, BtnsFilter} from "./styles";
+import { ContainerHome, HomeStyled, HomeTitle, BtnsFilter } from "./styles";
 import { LinkSettingStyled, NavStyled } from "../../components/Nav/styles";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +22,7 @@ export const Home = () => {
     setOpenModal(true);
     setIdModal(ID);
   }
-
+  
   return (
     <>
       <ContainerHome>
@@ -51,7 +51,7 @@ export const Home = () => {
                 <LinkSettingStyled to="/login">
                   Login<span></span>
                 </LinkSettingStyled>
-                
+                <ChevronRightIcon />
                 <LinkSettingStyled to="/register">
                   Criar conta<span></span>
                 </LinkSettingStyled>

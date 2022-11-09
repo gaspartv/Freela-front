@@ -63,10 +63,10 @@ export const UserProvider = ({ children }: iPropsContext) => {
     setLoad(true);
     try {
       const response = await api.post("login", data);
-      setUser(response.data);
       localStorage.setItem("@token", response.data.accessToken);
       localStorage.setItem("@id", response.data.user.id);
       api.defaults.headers.authorization = `Bearer ${response.data.accessToken}`;
+      setUser(response.data.user);
       const toNavigate = location.state?.from?.pathname || "/";
       navigate(toNavigate, { replace: true });
     } catch {
